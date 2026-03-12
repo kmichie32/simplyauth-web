@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SimplyAuth — Opening Invitation...</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #f1f5f9;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 40px 32px;
+      max-width: 380px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    }
+    .logo {
+      width: 72px;
+      height: 72px;
+      background: #2563eb;
+      border-radius: 18px;
+      margin: 0 auto 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .logo svg { width: 40px; height: 40px; fill: #fff; }
+    h1 { font-size: 22px; font-weight: 700; color: #0f172a; margin-bottom: 8px; }
+    p  { font-size: 15px; color: #64748b; line-height: 1.5; margin-bottom: 28px; }
+    .btn {
+      display: inline-block;
+      background: #2563eb;
+      color: #fff;
+      padding: 14px 32px;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      width: 100%;
+    }
+    .btn:active { opacity: 0.85; }
+    .store-note {
+      margin-top: 16px;
+      font-size: 13px;
+      color: #94a3b8;
+    }
+  </style>
+</head>
+<body>
+<div class="card">
+  <div class="logo">
+    <!-- Simple shield checkmark icon -->
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 2L4 5v6c0 5.25 3.5 10.15 8 11.35C16.5 21.15 20 16.25 20 11V5L12 2zm-1.5 9.5l-2-2 1.06-1.06 1.44 1.44 3.44-3.44 1.06 1.06-4.5 4.5z"/>
+    </svg>
+  </div>
+
+  <h1 id="heading">You've been invited!</h1>
+  <p id="message">
+    Opening SimplyAuth…<br/>
+    If the app isn't installed yet, we'll take you to the store.
+  </p>
+
+  <button class="btn" id="storeBtn" style="display:none" onclick="goToStore()">
+    Get SimplyAuth
+  </button>
+
+  <p class="store-note" id="storeNote" style="display:none">
+    After installing, the invitation will be waiting for you.
+  </p>
+</div>
+
+<script>
+  // ─── Extract invite code from the path: /invite/XXXXXXXX ───────────────────
+  var pathParts = window.location.pathname.split('/');
+  var inviteCode = pathParts[pathParts.length - 1] || '';
+
+  // ─── Try opening the app via custom URL scheme ──────────────────────────────
+  var appUrl = 'simplyauth://invite/' + inviteCode;
+
+  // ─── Store redirect URLs ─────────────────────────────────────────────────────
+  var IOS_STORE    = 'https://apps.apple.com/app/id<YOUR_APP_STORE_ID>';
+  var ANDROID_STORE = 'https://play.google.com/store/apps/details?id=app.simplyauth';
+
+  function isIOS()     { return /iP(hone|ad|od)/.test(navigator.userAgent); }
+  function isAndroid() { return /Android/.test(navigator.userAgent); }
+
+  function goToStore() {
+    if (isIOS())     { window.location.href = IOS_STORE; }
+    else if (isAndroid()) { window.location.href = ANDROID_STORE; }
+    else { /* Desktop — just show the card */ }
+  }
+
+  function showStorePrompt() {
+    document.getElementById('heading').textContent  = 'Get SimplyAuth first';
+    document.getElementById('message').textContent  =
+      'Install SimplyAuth to accept this invitation. ' +
+      'The invite code has been saved to your clipboard.';
+    document.getElementById('storeBtn').style.display  = 'block';
+    document.getElementById('storeNote').style.display = 'block';
+  }
+
+  // ─── Copy invite URL to clipboard (deferred deep link fallback) ─────────────
+  // When the user installs the app, useDeferredInvite reads this on first launch.
+  var inviteUrl = 'https://simplyauth.app/invite/' + inviteCode;
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(inviteUrl).catch(function() {});
+  } else {
+    // Legacy clipboard API fallback
+    try {
+      var ta = document.createElement('textarea');
+      ta.value = inviteUrl;
+      ta.style.position = 'fixed';
+      ta.style.opacity  = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+    } catch(e) {}
+  }
+
+  // ─── Try to open the app. Fall back to store after 1.5 seconds ──────────────
+  if (isIOS() || isAndroid()) {
+    // Attempt to open the app
+    window.location.href = appUrl;
+
+    // If we're still here after 1.5s the app isn't installed — show store prompt
+    setTimeout(function() {
+      showStorePrompt();
+    }, 1500);
+  } else {
+    // Desktop browser — just show the card with store links
+    showStorePrompt();
+  }
+</script>
+</body>
+</html>
