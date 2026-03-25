@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SimplyAuth — Referral</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0a0e1a;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 24px;
+      text-align: center;
+    }
+    .container { max-width: 400px; }
+    .logo { font-size: 48px; margin-bottom: 16px; }
+    h1 { font-size: 24px; font-weight: 700; margin-bottom: 8px; }
+    .subtitle { font-size: 16px; color: rgba(255,255,255,0.7); margin-bottom: 24px; line-height: 1.5; }
+    .reward { font-size: 14px; color: #4a90d9; margin-bottom: 32px; }
+    .buttons { display: flex; flex-direction: column; gap: 12px; }
+    .btn {
+      display: inline-block;
+      padding: 14px 24px;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .btn:hover { opacity: 0.85; }
+    .btn-primary { background: #4a90d9; color: #ffffff; }
+    .btn-secondary { background: rgba(255,255,255,0.1); color: #ffffff; }
+    .copied {
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+      margin-top: 16px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .copied.show { opacity: 1; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">&#x1f6e1;&#xfe0f;</div>
+    <h1>You've been invited to SimplyAuth</h1>
+    <p class="subtitle">Your friend wants to keep you both safe. Join SimplyAuth and verify each other's identity.</p>
+    <p class="reward">You both get <strong>1 free month of Personal</strong> when you create your first connection.</p>
+    <div class="buttons">
+      <a id="open-app" class="btn btn-primary" href="#">Open SimplyAuth</a>
+      <a id="get-app" class="btn btn-secondary" href="#">Get the App</a>
+    </div>
+    <p id="copied-msg" class="copied">Referral link copied to clipboard</p>
+  </div>
+
+  <script>
+    (function() {
+      // Extract referral code from URL path: /refer/XXXXXXXX
+      var path = window.location.pathname;
+      var match = path.match(/\/refer\/([A-Z0-9]{6,12})/i);
+      var code = match ? match[1].toUpperCase() : null;
+
+      if (!code) {
+        document.querySelector('h1').textContent = 'Invalid referral link';
+        document.querySelector('.subtitle').textContent = 'This referral link appears to be invalid.';
+        document.querySelector('.reward').style.display = 'none';
+        document.querySelector('.buttons').style.display = 'none';
+        return;
+      }
+
+      var deepLink = 'simplyauth://refer/' + code;
+      var referralUrl = 'https://simplyauth.app/refer/' + code;
+
+      // Detect platform
+      var ua = navigator.userAgent || '';
+      var isIOS = /iPhone|iPad|iPod/i.test(ua);
+      var isAndroid = /Android/i.test(ua);
+
+      var storeUrl = isIOS
+        ? 'https://apps.apple.com/app/simplyauth/id__APP_ID__' // TODO: replace with real App Store ID
+        : 'https://play.google.com/store/apps/details?id=app.simplyauth';
+
+      // Set up buttons
+      var openBtn = document.getElementById('open-app');
+      var getBtn = document.getElementById('get-app');
+
+      openBtn.href = deepLink;
+      getBtn.href = storeUrl;
+
+      // Copy referral URL to clipboard for deferred deep linking
+      function copyToClipboard() {
+        try {
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(referralUrl).then(function() {
+              showCopied();
+            });
+          } else {
+            // Fallback for older browsers
+            var ta = document.createElement('textarea');
+            ta.value = referralUrl;
+            ta.style.position = 'fixed';
+            ta.style.left = '-9999px';
+            document.body.appendChild(ta);
+            ta.select();
+            document.execCommand('copy');
+            document.body.removeChild(ta);
+            showCopied();
+          }
+        } catch(e) { /* silent fail */ }
+      }
+
+      function showCopied() {
+        document.getElementById('copied-msg').classList.add('show');
+      }
+
+      // Copy on page load
+      copyToClipboard();
+
+      // Try deep link on "Open SimplyAuth" click, fall back to store
+      openBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        copyToClipboard();
+
+        // Try deep link
+        var start = Date.now();
+        window.location.href = deepLink;
+
+        // If we're still here after 1.5s, app isn't installed — go to store
+        setTimeout(function() {
+          if (Date.now() - start < 2000) {
+            window.location.href = storeUrl;
+          }
+        }, 1500);
+      });
+
+      // "Get the App" always goes to store
+      getBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        copyToClipboard();
+        window.location.href = storeUrl;
+      });
+    })();
+  </script>
+</body>
+</html>

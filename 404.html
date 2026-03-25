@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SimplyAuth — Opening Invitation...</title>
+  <title>SimplyAuth — Redirecting...</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -83,15 +83,31 @@
 </div>
 
 <script>
-  // ─── Extract invite code from the path: /invite/XXXXXXXX ───────────────────
-  var pathParts = window.location.pathname.split('/');
-  var inviteCode = pathParts[pathParts.length - 1] || '';
+  // ─── Detect path type: /invite/CODE or /refer/CODE ─────────────────────────
+  var path = window.location.pathname;
+  var pathParts = path.split('/');
+  var code = pathParts[pathParts.length - 1] || '';
+  var isReferral = path.indexOf('/refer/') !== -1;
+  var isInvite = path.indexOf('/invite/') !== -1;
 
-  // ─── Try opening the app via custom URL scheme ──────────────────────────────
-  var appUrl = 'simplyauth://invite/' + inviteCode;
+  // ─── Build deep link URL based on type ─────────────────────────────────────
+  var appUrl = isReferral
+    ? 'simplyauth://refer/' + code
+    : 'simplyauth://invite/' + code;
+
+  var clipboardUrl = isReferral
+    ? 'https://simplyauth.app/refer/' + code
+    : 'https://simplyauth.app/invite/' + code;
+
+  // ─── Update heading/message for referrals ──────────────────────────────────
+  if (isReferral) {
+    document.getElementById('heading').textContent = "You've been referred!";
+    document.getElementById('message').innerHTML =
+      'Opening SimplyAuth\u2026<br/>If the app isn\u2019t installed yet, we\u2019ll take you to the store.';
+  }
 
   // ─── Store redirect URLs ─────────────────────────────────────────────────────
-  var IOS_STORE    = 'https://apps.apple.com/app/id<YOUR_APP_STORE_ID>';
+  var IOS_STORE    = 'https://apps.apple.com/app/id__APP_ID__';
   var ANDROID_STORE = 'https://play.google.com/store/apps/details?id=app.simplyauth';
 
   function isIOS()     { return /iP(hone|ad|od)/.test(navigator.userAgent); }
@@ -104,24 +120,21 @@
   }
 
   function showStorePrompt() {
-    document.getElementById('heading').textContent  = 'Get SimplyAuth first';
-    document.getElementById('message').textContent  =
-      'Install SimplyAuth to accept this invitation. ' +
-      'The invite code has been saved to your clipboard.';
+    document.getElementById('heading').textContent = 'Get SimplyAuth first';
+    document.getElementById('message').textContent = isReferral
+      ? 'Install SimplyAuth to claim your free month of Personal. The referral link has been saved to your clipboard.'
+      : 'Install SimplyAuth to accept this invitation. The invite code has been saved to your clipboard.';
     document.getElementById('storeBtn').style.display  = 'block';
     document.getElementById('storeNote').style.display = 'block';
   }
 
-  // ─── Copy invite URL to clipboard (deferred deep link fallback) ─────────────
-  // When the user installs the app, useDeferredInvite reads this on first launch.
-  var inviteUrl = 'https://simplyauth.app/invite/' + inviteCode;
+  // ─── Copy URL to clipboard (deferred deep link fallback) ───────────────────
   if (navigator.clipboard && navigator.clipboard.writeText) {
-    navigator.clipboard.writeText(inviteUrl).catch(function() {});
+    navigator.clipboard.writeText(clipboardUrl).catch(function() {});
   } else {
-    // Legacy clipboard API fallback
     try {
       var ta = document.createElement('textarea');
-      ta.value = inviteUrl;
+      ta.value = clipboardUrl;
       ta.style.position = 'fixed';
       ta.style.opacity  = '0';
       document.body.appendChild(ta);
@@ -133,15 +146,11 @@
 
   // ─── Try to open the app. Fall back to store after 1.5 seconds ──────────────
   if (isIOS() || isAndroid()) {
-    // Attempt to open the app
     window.location.href = appUrl;
-
-    // If we're still here after 1.5s the app isn't installed — show store prompt
     setTimeout(function() {
       showStorePrompt();
     }, 1500);
   } else {
-    // Desktop browser — just show the card with store links
     showStorePrompt();
   }
 </script>
