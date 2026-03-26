@@ -90,10 +90,16 @@
   var isReferral = path.indexOf('/refer/') !== -1;
   var isInvite = path.indexOf('/invite/') !== -1;
 
+  // ─── Validate code format (alphanumeric, 6-12 chars) ──────────────────────
+  var validCode = /^[A-Z0-9]{6,12}$/i.test(code);
+  if (!validCode) {
+    code = '';
+  }
+
   // ─── Build deep link URL based on type ─────────────────────────────────────
-  var appUrl = isReferral
-    ? 'simplyauth://refer/' + code
-    : 'simplyauth://invite/' + code;
+  var appUrl = (isReferral || isInvite) && validCode
+    ? (isReferral ? 'simplyauth://refer/' + code : 'simplyauth://invite/' + code)
+    : 'simplyauth://';
 
   var clipboardUrl = isReferral
     ? 'https://simplyauth.app/refer/' + code
