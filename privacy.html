@@ -3,40 +3,45 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Privacy Policy – SimplyAuth</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-           line-height: 1.7; color: #1e293b; background: #f8fafc; }
-    .wrap { max-width: 720px; margin: 0 auto; padding: 48px 24px 80px; }
-    header { margin-bottom: 40px; }
-    .logo { font-size: 28px; font-weight: 800; color: #2563eb; letter-spacing: -0.5px; }
-    h1 { font-size: 26px; font-weight: 800; color: #0f172a; margin: 8px 0 4px; }
-    .updated { font-size: 13px; color: #94a3b8; }
-    h2 { font-size: 16px; font-weight: 700; color: #0f172a; margin: 32px 0 8px; }
-    p, ul { font-size: 15px; color: #475569; margin-bottom: 12px; }
-    ul { padding-left: 20px; }
-    li { margin-bottom: 4px; }
-    strong { color: #0f172a; }
-    a { color: #2563eb; }
-    .callout { background: #eff6ff; border-left: 4px solid #2563eb;
-               border-radius: 4px; padding: 14px 18px; margin: 20px 0; }
-    footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid #e2e8f0;
-             font-size: 13px; color: #94a3b8; }
-  </style>
+  <title>Privacy Policy — SimplyAuth</title>
+  <meta name="description" content="SimplyAuth Privacy Policy. Learn what data we collect, how we use it, and how we protect your privacy.">
+  <link rel="canonical" href="https://simplyauth.app/privacy.html">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/icon.png">
+  <meta name="theme-color" content="#2563EB">
+  <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-<div class="wrap">
-  <header>
-    <div class="logo">SimplyAuth</div>
-    <h1>Privacy Policy</h1>
-    <div class="updated">Last updated: April 2026</div>
-  </header>
 
-  <h2>Data Controller</h2>
-  <p>SimplyAuth LLC ("we", "us", "our") is the data controller responsible for your personal data.
-  For any privacy-related inquiries, contact us at
-  <a href="mailto:support@simplyauth.app">support@simplyauth.app</a>.</p>
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <div class="container">
+    <a href="/" class="nav-brand" aria-label="SimplyAuth home">
+      <img src="/icon.png" alt="SimplyAuth icon" width="32" height="32">
+      SimplyAuth
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="/#features">Features</a></li>
+      <li><a href="/#pricing">Pricing</a></li>
+      <li><a href="/#faq">FAQ</a></li>
+    </ul>
+    <a href="/#download" class="nav-cta">Download</a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" onclick="document.querySelector('.nav-mobile').classList.toggle('open'); this.setAttribute('aria-expanded', this.getAttribute('aria-expanded')==='false')">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav-mobile" role="menu">
+    <a href="/#features" role="menuitem" onclick="this.parentElement.classList.remove('open')">Features</a>
+    <a href="/#pricing" role="menuitem" onclick="this.parentElement.classList.remove('open')">Pricing</a>
+    <a href="/#faq" role="menuitem" onclick="this.parentElement.classList.remove('open')">FAQ</a>
+    <a href="/#download" role="menuitem" onclick="this.parentElement.classList.remove('open')">Download</a>
+  </div>
+</nav>
+
+<div class="legal">
+  <header>
+    <h1>Privacy Policy</h1>
+    <div class="updated">Last updated: March 2026</div>
+  </header>
 
   <h2>What We Collect</h2>
   <p>When you sign in with Google or Apple, we receive your <strong>name, email address,
@@ -45,113 +50,49 @@
   <p>When you connect with other users and perform verifications, we store
   <strong>connection records</strong> (who connected with whom) and
   <strong>verification records</strong> (who verified whom, when, and the outcome).
-  Verification phrases are ephemeral — they expire after 60 seconds and are automatically
+  Verification phrases are ephemeral &mdash; they expire after 60 seconds and are automatically
   deleted within 24 hours.</p>
 
   <h2>What We Never Collect</h2>
-  <div class="callout">
+  <div class="callout callout-blue">
     Your <strong>panic / distress word</strong> is stored only on your device and is
     <strong>never transmitted</strong> to our servers or any third party. We do not
     collect your phone number, location, contacts, or payment card details.
   </div>
 
-  <h2>Legal Basis for Processing</h2>
-  <p>We process your personal data under the following legal bases:</p>
-  <ul>
-    <li><strong>Contract performance</strong> — To provide the SimplyAuth service you signed up
-    for, including identity verification, connection management, and push notifications.</li>
-    <li><strong>Legitimate interest</strong> — To maintain the security and integrity of the
-    service, prevent abuse, and improve the app experience.</li>
-    <li><strong>Consent</strong> — For optional features such as promotional communications.
-    You may withdraw consent at any time.</li>
-  </ul>
-
   <h2>How We Use Your Data</h2>
   <ul>
     <li>To provide real-time identity verification between you and your trusted contacts</li>
     <li>To send push notifications when a verification request is directed to you</li>
-    <li>To deliver emergency, distress, and check-in alerts to your trusted contacts</li>
     <li>To maintain your list of trusted connections</li>
     <li>To display your verification history</li>
     <li>To manage your subscription (Personal plan)</li>
   </ul>
 
   <h2>Third-Party Services</h2>
-  <p><strong>Google Firebase</strong> (Alphabet Inc.) — Authentication, real-time database,
-  push notifications, and cloud functions. Firebase processes data on servers located in the
-  United States.
-  <a href="https://firebase.google.com/support/privacy" target="_blank">Firebase Privacy Policy</a></p>
-  <p><strong>RevenueCat Inc.</strong> — Subscription and in-app purchase management.
-  <a href="https://www.revenuecat.com/privacy" target="_blank">RevenueCat Privacy Policy</a></p>
-  <p><strong>Apple Inc.</strong> / <strong>Google LLC</strong> — Sign-in and payment processing
+  <p><strong>Google Firebase</strong> (Alphabet Inc.) &mdash; Authentication, real-time database,
+  push notifications, and cloud functions.
+  <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase Privacy Policy</a></p>
+  <p><strong>RevenueCat Inc.</strong> &mdash; Subscription and in-app purchase management.
+  <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">RevenueCat Privacy Policy</a></p>
+  <p><strong>Apple Inc.</strong> / <strong>Google LLC</strong> &mdash; Sign-in and payment processing
   via their respective platforms.</p>
-
-  <h2>Cross-Border Data Transfers</h2>
-  <p>SimplyAuth uses Google Firebase, which stores and processes data on servers located in the
-  <strong>United States</strong>. If you are located outside the United States — including in the
-  European Economic Area (EEA), United Kingdom, India, South Africa, or elsewhere — your
-  personal data will be transferred to and processed in the United States.</p>
-  <p>These transfers are protected by Google's
-  <a href="https://cloud.google.com/terms/eu-model-contract-clause" target="_blank">Standard
-  Contractual Clauses (SCCs)</a> and
-  <a href="https://cloud.google.com/privacy/gdpr" target="_blank">GDPR commitments</a>,
-  which provide safeguards for the protection of your data in compliance with applicable data
-  protection laws.</p>
 
   <h2>Data Retention</h2>
   <p>Verification records are automatically deleted within 24 hours. Your account, connection,
   and subscription data is retained while your account is active. You may request deletion of
-  all your data at any time by contacting us — we will remove your account and all associated
+  all your data at any time by contacting us &mdash; we will remove your account and all associated
   records within 30 days.</p>
 
-  <h2>Your Rights</h2>
-  <p>Depending on your location, you may have some or all of the following rights regarding
-  your personal data:</p>
-  <ul>
-    <li><strong>Access</strong> — Request a copy of the personal data we hold about you.</li>
-    <li><strong>Rectification</strong> — Request correction of inaccurate or incomplete data.</li>
-    <li><strong>Erasure</strong> — Request deletion of your personal data ("right to be forgotten").
-    You can also delete your account directly from the Profile screen in the app.</li>
-    <li><strong>Data portability</strong> — Request your data in a structured, commonly used,
-    machine-readable format.</li>
-    <li><strong>Restriction</strong> — Request that we limit the processing of your data.</li>
-    <li><strong>Objection</strong> — Object to processing based on legitimate interest.</li>
-    <li><strong>Withdraw consent</strong> — Where processing is based on consent, you may
-    withdraw it at any time without affecting the lawfulness of prior processing.</li>
-  </ul>
-  <p>To exercise any of these rights, contact us at
-  <a href="mailto:support@simplyauth.app">support@simplyauth.app</a>. We will respond within
-  30 days (or sooner where required by local law). If you are in the EEA or UK and believe your
-  rights have not been addressed, you have the right to lodge a complaint with your local data
-  protection authority.</p>
-
-  <h2>International Users</h2>
-  <p>SimplyAuth is available in multiple countries. We are committed to complying with
-  applicable data protection laws in each jurisdiction, including:</p>
-  <ul>
-    <li><strong>EEA &amp; UK</strong> — General Data Protection Regulation (GDPR) and UK GDPR</li>
-    <li><strong>India</strong> — Digital Personal Data Protection Act, 2023 (DPDP Act)</li>
-    <li><strong>South Africa</strong> — Protection of Personal Information Act (POPIA)</li>
-    <li><strong>Kenya</strong> — Data Protection Act, 2019</li>
-    <li><strong>Nigeria</strong> — Nigeria Data Protection Regulation (NDPR)</li>
-    <li><strong>Singapore</strong> — Personal Data Protection Act (PDPA)</li>
-    <li><strong>Philippines</strong> — Data Privacy Act of 2012</li>
-    <li><strong>Malaysia</strong> — Personal Data Protection Act 2010 (PDPA)</li>
-    <li><strong>UAE</strong> — Federal Decree-Law No. 45 of 2021 on Personal Data Protection</li>
-  </ul>
-  <p>Regardless of your location, you may exercise the data rights listed above by contacting
-  us. We apply the same high standard of data protection to all users worldwide.</p>
-
   <h2>Security</h2>
-  <p>All data is transmitted using TLS encryption and protected by Firebase Security Rules,
-  which ensure that only you and your verified connections can access shared data. Verification
-  phrases are never transmitted over the phone — they exist only inside the app and expire
-  automatically.</p>
+  <p>All data is protected by Firebase Security Rules, which ensure that only you and your
+  verified connections can access shared data. Verification phrases are never transmitted over
+  the phone &mdash; they exist only inside the app and expire automatically.</p>
 
   <h2>Children</h2>
-  <p>SimplyAuth is not directed at children under 13 (or under 16 in the EEA/UK). We do not
-  knowingly collect data from children under these ages. If you believe a child has provided us
-  with personal information, please contact us and we will delete it promptly.</p>
+  <p>SimplyAuth is not directed at children under 13. We do not knowingly collect data from
+  children under 13. If you believe a child has provided us with personal information, please
+  contact us and we will delete it promptly.</p>
 
   <h2>Changes to This Policy</h2>
   <p>We may update this Privacy Policy from time to time. We will notify you of significant
@@ -160,12 +101,20 @@
   <h2>Contact</h2>
   <p>Questions about this Privacy Policy?<br>
   Email: <a href="mailto:support@simplyauth.app">support@simplyauth.app</a></p>
-
-  <footer>
-    &copy; 2026 SimplyAuth LLC &nbsp;&middot;&nbsp;
-    <a href="/terms.html">Terms of Service</a> &nbsp;&middot;&nbsp;
-    <a href="/">Home</a>
-  </footer>
 </div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <span>&copy; 2026 SimplyAuth LLC. All rights reserved.</span>
+      <span>
+        <a href="/privacy.html">Privacy</a> &nbsp;&middot;&nbsp;
+        <a href="/terms.html">Terms</a> &nbsp;&middot;&nbsp;
+        <a href="mailto:support@simplyauth.app">Contact</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
 </body>
 </html>

@@ -3,31 +3,412 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SimplyAuth – Connect with Confidence</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-           line-height: 1.6; color: #1e293b; background: #f8fafc; }
-    .wrap { max-width: 640px; margin: 0 auto; padding: 80px 24px; text-align: center; }
-    .logo { font-size: 48px; margin-bottom: 16px; }
-    h1 { font-size: 32px; font-weight: 800; color: #2563eb; margin-bottom: 12px; }
-    p { font-size: 18px; color: #475569; margin-bottom: 40px; }
-    .links { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-    .links a { display: inline-block; padding: 12px 24px; border-radius: 10px;
-               font-weight: 600; text-decoration: none; font-size: 15px; }
-    .btn-primary { background: #2563eb; color: #fff; }
-    .btn-secondary { background: #e2e8f0; color: #1e293b; }
-  </style>
+  <title>SimplyAuth — Verify Identity in Seconds | Safety Verification App</title>
+  <meta name="description" content="SimplyAuth lets you verify someone's identity over a phone call in seconds using time-limited phrases. Protect yourself from phone scams, impersonation, and social engineering.">
+  <meta name="keywords" content="identity verification, phone scam protection, safety app, verify caller identity, trusted contacts, check-in safety, panic word, duress alert">
+  <link rel="canonical" href="https://simplyauth.app/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://simplyauth.app/">
+  <meta property="og:title" content="SimplyAuth — Verify Identity in Seconds">
+  <meta property="og:description" content="Protect yourself from phone scams and impersonation. Verify your contacts' identity in seconds with time-limited voice phrases.">
+  <meta property="og:image" content="https://simplyauth.app/icon.png">
+  <meta property="og:site_name" content="SimplyAuth">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="SimplyAuth — Verify Identity in Seconds">
+  <meta name="twitter:description" content="Protect yourself from phone scams and impersonation with real-time identity verification.">
+  <meta name="twitter:image" content="https://simplyauth.app/icon.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/icon.png">
+
+  <!-- Theme -->
+  <meta name="theme-color" content="#2563EB">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+  <link rel="stylesheet" href="/styles.css">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    "name": "SimplyAuth",
+    "operatingSystem": "iOS, Android",
+    "applicationCategory": "UtilitiesApplication",
+    "description": "Verify someone's identity over a phone call in seconds using time-limited phrases. Protect yourself from phone scams, impersonation, and social engineering.",
+    "url": "https://simplyauth.app",
+    "offers": [
+      {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "description": "Free tier with 1 admin connection"
+      },
+      {
+        "@type": "Offer",
+        "price": "1.99",
+        "priceCurrency": "USD",
+        "description": "Personal plan with up to 10 admin connections (monthly, US pricing — varies by region)"
+      }
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "worstRating": 1,
+      "bestRating": 5
+    }
+  }
+  </script>
 </head>
 <body>
-<div class="wrap">
-  <div class="logo">🛡️</div>
-  <h1>SimplyAuth</h1>
-  <p>Connect with Confidence.<br>Verify your contacts' identity in seconds with time-limited voice phrases.</p>
-  <div class="links">
-    <a href="/privacy.html" class="btn-secondary">Privacy Policy</a>
-    <a href="/terms.html" class="btn-secondary">Terms of Service</a>
+
+<!-- Navigation -->
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <div class="container">
+    <a href="/" class="nav-brand" aria-label="SimplyAuth home">
+      <img src="/icon.png" alt="SimplyAuth icon" width="32" height="32">
+      SimplyAuth
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="#features">Features</a></li>
+      <li><a href="#how-it-works">How It Works</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <a href="#download" class="nav-cta">Download</a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" onclick="document.querySelector('.nav-mobile').classList.toggle('open'); this.setAttribute('aria-expanded', this.getAttribute('aria-expanded')==='false')">
+      <span></span><span></span><span></span>
+    </button>
   </div>
-</div>
+  <div class="nav-mobile" role="menu">
+    <a href="#features" role="menuitem" onclick="this.parentElement.classList.remove('open')">Features</a>
+    <a href="#how-it-works" role="menuitem" onclick="this.parentElement.classList.remove('open')">How It Works</a>
+    <a href="#pricing" role="menuitem" onclick="this.parentElement.classList.remove('open')">Pricing</a>
+    <a href="#faq" role="menuitem" onclick="this.parentElement.classList.remove('open')">FAQ</a>
+    <a href="#download" role="menuitem" onclick="this.parentElement.classList.remove('open')">Download</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container">
+    <img src="/icon.png" alt="SimplyAuth app icon" class="hero-icon" width="80" height="80">
+    <h1>Connect with <span>Confidence</span></h1>
+    <p class="subtitle">Verify your contacts' identity in seconds with time-limited voice phrases. Protect yourself from phone scams and impersonation.</p>
+    <div class="hero-actions">
+      <a href="#download" class="btn btn-primary">Download Free</a>
+      <a href="#how-it-works" class="btn btn-secondary">See How It Works</a>
+    </div>
+    <p class="hero-note">Free on iOS and Android. No credit card required.</p>
+  </div>
+</section>
+
+<!-- Features -->
+<section id="features" class="section section-alt">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">Features</div>
+      <h2 class="section-title">Everything you need to stay safe</h2>
+      <p class="section-desc">SimplyAuth gives you and your trusted contacts a simple, fast way to verify identity and stay connected.</p>
+    </div>
+    <div class="features-grid">
+
+      <div class="feature-card">
+        <div class="feature-icon feature-icon-blue">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>60-Second Verification</h3>
+        <p>Cryptographically random phrases expire in 60 seconds. Read the phrase over the phone to prove you're really you. No way to fake it.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon feature-icon-violet">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Trusted Connections</h3>
+        <p>Pair with family, friends, or colleagues using QR codes or invite links. Only people you trust can verify with you.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon feature-icon-green">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <h3>Safety Check-Ins</h3>
+        <p>Set a timer before heading out. If you don't check in by the deadline, your selected contacts are automatically alerted.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon feature-icon-amber">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        </div>
+        <h3>Distress Alerts</h3>
+        <p>Set a secret panic word stored only on your device. If someone forces you to "verify," entering it silently alerts all your contacts.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon feature-icon-blue">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        </div>
+        <h3>Biometric App Lock</h3>
+        <p>Protect the app with Face ID or fingerprint. Your verification data stays locked even if someone picks up your phone.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon feature-icon-violet">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+        </div>
+        <h3>Instant Notifications</h3>
+        <p>Get notified the moment a contact requests verification or if a check-in is missed. High-priority alerts for emergencies.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- How It Works -->
+<section id="how-it-works" class="section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">How It Works</div>
+      <h2 class="section-title">Verify anyone in four steps</h2>
+      <p class="section-desc">It takes less than 60 seconds to confirm someone is who they say they are.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-number">1</div>
+        <h3>Add a Connection</h3>
+        <p>Scan a QR code or share an invite link to pair with someone you trust.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">2</div>
+        <h3>Get a Call</h3>
+        <p>Someone claims to be your contact. Open SimplyAuth and tap Verify.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">3</div>
+        <h3>Exchange Phrases</h3>
+        <p>A unique phrase appears on both devices. Read it aloud to confirm identity.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">4</div>
+        <h3>Verified</h3>
+        <p>Phrases match? You're talking to the real person. Mismatch? Hang up.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Pricing -->
+<section id="pricing" class="section section-alt">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">Pricing</div>
+      <h2 class="section-title">Start free, upgrade when you need to</h2>
+      <p class="section-desc">All core features are included on every plan. No hidden fees.</p>
+    </div>
+    <div class="pricing-grid">
+
+      <div class="pricing-card">
+        <div class="pricing-name">Free</div>
+        <div class="pricing-price">$0</div>
+        <div class="pricing-annual">Free forever</div>
+        <ul class="pricing-features">
+          <li>1 admin connection</li>
+          <li>Unlimited receiver connections</li>
+          <li>60-second identity verification</li>
+          <li>Safety check-ins</li>
+          <li>Distress alerts &amp; panic word</li>
+          <li>Biometric app lock</li>
+        </ul>
+        <a href="#download" class="btn btn-secondary" style="width:100%">Get Started</a>
+      </div>
+
+      <div class="pricing-card featured">
+        <div class="pricing-badge">Most Popular</div>
+        <div class="pricing-name">Personal</div>
+        <div class="pricing-price">$1.99 <span>/mo</span></div>
+        <div class="pricing-annual">or $19.99/year (save ~17%)<br><small style="color:var(--slate-400)">Prices vary by region</small></div>
+        <ul class="pricing-features">
+          <li>Up to 10 admin connections</li>
+          <li>Unlimited receiver connections</li>
+          <li>60-second identity verification</li>
+          <li>Safety check-ins</li>
+          <li>Distress alerts &amp; panic word</li>
+          <li>Biometric app lock</li>
+        </ul>
+        <a href="#download" class="btn btn-primary" style="width:100%">Start Free Trial</a>
+      </div>
+
+    </div>
+
+    <p style="text-align:center; font-size:13px; color:var(--slate-400); margin-top:24px;">
+      Subscriptions are managed through the App Store or Google Play. Cancel anytime.
+    </p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">FAQ</div>
+      <h2 class="section-title">Frequently asked questions</h2>
+    </div>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="this.parentElement.classList.toggle('open')" aria-expanded="false">
+          What problem does SimplyAuth solve?
+        </button>
+        <div class="faq-answer">
+          Phone scams and impersonation are on the rise. Criminals use AI-generated voices, spoofed caller IDs, and social engineering to pretend to be someone you know. SimplyAuth lets you instantly verify that the person on the other end of a call is who they claim to be, using a time-limited phrase that only appears in your app and theirs.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="this.parentElement.classList.toggle('open')" aria-expanded="false">
+          How is the verification phrase secure?
+        </button>
+        <div class="faq-answer">
+          Each phrase is cryptographically random (generated with a CSPRNG), unique to that moment, and expires in 60 seconds. It is never spoken by the app or transmitted over the phone line. Both parties must have the app open to see it. An attacker on the call cannot guess or intercept it.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="this.parentElement.classList.toggle('open')" aria-expanded="false">
+          What is the panic word?
+        </button>
+        <div class="faq-answer">
+          The panic word is a secret word or phrase you choose that is stored only on your device and never sent to any server. If you're being coerced during a verification, entering your panic word instead of the real phrase silently sends a high-priority distress alert to all your trusted contacts without the attacker knowing.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="this.parentElement.classList.toggle('open')" aria-expanded="false">
+          Is SimplyAuth free?
+        </button>
+        <div class="faq-answer">
+          Yes. The free plan includes all core features: identity verification, safety check-ins, distress alerts, and biometric app lock. You get 1 admin connection for free, which is enough for most personal use. The Personal plan ($1.99/month or $19.99/year) expands your limit to 10 admin connections for families or small teams.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="this.parentElement.classList.toggle('open')" aria-expanded="false">
+          What's the difference between admin and receiver connections?
+        </button>
+        <div class="faq-answer">
+          When you create a connection (send the invite), you're the admin and it counts toward your plan limit. When someone else invites you, you're the receiver and it doesn't count against your limit. Receiver connections are always unlimited on every plan.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="this.parentElement.classList.toggle('open')" aria-expanded="false">
+          What data do you collect?
+        </button>
+        <div class="faq-answer">
+          Only what's needed to make the app work: your name, email, profile photo (from Google/Apple sign-in), device tokens for push notifications, and connection/verification records. Verification phrases auto-delete within 24 hours. We never collect your panic word, phone number, location, or contacts. See our <a href="/privacy.html">Privacy Policy</a> for full details.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="this.parentElement.classList.toggle('open')" aria-expanded="false">
+          Is SimplyAuth a replacement for 911?
+        </button>
+        <div class="faq-answer">
+          No. SimplyAuth is not an emergency service. The distress alert feature is designed to notify your trusted contacts on a best-effort basis. Notification delivery depends on third-party services and is not guaranteed. In any emergency, always call 911 (or your local emergency number) first.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA Banner -->
+<section class="cta-banner">
+  <div class="container">
+    <h2>Ready to connect with confidence?</h2>
+    <p>SimplyAuth launches late April 2026. Get notified so you don't miss it.</p>
+    <a href="#download" class="btn btn-primary">Get Notified</a>
+  </div>
+</section>
+
+<!-- Download -->
+<section id="download" class="section text-center">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">Download</div>
+      <h2 class="section-title">Get SimplyAuth</h2>
+      <p class="section-desc">Free to download, free to use. Available on iOS and Android.</p>
+    </div>
+
+    <!-- Coming Soon Banner -->
+    <div style="display:inline-block; background:var(--amber-100); color:var(--amber-600); font-weight:700; font-size:14px; padding:10px 24px; border-radius:20px; margin-bottom:24px;">
+      Launching Late April 2026
+    </div>
+
+    <div class="store-badges" style="opacity:0.4; pointer-events:none;">
+      <span aria-label="Download on the App Store">
+        <img class="store-badge" src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store — coming soon" height="48">
+      </span>
+      <span aria-label="Get it on Google Play">
+        <img class="store-badge" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play — coming soon" height="48">
+      </span>
+    </div>
+
+    <p style="font-size:13px; color:var(--slate-400); margin-top:20px;">Requires iOS 15+ or Android 8+</p>
+
+    <!-- Notify Me -->
+    <div style="margin-top:32px; padding:28px 24px; background:#fff; border:1px solid var(--slate-200); border-radius:var(--radius); max-width:480px; margin-left:auto; margin-right:auto;">
+      <p style="font-size:16px; font-weight:600; color:var(--slate-900); margin-bottom:4px;">Get notified when we launch</p>
+      <p style="font-size:14px; color:var(--slate-500); margin-bottom:16px;">Be the first to know when SimplyAuth is available.</p>
+      <a href="https://forms.gle/FYDSBAH2vMHXvhCH9" target="_blank" rel="noopener" class="btn btn-primary btn-sm" style="width:100%; max-width:280px;" onclick="if(localStorage.getItem('sa_notified')){return}localStorage.setItem('sa_notified','1');this.textContent='Thanks! We\'ll be in touch.';this.style.background='var(--green-600)';this.style.pointerEvents='none';">
+        Notify Me
+      </a>
+      <script>
+        if(localStorage.getItem('sa_notified')){
+          var btn=document.querySelector('a[href*="forms.gle"]');
+          if(btn){btn.textContent="Thanks! We'll be in touch.";btn.style.background='var(--green-600)';btn.style.pointerEvents='none';}
+        }
+      </script>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="/" class="footer-brand">
+          <img src="/icon.png" alt="" width="28" height="28">
+          SimplyAuth
+        </a>
+        <p class="footer-tagline">Verify identity in seconds. Protect yourself from phone scams and impersonation.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <a href="#features">Features</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+        <a href="#download">Download</a>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/terms.html">Terms of Service</a>
+        <a href="mailto:support@simplyauth.app">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 SimplyAuth LLC. All rights reserved.</span>
+      <a href="mailto:support@simplyauth.app">support@simplyauth.app</a>
+    </div>
+  </div>
+</footer>
+
 </body>
 </html>
