@@ -3,34 +3,44 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Terms of Service – SimplyAuth</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-           line-height: 1.7; color: #1e293b; background: #f8fafc; }
-    .wrap { max-width: 720px; margin: 0 auto; padding: 48px 24px 80px; }
-    header { margin-bottom: 40px; }
-    .logo { font-size: 28px; font-weight: 800; color: #2563eb; letter-spacing: -0.5px; }
-    h1 { font-size: 26px; font-weight: 800; color: #0f172a; margin: 8px 0 4px; }
-    .updated { font-size: 13px; color: #94a3b8; }
-    h2 { font-size: 16px; font-weight: 700; color: #0f172a; margin: 32px 0 8px; }
-    p, ul { font-size: 15px; color: #475569; margin-bottom: 12px; }
-    ul { padding-left: 20px; }
-    li { margin-bottom: 4px; }
-    strong { color: #0f172a; }
-    a { color: #2563eb; }
-    .callout { background: #fef2f2; border-left: 4px solid #dc2626;
-               border-radius: 4px; padding: 14px 18px; margin: 20px 0; }
-    footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid #e2e8f0;
-             font-size: 13px; color: #94a3b8; }
-  </style>
+  <title>Terms of Service — SimplyAuth</title>
+  <meta name="description" content="SimplyAuth Terms of Service. Read our terms for using the SimplyAuth identity verification app.">
+  <link rel="canonical" href="https://simplyauth.app/terms.html">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/icon.png">
+  <meta name="theme-color" content="#2563EB">
+  <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-<div class="wrap">
+
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <div class="container">
+    <a href="/" class="nav-brand" aria-label="SimplyAuth home">
+      <img src="/icon.png" alt="SimplyAuth icon" width="32" height="32">
+      SimplyAuth
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="/#features">Features</a></li>
+      <li><a href="/#pricing">Pricing</a></li>
+      <li><a href="/#faq">FAQ</a></li>
+    </ul>
+    <a href="/#download" class="nav-cta">Download</a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" onclick="document.querySelector('.nav-mobile').classList.toggle('open'); this.setAttribute('aria-expanded', this.getAttribute('aria-expanded')==='false')">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav-mobile" role="menu">
+    <a href="/#features" role="menuitem" onclick="this.parentElement.classList.remove('open')">Features</a>
+    <a href="/#pricing" role="menuitem" onclick="this.parentElement.classList.remove('open')">Pricing</a>
+    <a href="/#faq" role="menuitem" onclick="this.parentElement.classList.remove('open')">FAQ</a>
+    <a href="/#download" role="menuitem" onclick="this.parentElement.classList.remove('open')">Download</a>
+  </div>
+</nav>
+
+<div class="legal">
   <header>
-    <div class="logo">SimplyAuth</div>
     <h1>Terms of Service</h1>
-    <div class="updated">Last updated: April 2026</div>
+    <div class="updated">Last updated: March 2026</div>
   </header>
 
   <h2>Acceptance</h2>
@@ -40,23 +50,17 @@
   <h2>Description of Service</h2>
   <p>SimplyAuth provides a real-time identity verification tool that allows trusted contacts
   to confirm each other's identity over a phone call using time-limited, cryptographically
-  random verification phrases. The App also includes safety features such as scheduled
-  check-ins, emergency alerts, and distress signals. The service is designed to help protect
-  against phone scams, social engineering, and to provide peace of mind to you and your
-  trusted contacts.</p>
+  random verification phrases. The service is designed to help protect against phone scams
+  and social engineering.</p>
 
   <h2>Not a Substitute for Emergency Services</h2>
-  <div class="callout">
-    <strong>SimplyAuth is not an emergency service and is not a substitute for contacting
-    your local emergency services.</strong><br><br>
-    In any emergency, contact your local emergency number directly (e.g. 911 in the US and
-    Canada, 999 in the UK, 112 in the EU, 000 in Australia, 10111 in South Africa, 112 in
-    India, or the equivalent in your country).<br><br>
-    The distress / panic-word feature and check-in alerts are designed to notify your trusted
-    contacts and are provided on a best-effort basis. Notification delivery depends on
-    third-party services (Apple Push Notifications, Google Firebase Cloud Messaging) and
-    is <strong>not guaranteed</strong>. Network conditions, device settings, and other
-    factors may prevent or delay delivery.
+  <div class="callout callout-red">
+    <strong>SimplyAuth is not an emergency service and is not a substitute for calling 911
+    or your local emergency number.</strong><br><br>
+    The distress / panic-word feature is designed to alert trusted contacts and is provided
+    on a best-effort basis. Notification delivery depends on third-party services (Apple Push
+    Notifications, Google Firebase Cloud Messaging) and is not guaranteed. In any emergency,
+    call 911 (or your local emergency number) directly.
   </div>
 
   <h2>Acceptable Use</h2>
@@ -67,60 +71,58 @@
     <li>Create accounts on behalf of others without their consent</li>
     <li>Use the App for any unlawful purpose</li>
     <li>Attempt to circumvent subscription limits through fraudulent means</li>
-    <li>Send false distress or emergency alerts</li>
   </ul>
 
-  <h2>Subscription Plans</h2>
-  <p><strong>Free plan:</strong> all accounts include a permanent free tier with 1 admin
-  connection and unlimited receiver connections. No payment is ever required to use the
-  free tier.</p>
-  <p><strong>Personal plan:</strong> unlocks up to 10 admin connections. Available as a
-  monthly or annual subscription billed through the App Store (iOS) or Google Play (Android).
-  Pricing varies by country and is displayed in your local currency at the time of purchase.
-  All sales are final; refunds are handled by the respective platform per their policies.</p>
+  <h2>Subscription &amp; Free Tier</h2>
+  <p><strong>Free tier:</strong> 1 admin connection and unlimited receiver connections at no cost.</p>
+  <p><strong>Personal plan:</strong> up to 10 admin connections, billed monthly or
+  annually through the App Store (iOS) or Google Play (Android). Prices vary by region and are
+  displayed at the time of purchase. Subscription terms and free trial eligibility are set by
+  Apple and Google. All sales are final; refunds are handled by the respective platform per
+  their policies.</p>
   <p>Subscriptions auto-renew unless cancelled at least 24 hours before the renewal date
-  via your App Store or Google Play account settings. Cancelling returns your account to the
-  free tier at the end of the current billing period.</p>
+  via your App Store or Google Play account settings.</p>
 
   <h2>Intellectual Property</h2>
-  <p>All content, branding, and code within SimplyAuth are owned by or licensed to SimplyAuth LLC.
+  <p>All content, branding, and code within SimplyAuth are owned by or licensed to us.
   You are granted a limited, non-exclusive, non-transferable licence to use the App for
   personal, non-commercial purposes.</p>
 
   <h2>Limitation of Liability</h2>
-  <p>To the maximum extent permitted by applicable law, SimplyAuth LLC and its members are
-  not liable for any indirect, incidental, or consequential damages arising from your use of
-  the App, including but not limited to failed notifications, missed distress alerts, delayed
-  check-in notifications, or any harm resulting from unauthorized access to your account.</p>
-  <p>Nothing in these Terms excludes or limits liability that cannot be excluded or limited
-  under applicable law, including liability for fraud, death or personal injury caused by
-  negligence, or any mandatory consumer protection rights in your jurisdiction.</p>
+  <p>To the maximum extent permitted by law, SimplyAuth and its developers are not liable
+  for any indirect, incidental, or consequential damages arising from your use of the App,
+  including but not limited to failed notifications, missed distress alerts, or any harm
+  resulting from unauthorized access to your account.</p>
 
   <h2>Termination</h2>
   <p>We reserve the right to suspend or terminate accounts that violate these Terms.
-  You may delete your account at any time from the Profile screen in the app.</p>
+  You may delete your account at any time from the Profile screen.</p>
 
   <h2>Changes to Terms</h2>
-  <p>We may update these Terms from time to time. We will notify you of significant changes
-  via the app. Continued use of the App after changes constitutes acceptance of the updated
-  Terms.</p>
+  <p>We may update these Terms from time to time. Continued use of the App after changes
+  constitutes acceptance of the updated Terms.</p>
 
   <h2>Governing Law</h2>
-  <p>These Terms are governed by the laws of the State of Illinois, United States, without
-  regard to conflict of law principles. If you are a consumer in the European Economic Area,
-  United Kingdom, or any other jurisdiction with mandatory consumer protection laws, nothing
-  in these Terms affects your rights under those laws. Any disputes will be subject to the
-  jurisdiction of the courts in your country of residence where required by local law.</p>
+  <p>These Terms are governed by the laws of the State of California, United States,
+  without regard to conflict of law principles.</p>
 
   <h2>Contact</h2>
   <p>Questions about these Terms?<br>
   Email: <a href="mailto:support@simplyauth.app">support@simplyauth.app</a></p>
-
-  <footer>
-    &copy; 2026 SimplyAuth LLC &nbsp;&middot;&nbsp;
-    <a href="/privacy.html">Privacy Policy</a> &nbsp;&middot;&nbsp;
-    <a href="/">Home</a>
-  </footer>
 </div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <span>&copy; 2026 SimplyAuth LLC. All rights reserved.</span>
+      <span>
+        <a href="/privacy.html">Privacy</a> &nbsp;&middot;&nbsp;
+        <a href="/terms.html">Terms</a> &nbsp;&middot;&nbsp;
+        <a href="mailto:support@simplyauth.app">Contact</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
 </body>
 </html>
