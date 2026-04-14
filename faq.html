@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ — SimplyAuth</title>
+  <meta name="description" content="Frequently asked questions about SimplyAuth: how voice phrase verification works, connections, distress alerts, check-ins, pricing, privacy, and more.">
+  <link rel="canonical" href="https://simplyauth.app/faq.html">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="SimplyAuth FAQ — Everything you need to know">
+  <meta property="og:description" content="Answers to common questions about SimplyAuth's voice verification, safety features, pricing, and privacy.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://simplyauth.app/faq.html">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Structured Data: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What problem does SimplyAuth solve?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Phone scams and impersonation are on the rise. Criminals use AI-generated voices, spoofed caller IDs, and social engineering to pretend to be someone you know. SimplyAuth lets you instantly verify that the person on the other end of a call is who they claim to be, using a time-limited phrase that only appears in your app and theirs."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does SimplyAuth verify someone?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "When you start a verification, both you and your connection see the same short phrase — two words and two numbers. Your connection reads it back to you out loud. If it matches what you see, it's really them. The phrase is generated on our servers and never travels over your call."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why does the phrase change every 60 seconds?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The rotating phrase makes it impossible for a scammer to reuse a phrase overheard from a previous call. A new phrase every 60 seconds means the window for any replay attack is tiny."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can caller ID be faked?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes — caller ID spoofing is common and easy to do. That's exactly why SimplyAuth exists. Never rely on a name or number alone. Always complete the phrase verification before sharing sensitive information."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is SimplyAuth free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The Free plan includes all core features: identity verification, safety check-ins, distress alerts, and biometric app lock. You get 1 admin connection on Free. The Personal plan ($1.99/month or $19.99/year) expands your limit to 10 admin connections for families or small teams."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the panic word?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The panic word is a secret word you choose that's stored only on your device and never sent to our servers. If you're ever coerced during a verification, entering your panic word silently sends a distress alert to all your trusted connections without the attacker knowing."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What data does SimplyAuth collect?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Only what's needed to make the app work: your name, email, profile photo (from Google or Apple sign-in), device tokens for push notifications, and connection/verification records. Verification phrases auto-delete within 24 hours. We never collect your panic word, phone number, location, or contacts."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is SimplyAuth a replacement for 911?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. SimplyAuth is not an emergency service. The distress alert feature is designed to notify your trusted contacts on a best-effort basis. Notification delivery depends on third-party services and is not guaranteed. In any emergency, always call 911 (or your local emergency number) first."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+<!-- ================================================================
+     NAVBAR
+     ================================================================ -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <a class="nav-logo" href="/">
+      <img src="logo.png" alt="SimplyAuth logo">
+      SimplyAuth
+    </a>
+    <div class="nav-links">
+      <a href="/#features">Features</a>
+      <a href="/#how-it-works">How It Works</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="/faq.html" class="nav-active">FAQ</a>
+      <a href="/#download" class="nav-cta">Download</a>
+    </div>
+    <button class="nav-hamburger" aria-label="Menu" onclick="document.querySelector('.nav-mobile').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="nav-mobile">
+  <a href="/#features" onclick="this.parentElement.classList.remove('open')">Features</a>
+  <a href="/#how-it-works" onclick="this.parentElement.classList.remove('open')">How It Works</a>
+  <a href="/#pricing" onclick="this.parentElement.classList.remove('open')">Pricing</a>
+  <a href="/faq.html" onclick="this.parentElement.classList.remove('open')">FAQ</a>
+  <a href="/#download" onclick="this.parentElement.classList.remove('open')">Download</a>
+</div>
+
+<!-- ================================================================
+     HEADER
+     ================================================================ -->
+<section class="faq-header">
+  <div class="container">
+    <h1>Frequently asked questions</h1>
+    <p>Everything you need to know about SimplyAuth. Can't find what you're looking for? Email <a href="mailto:support@simplyauth.app">support@simplyauth.app</a>.</p>
+  </div>
+</section>
+
+<!-- ================================================================
+     SECTION NAV (chip row)
+     ================================================================ -->
+<nav class="faq-section-nav" aria-label="Jump to section">
+  <div class="container">
+    <div class="faq-chips">
+      <a href="#getting-started">Getting Started</a>
+      <a href="#verification">How Verification Works</a>
+      <a href="#connections">Connections</a>
+      <a href="#distress">Distress Signal</a>
+      <a href="#check-in">Scheduled Check-In</a>
+      <a href="#plans">Plans &amp; Billing</a>
+      <a href="#security">Security &amp; Privacy</a>
+      <a href="#phone">Phone Number</a>
+      <a href="#referrals">Referral Program</a>
+      <a href="#account">Account &amp; Sign-In</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ================================================================
+     FAQ CONTENT
+     ================================================================ -->
+<main class="faq-main">
+  <div class="container">
+
+    <!-- Getting Started -->
+    <section class="faq-section" id="getting-started">
+      <h2>Getting Started</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>I just downloaded SimplyAuth — what do I do first?</summary>
+          <div class="faq-answer">
+            <p>Three quick steps to get going:</p>
+            <ol>
+              <li><strong>Add a connection.</strong> Tap "+ Add" on the home screen and share your invite link with someone you trust — family, a close friend, a coworker.</li>
+              <li><strong>Set up a panic word.</strong> Go to Profile → Panic Word. This lets you send a silent distress alert during any verification if you're ever in danger.</li>
+              <li><strong>Enable notifications.</strong> SimplyAuth uses push notifications to alert you when a connection sends a verification request, a distress signal, or misses a check-in.</li>
+            </ol>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Do both people need the app?</summary>
+          <div class="faq-answer">
+            <p>Yes. Both you and the person you're verifying need SimplyAuth installed and an active connection between you. When you share an invite link, they'll be guided to download the app if they don't have it yet.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>What does a typical verification look like?</summary>
+          <div class="faq-answer">
+            <p>You're on a phone call and want to confirm the other person is really them. Open SimplyAuth, tap "Verify →" next to their name, and both of you see the same short phrase. Ask them to read it aloud — if it matches, it's really them. The whole process takes about 10 seconds.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- How Verification Works -->
+    <section class="faq-section" id="verification">
+      <h2>How Verification Works</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>How does SimplyAuth verify someone?</summary>
+          <div class="faq-answer">
+            <p>When you start a verification, both you and your connection see the same short phrase — two words and two numbers. Your connection reads it back to you out loud. If it matches what you see, it's really them. The phrase is generated on our servers and never travels over your call.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Why does the phrase change every 60 seconds?</summary>
+          <div class="faq-answer">
+            <p>The rotating phrase makes it impossible for a scammer to reuse a phrase overheard from a previous call. A new phrase every 60 seconds means the window for any replay attack is tiny.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Can caller ID be faked?</summary>
+          <div class="faq-answer">
+            <p>Yes — caller ID spoofing is common and easy to do. That's exactly why SimplyAuth exists. Never rely on a name or number alone. Always complete the phrase verification before sharing sensitive information.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>What if the phrases don't match?</summary>
+          <div class="faq-answer">
+            <p>Stop the call immediately. Do not share any information. The person on the other end is not who they claim to be. You can block the connection from the Connections screen and report it to <a href="mailto:support@simplyauth.app">support@simplyauth.app</a>.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- Connections -->
+    <section class="faq-section" id="connections">
+      <h2>Connections</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>What's the difference between an Admin and a Receiver?</summary>
+          <div class="faq-answer">
+            <p>The Admin is the person who creates and shares the invite link. The Receiver is the person who accepts it. Admins manage the connection (they can cancel or block it). Free accounts can have 1 active Admin connection; Personal accounts get up to 10.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>How many connections can I have?</summary>
+          <div class="faq-answer">
+            <p><strong>Free plan:</strong> 1 Admin connection (connections you invite), unlimited Receiver connections (connections where someone invited you).</p>
+            <p><strong>Personal plan:</strong> up to 10 Admin connections. Pending invites count toward your limit until accepted or cancelled.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>How do I invite someone?</summary>
+          <div class="faq-answer">
+            <p>Go to the Connections screen and tap the + button. SimplyAuth generates a one-time invite link — share it with the person you want to connect with. The link expires once used, cancelled, or after 7 days if not accepted.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Do pending invites expire?</summary>
+          <div class="faq-answer">
+            <p>Yes — pending invites automatically expire after 7 days if not accepted. When an invite expires, the connection slot is freed up so you can invite someone else. You can also cancel a pending invite at any time to free the slot immediately.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Can I remove a connection?</summary>
+          <div class="faq-answer">
+            <p>Yes. Tap on any connection and choose Block or Cancel. Blocking prevents that person from reconnecting with you in the future. Cancelling a pending invite frees up your Admin connection slot immediately.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- Distress Signal -->
+    <section class="faq-section" id="distress">
+      <h2>Distress Signal</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>What is the Distress Signal?</summary>
+          <div class="faq-answer">
+            <p>The Distress Signal is a silent SOS you can send to all your active connections if you're ever in danger. It triggers a push notification alerting them that you may need help — without any visible indication on your screen that anything was sent.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>How do I set up a panic word?</summary>
+          <div class="faq-answer">
+            <p>Go to Profile → Panic Word and choose a word that's easy for you to remember but wouldn't come up in normal conversation. Keep it private — never share it with anyone, including your connections.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>How do I send a distress signal?</summary>
+          <div class="faq-answer">
+            <p>There are two ways to send a distress signal:</p>
+            <ol>
+              <li><strong>During a verification</strong> — tap the Send Distress button on the verify screen.</li>
+              <li><strong>From the home screen</strong> — tap the Emergency Alert link at the bottom of the page.</li>
+            </ol>
+            <p>Both require you to enter your panic word to confirm. Once entered, the signal is sent silently to all your active connections.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Will the person on the call know I sent it?</summary>
+          <div class="faq-answer">
+            <p>No. The app gives no visible confirmation and makes no sound. The distress signal is completely silent on your end. Only your trusted connections receive the alert via push notification.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Who gets notified when I send a distress signal?</summary>
+          <div class="faq-answer">
+            <p>All of your active connections receive a push notification, including the other person you're currently verifying with. They are your trusted contacts — not the potential attacker on the call.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Can I send a distress signal without being on a verification call?</summary>
+          <div class="faq-answer">
+            <p>Yes. On your home screen, tap the Emergency Alert link at the bottom of the page. You'll still need to enter your panic word to confirm. This sends the same distress alert to all your active connections — useful if you're in danger but not currently on a verification call.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- Scheduled Check-In -->
+    <section class="faq-section" id="check-in">
+      <h2>Scheduled Check-In</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>What is a Scheduled Check-In?</summary>
+          <div class="faq-answer">
+            <p>A Scheduled Check-In is a safety timer you set before doing something where you might need help — like meeting a stranger, going on a hike, or traveling alone. If you don't mark yourself as OK before the timer expires, all your selected connections receive an alert.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>How do I create a check-in?</summary>
+          <div class="faq-answer">
+            <p>Go to the Check-In screen from the home page or the hamburger menu. Choose a time (30 min, 1 hour, 2 hours, etc.), optionally add a note describing where you're going, select which connections to notify, and tap Start Check-In.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>What happens when the timer is running?</summary>
+          <div class="faq-answer">
+            <p>You'll receive a reminder notification at 15 minutes before expiry and a final warning at 5 minutes. From the app you can tap "I'm OK" to resolve the check-in, or "+30 min" to extend it.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>What happens if I don't check in?</summary>
+          <div class="faq-answer">
+            <p>If the timer expires without you marking OK or extending, SimplyAuth automatically sends a push notification to all your selected connections alerting them that you missed your check-in. If you added a note, they'll see it too.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Can I have more than one check-in at a time?</summary>
+          <div class="faq-answer">
+            <p>No — you can only have one active check-in at a time. Resolve, cancel, or let it expire before starting a new one.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Who sees my check-in note?</summary>
+          <div class="faq-answer">
+            <p>Your note is only shared with your selected connections if you miss your check-in. It's stored securely on our servers and is never visible to anyone else.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Is the note I enter secure?</summary>
+          <div class="faq-answer">
+            <p>Yes. Notes are validated server-side — they're limited to 200 characters and only allow letters, numbers, spaces, and basic punctuation. No HTML, links, or code can be injected.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- Plans & Billing -->
+    <section class="faq-section" id="plans">
+      <h2>Plans &amp; Billing</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>What plans does SimplyAuth offer?</summary>
+          <div class="faq-answer">
+            <p>SimplyAuth has three plans:</p>
+            <ul>
+              <li><strong>Free</strong> — always free, 1 admin connection, unlimited receiver connections.</li>
+              <li><strong>Personal ($1.99/month or $19.99/year)</strong> — up to 10 admin connections, ideal for individuals who need to verify multiple trusted contacts.</li>
+              <li><strong>Business</strong> — custom plans for small teams who want to pilot SimplyAuth for internal identity verification. We set pricing and connection limits directly with you — contact us to get started.</li>
+            </ul>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>How do I upgrade from Free to Personal?</summary>
+          <div class="faq-answer">
+            <p>Tap "Manage Subscription" on your Profile screen (or go to Profile → Subscription). Choose Monthly or Annual and tap Subscribe Now. The purchase is handled securely through the App Store or Google Play.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>How do I set up SimplyAuth for my team?</summary>
+          <div class="faq-answer">
+            <p>We're currently running pilots with small teams who want to use SimplyAuth for internal identity verification. Business plans are set up directly with us — they're not available as an in-app purchase.</p>
+            <p>From the app, tap "Manage Subscription" on your Profile screen and scroll to the Business section, then tap Contact Sales. Or email us at <a href="mailto:support@simplyauth.app?subject=Team%20pilot%20inquiry">support@simplyauth.app</a> with your team size and what you'd like to use SimplyAuth for.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>What happens to my subscription if I cancel Personal?</summary>
+          <div class="faq-answer">
+            <p>Your Personal access continues until the end of your current billing period. After that, your account automatically reverts to the Free plan — you keep 1 admin connection and unlimited receiver connections. No data is deleted.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>How do I cancel my Personal subscription?</summary>
+          <div class="faq-answer">
+            <p>Subscriptions are managed by the App Store or Google Play, not SimplyAuth directly.</p>
+            <ul>
+              <li><strong>iPhone:</strong> Settings → [Your Name] → Subscriptions → SimplyAuth</li>
+              <li><strong>Android:</strong> Google Play → Profile icon → Payments &amp; subscriptions → Subscriptions → SimplyAuth</li>
+            </ul>
+            <p>Note: deleting the app does not cancel your subscription.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- Security & Privacy -->
+    <section class="faq-section" id="security">
+      <h2>Security &amp; Privacy</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>What data do you collect?</summary>
+          <div class="faq-answer">
+            <p>Only what's needed to make the app work: your name, email, profile photo (from Google or Apple sign-in), device tokens for push notifications, and connection and verification records. Verification phrases auto-delete within 24 hours. We never collect your panic word, phone number, location, or contacts. See our <a href="/privacy.html">Privacy Policy</a> for full details.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>How do I enable Face ID / Touch ID?</summary>
+          <div class="faq-answer">
+            <p>Go to Profile → Biometric Lock and toggle it on. You'll need Face ID, Touch ID, or a device passcode set up on your phone first. Once enabled, the app will require biometric authentication every time you re-open it.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Are my verification phrases stored anywhere?</summary>
+          <div class="faq-answer">
+            <p>No. Phrases are generated in real time and are never logged or stored. Once a 60-second window passes, that phrase is gone forever.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>What happens if I delete my account?</summary>
+          <div class="faq-answer">
+            <p>All your data is permanently deleted — your profile, connections, phone number, and verification history. This cannot be undone. If you have an active subscription, cancel it separately in iOS Settings or Google Play before deleting, as deleting your account does not cancel billing.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Is SimplyAuth a replacement for 911?</summary>
+          <div class="faq-answer">
+            <p>No. SimplyAuth is not an emergency service. The distress alert feature is designed to notify your trusted contacts on a best-effort basis. Notification delivery depends on third-party services and is not guaranteed. In any emergency, always call 911 (or your local emergency number) first.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- Phone Number -->
+    <section class="faq-section" id="phone">
+      <h2>Phone Number</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>Why should I add my phone number?</summary>
+          <div class="faq-answer">
+            <p>Adding your number unlocks two features: (1) your connections can call you directly from the app, and (2) SimplyAuth can identify their incoming calls on your device so you know it's a trusted contact before you pick up.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Is my phone number shared with other users?</summary>
+          <div class="faq-answer">
+            <p>Your phone number is only visible to your active connections — never to strangers or the public. It is stored securely and verified through Firebase before being saved.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>How do I add or change my phone number?</summary>
+          <div class="faq-answer">
+            <p>Go to Profile → Phone Number. Enter your number, choose your country code, and tap Send Verification Code. Enter the 6-digit SMS code to confirm. You can update your number at any time by going through the same flow.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Does SimplyAuth call me or send marketing SMS?</summary>
+          <div class="faq-answer">
+            <p>No. The only SMS you'll ever receive from us is a one-time verification code when you add or update your phone number.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- Referral Program -->
+    <section class="faq-section" id="referrals">
+      <h2>Referral Program</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>How does the referral program work?</summary>
+          <div class="faq-answer">
+            <p>Share your referral code with your connections. When they sign up and create their first connection, you both earn 1 free month of Personal. Refer as many people as you like — your rewards cap at 6 months.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Who can use the referral program?</summary>
+          <div class="faq-answer">
+            <p>Everyone. All SimplyAuth users have a unique referral code they can share. You'll find it on the home screen and on the Plans page.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>How do I claim my free months?</summary>
+          <div class="faq-answer">
+            <p>When you earn a referral reward, a card appears on your home screen. Tap "Activate Now" to start your free trial through Google Play or the App Store. You won't be charged until the free period ends.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Can I stack multiple referrals?</summary>
+          <div class="faq-answer">
+            <p>Yes. If you refer 3 people before claiming, you'll get a 90-day free trial instead of 30. Your rewards cap at 6 months (180 days), but your connections always get their free month.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>What if I'm already on Personal?</summary>
+          <div class="faq-answer">
+            <p>Your subscription gets extended automatically by 1 month for each successful referral, up to 6 months. No extra steps needed.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>When do I get my free month?</summary>
+          <div class="faq-answer">
+            <p>The reward is earned when the person you referred creates their first connection, not just when they sign up. This ensures they're actually using the app.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Where do I find my referral code?</summary>
+          <div class="faq-answer">
+            <p>Your referral code is on the home screen in the "Invite connections" card, and also on the Plans page. Tap "Share" to send it with a download link.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- Account & Sign-In -->
+    <section class="faq-section" id="account">
+      <h2>Account &amp; Sign-In</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>Can I sign in with just my email?</summary>
+          <div class="faq-answer">
+            <p>Yes. Tap "Continue with Email" on the sign-in screen, enter your email, and we'll send you a 6-digit verification code. Enter the code and you're in — no password needed.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Can I link multiple sign-in methods?</summary>
+          <div class="faq-answer">
+            <p>Yes — go to Profile → Linked Accounts to add Google, Apple, or email sign-in. This gives you backup ways to access your account.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>What if I signed up with Google but want to use email?</summary>
+          <div class="faq-answer">
+            <p>Go to Profile → Linked Accounts and tap "Add" next to Email. After verifying your email with a code, you can use either Google or email to sign in.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>I didn't get the verification code.</summary>
+          <div class="faq-answer">
+            <p>Check your spam or junk folder. Codes expire after 10 minutes. Tap "Resend Code" on the verification screen to get a new one. If you still don't receive it, try a different email address or contact <a href="mailto:support@simplyauth.app">support@simplyauth.app</a>.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Can I change my display name?</summary>
+          <div class="faq-answer">
+            <p>Yes — tap your name on the Profile screen and you can edit it. Your new name will be visible to all your connections.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- Support footer -->
+    <div class="faq-support">
+      <h3>Still have questions?</h3>
+      <p>We're happy to help. Email us at <a href="mailto:support@simplyauth.app">support@simplyauth.app</a> and we'll typically respond within 1 business day.</p>
+    </div>
+
+  </div>
+</main>
+
+<!-- ================================================================
+     FOOTER
+     ================================================================ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="logo.png" alt="SimplyAuth">
+        <span>SimplyAuth</span>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Product</h4>
+          <a href="/#features">Features</a>
+          <a href="/#how-it-works">How It Works</a>
+          <a href="/#pricing">Pricing</a>
+          <a href="/faq.html">FAQ</a>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <a href="/privacy.html">Privacy Policy</a>
+          <a href="/terms.html">Terms of Service</a>
+          <a href="/delete-account.html">Delete Account</a>
+        </div>
+      </div>
+    </div>
+    <p class="footer-copyright">&copy; 2026 SimplyAuth LLC. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
