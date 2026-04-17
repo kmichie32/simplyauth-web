@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Roadmap — SimplyAuth</title>
+  <meta name="description" content="Where SimplyAuth is headed. Phase 1 launched as a peer-to-peer identity verification app. Phase 2 focuses on reach and polish. Phase 3 brings the same trust primitives to organizations.">
+  <link rel="canonical" href="https://simplyauth.app/roadmap.html">
+  <meta name="theme-color" content="#2563EB">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="SimplyAuth Roadmap — Where we're headed">
+  <meta property="og:description" content="Our public roadmap: peer-to-peer today, organizations tomorrow. See what's shipped, what's next, and what we're building toward.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://simplyauth.app/roadmap.html">
+  <meta property="og:site_name" content="SimplyAuth">
+  <meta property="og:image" content="https://simplyauth.app/logo.png">
+  <meta property="og:image:width" content="1024">
+  <meta property="og:image:height" content="1024">
+  <meta property="og:image:alt" content="SimplyAuth logo">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="SimplyAuth Roadmap — Where we're headed">
+  <meta name="twitter:description" content="Our public roadmap: peer-to-peer today, organizations tomorrow.">
+  <meta name="twitter:image" content="https://simplyauth.app/logo.png">
+
+  <!-- Favicon & Icons -->
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="logo.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* Roadmap-specific styles (self-contained; migrate to style.css later if desired) */
+    .roadmap-header { padding: 80px 0 40px; text-align: center; }
+    .roadmap-header h1 { font-size: 2.5rem; font-weight: 800; margin: 0 0 16px; color: #0f172a; }
+    .roadmap-header p  { font-size: 1.1rem; color: #475569; max-width: 680px; margin: 0 auto; line-height: 1.6; }
+
+    .roadmap-intent {
+      background: #EFF6FF;
+      border-left: 4px solid #2563EB;
+      padding: 20px 24px;
+      margin: 32px auto 0;
+      max-width: 760px;
+      border-radius: 8px;
+      color: #1e3a8a;
+      font-size: 1.02rem;
+      line-height: 1.6;
+    }
+
+    .roadmap-main { padding: 40px 0 80px; }
+
+    .roadmap-phase {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 32px;
+      margin: 0 auto 24px;
+      max-width: 860px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+    .roadmap-phase-head {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
+    .roadmap-phase-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: #2563EB;
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .roadmap-phase h2 {
+      margin: 0;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #0f172a;
+    }
+    .roadmap-phase-meta {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-left: auto;
+    }
+    .roadmap-badge {
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    .badge-shipped   { background: #DCFCE7; color: #166534; }
+    .badge-active    { background: #DBEAFE; color: #1E40AF; }
+    .badge-planned   { background: #F1F5F9; color: #475569; }
+    .roadmap-quarter { font-size: 0.9rem; color: #64748b; font-weight: 500; }
+
+    .roadmap-tagline { color: #334155; margin: 12px 0 20px; font-size: 1.05rem; }
+
+    .roadmap-list { list-style: none; padding: 0; margin: 0; }
+    .roadmap-list li {
+      padding: 12px 0 12px 32px;
+      border-bottom: 1px solid #f1f5f9;
+      position: relative;
+      color: #334155;
+      line-height: 1.5;
+    }
+    .roadmap-list li:last-child { border-bottom: none; }
+    .roadmap-list li::before {
+      content: "";
+      position: absolute;
+      left: 8px; top: 18px;
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: #cbd5e1;
+    }
+    .roadmap-list li.done::before    { background: #22c55e; }
+    .roadmap-list li.active::before  { background: #2563EB; box-shadow: 0 0 0 4px rgba(37,99,235,0.15); }
+    .roadmap-list li strong { color: #0f172a; }
+
+    .roadmap-disclaimer {
+      max-width: 860px;
+      margin: 40px auto 0;
+      padding: 20px 24px;
+      background: #F8FAFC;
+      border-radius: 12px;
+      color: #64748b;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    .roadmap-disclaimer strong { color: #334155; }
+
+    .roadmap-cta {
+      text-align: center;
+      margin-top: 48px;
+    }
+    .roadmap-cta h3 { font-size: 1.3rem; color: #0f172a; margin-bottom: 12px; }
+    .roadmap-cta p  { color: #475569; margin-bottom: 20px; }
+  </style>
+</head>
+<body>
+
+<!-- ================================================================
+     NAVBAR
+     ================================================================ -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <a class="nav-logo" href="/">
+      <img src="logo.png" alt="SimplyAuth logo">
+      SimplyAuth
+    </a>
+    <div class="nav-links">
+      <a href="/#features">Features</a>
+      <a href="/#how-it-works">How It Works</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="/faq.html">FAQ</a>
+      <a href="/roadmap.html" class="nav-active">Roadmap</a>
+      <a href="/#download" class="nav-cta">Download</a>
+    </div>
+    <button class="nav-hamburger" aria-label="Menu" onclick="document.querySelector('.nav-mobile').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="nav-mobile">
+  <a href="/#features" onclick="this.parentElement.classList.remove('open')">Features</a>
+  <a href="/#how-it-works" onclick="this.parentElement.classList.remove('open')">How It Works</a>
+  <a href="/#pricing" onclick="this.parentElement.classList.remove('open')">Pricing</a>
+  <a href="/faq.html" onclick="this.parentElement.classList.remove('open')">FAQ</a>
+  <a href="/roadmap.html" onclick="this.parentElement.classList.remove('open')">Roadmap</a>
+  <a href="/#download" onclick="this.parentElement.classList.remove('open')">Download</a>
+</div>
+
+<!-- ================================================================
+     HEADER
+     ================================================================ -->
+<section class="roadmap-header">
+  <div class="container">
+    <h1>Our roadmap</h1>
+    <p>Where SimplyAuth is today, what's next, and what we're building toward. We'd rather be honest about direction than quiet about intent.</p>
+    <div class="roadmap-intent">
+      SimplyAuth launched as a <strong>peer-to-peer</strong> safety app. Our long-term goal is to bring the same trust primitives &mdash; identity verification, silent distress, safety check-ins &mdash; to <strong>organizations</strong>: teams, schools, care networks, and anyone else whose members need to know <em>"is this really them?"</em>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     ROADMAP CONTENT
+     ================================================================ -->
+<main class="roadmap-main">
+  <div class="container">
+
+    <!-- Phase 1 -->
+    <section class="roadmap-phase">
+      <div class="roadmap-phase-head">
+        <span class="roadmap-phase-num">1</span>
+        <h2>Peer-to-peer</h2>
+        <div class="roadmap-phase-meta">
+          <span class="roadmap-badge badge-shipped">Shipped</span>
+          <span class="roadmap-quarter">Q2 2026</span>
+        </div>
+      </div>
+      <p class="roadmap-tagline">A trust layer for individuals, families, and small circles.</p>
+      <ul class="roadmap-list">
+        <li class="done"><strong>Voice phrase verification</strong> &mdash; rotating 60-second phrases to confirm the person on the line is really them.</li>
+        <li class="done"><strong>Silent distress signal</strong> &mdash; panic word sends a silent alert to trusted connections, with no indication on your screen.</li>
+        <li class="done"><strong>Scheduled check-ins</strong> &mdash; safety timers that notify your connections if you don't check in on time.</li>
+        <li class="done"><strong>Biometric app lock</strong> &mdash; Face ID / Touch ID to keep the app private on a shared device.</li>
+        <li class="done"><strong>Referral rewards</strong> &mdash; both sides earn free Personal months when a new connection is made.</li>
+      </ul>
+    </section>
+
+    <!-- Phase 2 -->
+    <section class="roadmap-phase">
+      <div class="roadmap-phase-head">
+        <span class="roadmap-phase-num">2</span>
+        <h2>Polish &amp; reach</h2>
+        <div class="roadmap-phase-meta">
+          <span class="roadmap-badge badge-active">In progress</span>
+          <span class="roadmap-quarter">Q2&ndash;Q3 2026</span>
+        </div>
+      </div>
+      <p class="roadmap-tagline">Making SimplyAuth more reliable, more accessible, and available to more people.</p>
+      <ul class="roadmap-list">
+        <li class="active"><strong>Internationalization</strong> &mdash; French, Spanish, Japanese, and Simplified Chinese. Core trust features shouldn't require English.</li>
+        <li><strong>Reliability and observability</strong> &mdash; deeper crash reporting and monitoring so issues are found before users feel them.</li>
+        <li><strong>Accessibility improvements</strong> &mdash; screen reader, dynamic type, and contrast polish across the app.</li>
+        <li><strong>Expanded market reach</strong> &mdash; broadening availability as local pricing and legal requirements permit.</li>
+      </ul>
+    </section>
+
+    <!-- Phase 3 -->
+    <section class="roadmap-phase">
+      <div class="roadmap-phase-head">
+        <span class="roadmap-phase-num">3</span>
+        <h2>Organizations</h2>
+        <div class="roadmap-phase-meta">
+          <span class="roadmap-badge badge-planned">Planned</span>
+          <span class="roadmap-quarter">Q4 2026 and beyond</span>
+        </div>
+      </div>
+      <p class="roadmap-tagline">Bringing the peer-to-peer trust primitives to teams, schools, and care networks.</p>
+      <ul class="roadmap-list">
+        <li><strong>Business API</strong> &mdash; programmatic identity verification for customer-support desks, field teams, and internal help-desks.</li>
+        <li><strong>Admin console</strong> &mdash; org-level user management, audit logs, and policy controls.</li>
+        <li><strong>Single sign-on (SSO)</strong> &mdash; SAML / OIDC for organizations that already have an identity provider.</li>
+        <li><strong>Compliance program</strong> &mdash; SOC 2 planned, Data Processing Addendum available on request, sub-processor list published.</li>
+        <li><strong>Security whitepaper</strong> &mdash; architecture, threat model, and data-handling details for security reviews.</li>
+      </ul>
+    </section>
+
+    <!-- Disclaimer -->
+    <div class="roadmap-disclaimer">
+      <strong>A note on dates.</strong> Quarters above are targets, not commitments. We'll update this page as we ship &mdash; and we'll be honest when something moves. If you're waiting on a specific feature for a decision you're making, email <a href="mailto:support@simplyauth.app">support@simplyauth.app</a> and we'll tell you where it actually stands.
+    </div>
+
+    <!-- CTA -->
+    <div class="roadmap-cta">
+      <h3>Building something where trust matters?</h3>
+      <p>If your team, school, or organization could use identity verification as a platform, we'd like to hear about your use case.</p>
+      <a class="nav-cta" style="padding: 12px 24px; display: inline-block;" href="mailto:support@simplyauth.app?subject=Organization%20interest">Get in touch</a>
+    </div>
+
+  </div>
+</main>
+
+<!-- ================================================================
+     FOOTER
+     ================================================================ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="logo.png" alt="SimplyAuth">
+        <span>SimplyAuth</span>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Product</h4>
+          <a href="/#features">Features</a>
+          <a href="/#how-it-works">How It Works</a>
+          <a href="/#pricing">Pricing</a>
+          <a href="/faq.html">FAQ</a>
+          <a href="/roadmap.html">Roadmap</a>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <a href="/privacy.html">Privacy Policy</a>
+          <a href="/terms.html">Terms of Service</a>
+          <a href="/delete-account.html">Delete Account</a>
+        </div>
+      </div>
+    </div>
+    <p class="footer-copyright">&copy; 2026 SimplyAuth LLC. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
