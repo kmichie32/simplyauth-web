@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Status — SimplyAuth</title>
+  <meta name="description" content="Current operational status of SimplyAuth's services.">
+  <link rel="canonical" href="https://simplyauth.app/status.html">
+  <meta name="theme-color" content="#2563EB">
+  <meta name="robots" content="noindex">
+
+  <!-- Favicon & Icons -->
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="logo.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .status-main { padding: 60px 0 80px; }
+    .status-header { text-align: center; margin-bottom: 40px; }
+    .status-header h1 { font-size: 2rem; font-weight: 800; margin: 0 0 8px; color: #0f172a; }
+    .status-header .updated { color: #64748b; font-size: 0.95rem; }
+
+    .status-banner {
+      max-width: 760px;
+      margin: 0 auto 32px;
+      padding: 24px 28px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .status-banner.ok {
+      background: #DCFCE7;
+      color: #166534;
+      border: 1px solid #86EFAC;
+    }
+    .status-banner.incident {
+      background: #FEF3C7;
+      color: #92400E;
+      border: 1px solid #FCD34D;
+    }
+    .status-banner.outage {
+      background: #FEE2E2;
+      color: #991B1B;
+      border: 1px solid #FCA5A5;
+    }
+    .status-dot {
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .status-banner.ok .status-dot      { background: #22C55E; }
+    .status-banner.incident .status-dot { background: #F59E0B; }
+    .status-banner.outage .status-dot   { background: #EF4444; }
+    .status-banner-text { font-weight: 600; font-size: 1.1rem; }
+    .status-banner-sub { font-weight: 400; font-size: 0.95rem; margin-top: 2px; }
+
+    .status-components {
+      max-width: 760px;
+      margin: 0 auto;
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .status-component {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 24px;
+      border-bottom: 1px solid #f1f5f9;
+    }
+    .status-component:last-child { border-bottom: none; }
+    .status-component-name { font-weight: 500; color: #0f172a; }
+    .status-component-state {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    .state-ok       { color: #166534; }
+    .state-degraded { color: #92400E; }
+    .state-down     { color: #991B1B; }
+    .state-ok .status-dot       { background: #22C55E; }
+    .state-degraded .status-dot { background: #F59E0B; }
+    .state-down .status-dot     { background: #EF4444; }
+
+    .status-history {
+      max-width: 760px;
+      margin: 32px auto 0;
+      color: #64748b;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    .status-history h3 { color: #334155; font-size: 1rem; margin: 0 0 12px; }
+    .status-history .empty { padding: 20px 0; text-align: center; background: #F8FAFC; border-radius: 8px; }
+
+    .status-contact {
+      max-width: 760px;
+      margin: 32px auto 0;
+      padding: 20px 24px;
+      background: #F8FAFC;
+      border-radius: 12px;
+      text-align: center;
+      color: #475569;
+    }
+    .status-contact a { color: #2563EB; font-weight: 600; }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <a class="nav-logo" href="/">
+      <img src="logo.png" alt="SimplyAuth logo">
+      SimplyAuth
+    </a>
+    <div class="nav-links">
+      <a href="/#features">Features</a>
+      <a href="/#how-it-works">How It Works</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="/faq.html">FAQ</a>
+      <a href="/roadmap.html">Roadmap</a>
+      <a href="/#download" class="nav-cta">Download</a>
+    </div>
+    <button class="nav-hamburger" aria-label="Menu" onclick="document.querySelector('.nav-mobile').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="nav-mobile">
+  <a href="/#features" onclick="this.parentElement.classList.remove('open')">Features</a>
+  <a href="/#how-it-works" onclick="this.parentElement.classList.remove('open')">How It Works</a>
+  <a href="/#pricing" onclick="this.parentElement.classList.remove('open')">Pricing</a>
+  <a href="/faq.html" onclick="this.parentElement.classList.remove('open')">FAQ</a>
+  <a href="/roadmap.html" onclick="this.parentElement.classList.remove('open')">Roadmap</a>
+  <a href="/#download" onclick="this.parentElement.classList.remove('open')">Download</a>
+</div>
+
+<!-- STATUS CONTENT -->
+<main class="status-main">
+  <div class="container">
+
+    <div class="status-header">
+      <h1>System Status</h1>
+      <p class="updated">Last updated <span id="updated-time">April 17, 2026</span></p>
+    </div>
+
+    <!--
+      =======================================================================
+      INCIDENT BANNER — edit this block to show an incident.
+      Swap class to "ok", "incident", or "outage" and update the text.
+      =======================================================================
+    -->
+    <div class="status-banner ok">
+      <span class="status-dot"></span>
+      <div>
+        <div class="status-banner-text">All systems operational</div>
+        <div class="status-banner-sub">No incidents reported.</div>
+      </div>
+    </div>
+
+    <!--
+      =======================================================================
+      COMPONENT STATUS — edit the class on each status line.
+      state-ok | state-degraded | state-down
+      =======================================================================
+    -->
+    <div class="status-components">
+      <div class="status-component">
+        <span class="status-component-name">API &amp; Cloud Functions</span>
+        <span class="status-component-state state-ok">
+          <span class="status-dot"></span> Operational
+        </span>
+      </div>
+      <div class="status-component">
+        <span class="status-component-name">Authentication</span>
+        <span class="status-component-state state-ok">
+          <span class="status-dot"></span> Operational
+        </span>
+      </div>
+      <div class="status-component">
+        <span class="status-component-name">Verification Engine</span>
+        <span class="status-component-state state-ok">
+          <span class="status-dot"></span> Operational
+        </span>
+      </div>
+      <div class="status-component">
+        <span class="status-component-name">Push Notifications</span>
+        <span class="status-component-state state-ok">
+          <span class="status-dot"></span> Operational
+        </span>
+      </div>
+      <div class="status-component">
+        <span class="status-component-name">Subscription Billing</span>
+        <span class="status-component-state state-ok">
+          <span class="status-dot"></span> Operational
+        </span>
+      </div>
+      <div class="status-component">
+        <span class="status-component-name">Marketing Site</span>
+        <span class="status-component-state state-ok">
+          <span class="status-dot"></span> Operational
+        </span>
+      </div>
+    </div>
+
+    <!--
+      =======================================================================
+      INCIDENT HISTORY — past incidents (most recent first).
+      =======================================================================
+    -->
+    <div class="status-history">
+      <h3>Recent incidents</h3>
+      <div class="empty">No incidents in the past 30 days.</div>
+    </div>
+
+    <div class="status-contact">
+      Experiencing an issue not reflected here?<br>
+      Email <a href="mailto:support@simplyauth.app">support@simplyauth.app</a>.
+    </div>
+
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="logo.png" alt="SimplyAuth">
+        <span>SimplyAuth</span>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Product</h4>
+          <a href="/#features">Features</a>
+          <a href="/#how-it-works">How It Works</a>
+          <a href="/#pricing">Pricing</a>
+          <a href="/faq.html">FAQ</a>
+          <a href="/roadmap.html">Roadmap</a>
+          <a href="/status.html">Status</a>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <a href="/privacy.html">Privacy Policy</a>
+          <a href="/terms.html">Terms of Service</a>
+          <a href="/delete-account.html">Delete Account</a>
+        </div>
+      </div>
+    </div>
+    <p class="footer-copyright">&copy; 2026 SimplyAuth LLC. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
