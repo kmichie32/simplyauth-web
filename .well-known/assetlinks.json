@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "app.simplyauth",
+      "sha256_cert_fingerprints": [
+        "6B:F6:53:89:82:8A:EF:E7:D5:6D:D9:26:14:80:87:08:05:A4:63:E1:58:8F:DF:D3:04:44:EA:03:53:6F:4D:C6"
+      ]
+    }
+  }
+]
