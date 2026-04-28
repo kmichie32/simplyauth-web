@@ -1,0 +1,15 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "7ZZT3CN88P.app.simplyauth",
+        "paths": [
+          "/invite/*",
+          "/i/*",
+          "/refer/*"
+        ]
+      }
+    ]
+  }
+}
