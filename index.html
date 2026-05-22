@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SimplyAuth – Verify Who You're Really Talking To</title>
-  <meta name="description" content="Protect yourself from voice cloning and impersonation scams. SimplyAuth uses time-limited verification phrases that only you and your contact can see.">
+  <meta name="description" content="Verify who you're really talking to with time-limited phrases — then share sensitive info in an end-to-end encrypted Session that auto-wipes when the room closes.">
   <link rel="canonical" href="https://simplyauth.app/">
   <meta name="theme-color" content="#2563EB">
 
   <!-- Open Graph -->
   <meta property="og:title" content="SimplyAuth – Verify Who You're Really Talking To">
-  <meta property="og:description" content="Protect yourself from voice cloning scams with time-limited verification phrases.">
+  <meta property="og:description" content="Verify who's on the call, then share sensitive info in an encrypted Session that auto-wipes when you're done.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://simplyauth.app/">
   <meta property="og:site_name" content="SimplyAuth">
@@ -22,7 +22,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="SimplyAuth – Verify Who You're Really Talking To">
-  <meta name="twitter:description" content="Protect yourself from voice cloning scams with time-limited verification phrases.">
+  <meta name="twitter:description" content="Verify who's on the call, then share sensitive info in an encrypted Session that auto-wipes when you're done.">
   <meta name="twitter:image" content="https://simplyauth.app/logo.png">
   <meta name="twitter:image:alt" content="SimplyAuth logo">
 
@@ -65,9 +65,9 @@
       },
       {
         "@type": "Offer",
-        "price": "1.99",
+        "price": "0.99",
         "priceCurrency": "USD",
-        "description": "Personal plan with up to 10 admin connections (monthly; prices vary by region)"
+        "description": "Personal plan with Verified Sessions and up to 10 admin connections ($0.99/month or $7.99/year; prices vary by region)"
       }
     ]
   }
@@ -114,8 +114,8 @@
     <div class="hero-content">
       <h1>Verify who you're <em>really</em> talking to</h1>
       <p class="hero-subtitle">
-        Protect yourself from voice cloning and impersonation scams.
-        SimplyAuth uses time-limited verification phrases that only you and your contact can see.
+        Verify who's really on the call — then share sensitive information in an encrypted room
+        that wipes itself clean when you're done.
       </p>
       <div class="hero-buttons">
         <a href="#download" class="btn btn-primary btn-lg">Download Free</a>
@@ -159,11 +159,11 @@
         <p>Set a timer. If you don't check in, your connections get notified automatically. Perfect for solo outings.</p>
       </div>
       <div class="feature-card reveal">
-        <div class="feature-icon feature-icon-red">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#DC2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        <div class="feature-icon" style="background:#EEF2FF;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4F46E5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 10h8M8 13h5"/></svg>
         </div>
-        <h3>Distress Alerts</h3>
-        <p>A hidden duress code lets you silently alert your trusted connections if you're in danger during a verification.</p>
+        <h3>Encrypted Sessions</h3>
+        <p>Private rooms for sharing passwords, SSNs, and sensitive info. End-to-end encrypted, server-blind, and auto-wiped when the session closes.</p>
       </div>
       <div class="feature-card reveal">
         <div class="feature-icon feature-icon-green">
@@ -242,6 +242,27 @@
 </section>
 
 <!-- ================================================================
+     SESSIONS FEATURE
+     ================================================================ -->
+<section class="checkin-feature" id="sessions">
+  <div class="container">
+    <div class="checkin-inner reveal">
+      <div class="checkin-content">
+        <span class="feature-badge">Encrypted · Server-blind</span>
+        <h2>Verified Sessions</h2>
+        <p>Need to share a password, SSN, or credit card number? Open a Verified Session — a private encrypted room only you and a trusted connection can enter.</p>
+        <ul class="feature-list">
+          <li>End-to-end encrypted — SimplyAuth never sees your messages</li>
+          <li>Both phones wipe simultaneously when the session ends</li>
+          <li>Screenshot detection notifies the other side instantly</li>
+          <li>20-minute cap and 30-message limit, by design</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
      CHECK-IN FEATURE
      ================================================================ -->
 <section class="checkin-feature" id="checkin">
@@ -256,6 +277,7 @@
           <li>Add an optional note for context</li>
           <li>Choose which connections get alerted</li>
           <li>Extend by 30 minutes if you need more time</li>
+          <li>Includes silent distress alerts — send an SOS to all connections in one tap</li>
         </ul>
       </div>
       <div class="checkin-phone">
@@ -325,11 +347,12 @@
       <div class="pricing-card pricing-card-featured">
         <div class="pricing-badge">Most Popular</div>
         <h3>Personal</h3>
-        <p class="price">$1.99<span>/mo</span></p>
+        <p class="price">$0.99<span>/mo</span></p>
+        <p style="font-size:0.85rem;color:#64748b;margin:-0.5rem 0 1rem;">or $7.99/year &nbsp;·&nbsp; save 33%</p>
         <ul>
           <li>Send up to 10 invites, accept unlimited</li>
           <li>Everything in Free</li>
-          <li>Priority support</li>
+          <li>Verified Sessions (end-to-end encrypted)</li>
           <li>Refer friends for free months</li>
         </ul>
         <a href="#download" class="btn btn-primary">Start Free Trial</a>
