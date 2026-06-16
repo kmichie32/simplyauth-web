@@ -3,35 +3,168 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Page Not Found — SimplyAuth</title>
+  <title>SimplyAuth</title>
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
   <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png">
   <link rel="apple-touch-icon" sizes="192x192" href="/favicon-192.png">
   <meta name="theme-color" content="#2563EB">
   <link rel="stylesheet" href="/styles.css">
+  <style>
+    /* Self-contained styling for the invite/referral landing so it renders
+       correctly regardless of the site theme. GitHub Pages serves this file
+       (404.html) for any unmatched path — including the dynamic /invite/CODE
+       and /refer/CODE segments it can't map to a real file — so this page
+       doubles as the invite/referral landing for visitors without the app. */
+    #sa-landing {
+      display: none;
+      min-height: 100vh;
+      margin: 0;
+      background: #0a0e1a;
+      color: #ffffff;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      text-align: center;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+    #sa-landing .box { max-width: 420px; width: 100%; }
+    .sa-logo { font-size: 52px; margin-bottom: 16px; }
+    #sa-landing h1 { font-size: 26px; font-weight: 800; margin-bottom: 10px; }
+    .sa-sub { font-size: 16px; color: rgba(255,255,255,0.72); line-height: 1.5; margin-bottom: 28px; }
+    .sa-code-label { font-size: 12px; text-transform: uppercase; letter-spacing: 1.5px; color: rgba(255,255,255,0.55); margin-bottom: 8px; }
+    .sa-code { font-family: ui-monospace, Menlo, monospace; font-size: 28px; font-weight: 700; letter-spacing: 5px; padding: 14px 20px; border: 1px dashed rgba(255,255,255,0.35); border-radius: 12px; display: inline-block; }
+    .sa-copy { background: none; border: none; color: #6ba8f0; font-size: 14px; cursor: pointer; margin-top: 10px; padding: 6px; }
+    .sa-copied { font-size: 13px; color: #6ba8f0; opacity: 0; transition: opacity .3s; min-height: 18px; }
+    .sa-copied.show { opacity: 1; }
+    .sa-buttons { display: flex; flex-direction: column; gap: 12px; margin-top: 24px; }
+    .sa-btn { display: inline-block; padding: 15px 24px; border-radius: 12px; font-size: 16px; font-weight: 600; text-decoration: none; cursor: pointer; }
+    .sa-btn-primary { background: #2563EB; color: #ffffff; }
+    .sa-btn-secondary { background: rgba(255,255,255,0.1); color: #ffffff; }
+    .sa-hint { font-size: 13px; color: rgba(255,255,255,0.55); margin-top: 22px; line-height: 1.6; }
+  </style>
 </head>
 <body>
 
-<nav class="nav" role="navigation" aria-label="Main navigation">
-  <div class="container">
-    <a href="/" class="nav-brand" aria-label="SimplyAuth home">
-      <img src="/icon.png" alt="SimplyAuth icon" width="32" height="32">
-      SimplyAuth
-    </a>
-    <a href="/" class="nav-cta">Home</a>
-  </div>
-</nav>
+  <!-- Invite / referral landing — shown by JS when the path is /invite/CODE or /refer/CODE -->
+  <section id="sa-landing">
+    <div class="box">
+      <div class="sa-logo">&#x1f6e1;&#xfe0f;</div>
+      <h1 id="sa-title">You've been invited to SimplyAuth</h1>
+      <p id="sa-sub" class="sa-sub">A friend wants to connect with you on SimplyAuth so you can verify each other's identity.</p>
 
-<section class="hero" style="min-height:60vh; display:flex; align-items:center;">
-  <div class="container">
-    <h1 style="font-size:64px; margin-bottom:16px;">404</h1>
-    <p class="subtitle">This page doesn't exist. Let's get you back on track.</p>
-    <div class="hero-actions">
-      <a href="/" class="btn btn-primary">Go Home</a>
+      <div id="sa-code-label" class="sa-code-label">Your invite code</div>
+      <div id="sa-code" class="sa-code">--------</div>
+      <div><button id="sa-copy" class="sa-copy" type="button">Copy code</button></div>
+      <p id="sa-copied" class="sa-copied">Copied!</p>
+
+      <div class="sa-buttons">
+        <a id="sa-get" class="sa-btn sa-btn-primary" href="#">Get the app</a>
+        <a id="sa-open" class="sa-btn sa-btn-secondary" href="#">Already have it? Open SimplyAuth</a>
+      </div>
+
+      <p class="sa-hint">New here? Install the app, then tap this link again &mdash; or enter the code above on the Connections screen.</p>
     </div>
+  </section>
+
+  <!-- Default 404 — shown when the path is not an invite/referral link (unchanged) -->
+  <div id="sa-notfound" style="display:none;">
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+      <div class="container">
+        <a href="/" class="nav-brand" aria-label="SimplyAuth home">
+          <img src="/icon.png" alt="SimplyAuth icon" width="32" height="32">
+          SimplyAuth
+        </a>
+        <a href="/" class="nav-cta">Home</a>
+      </div>
+    </nav>
+    <section class="hero" style="min-height:60vh; display:flex; align-items:center;">
+      <div class="container">
+        <h1 style="font-size:64px; margin-bottom:16px;">404</h1>
+        <p class="subtitle">This page doesn't exist. Let's get you back on track.</p>
+        <div class="hero-actions">
+          <a href="/" class="btn btn-primary">Go Home</a>
+        </div>
+      </div>
+    </section>
   </div>
-</section>
+
+  <noscript>
+    <div style="text-align:center; padding:40px; font-family:sans-serif;">
+      <p>To accept your SimplyAuth invite, install the app:</p>
+      <p>
+        <a href="https://play.google.com/store/apps/details?id=app.simplyauth">Google&nbsp;Play</a> &middot;
+        <a href="https://apps.apple.com/us/app/simplyauth/id6761439612">App&nbsp;Store</a>
+      </p>
+    </div>
+  </noscript>
+
+  <script>
+    (function () {
+      // GitHub Pages serves this 404.html for /invite/CODE and /refer/CODE
+      // (it can't map the dynamic code segment to a real file). Detect those
+      // and render the landing; otherwise show the normal 404.
+      var m = window.location.pathname.match(/^\/(invite|refer)\/([A-Z0-9]{6,12})\/?$/i);
+
+      var landing = document.getElementById('sa-landing');
+      var notfound = document.getElementById('sa-notfound');
+
+      if (!m) {
+        notfound.style.display = 'block';
+        return;
+      }
+
+      var kind = m[1].toLowerCase();   // 'invite' | 'refer'
+      var code = m[2].toUpperCase();
+
+      var ua = navigator.userAgent || '';
+      var isIOS = /iPhone|iPad|iPod/i.test(ua);
+      var storeUrl = isIOS
+        ? 'https://apps.apple.com/us/app/simplyauth/id6761439612'
+        : 'https://play.google.com/store/apps/details?id=app.simplyauth';
+      var deepLink = 'simplyauth://' + kind + '/' + code;
+
+      if (kind === 'refer') {
+        document.getElementById('sa-sub').textContent =
+          "Your friend wants to keep you both safe. Join SimplyAuth, verify each other's identity, and you both get a free month of Personal when you make your first connection.";
+        document.getElementById('sa-code-label').textContent = 'Your referral code';
+      }
+
+      document.getElementById('sa-code').textContent = code;
+      document.getElementById('sa-get').href = storeUrl;
+      document.getElementById('sa-open').href = deepLink;
+      landing.style.display = 'flex';
+
+      // Copy the code for manual entry after install.
+      var copiedMsg = document.getElementById('sa-copied');
+      function showCopied() {
+        copiedMsg.classList.add('show');
+        setTimeout(function () { copiedMsg.classList.remove('show'); }, 2000);
+      }
+      document.getElementById('sa-copy').addEventListener('click', function () {
+        try {
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(code).then(showCopied, function () {});
+          } else {
+            var ta = document.createElement('textarea');
+            ta.value = code; ta.style.position = 'fixed'; ta.style.left = '-9999px';
+            document.body.appendChild(ta); ta.select(); document.execCommand('copy');
+            document.body.removeChild(ta); showCopied();
+          }
+        } catch (e) { /* ignore */ }
+      });
+
+      // "Open SimplyAuth": try the app, fall back to the store if it doesn't take over.
+      document.getElementById('sa-open').addEventListener('click', function (e) {
+        e.preventDefault();
+        var start = Date.now();
+        window.location.href = deepLink;
+        setTimeout(function () {
+          if (Date.now() - start < 2000) window.location.href = storeUrl;
+        }, 1500);
+      });
+    })();
+  </script>
 
 </body>
 </html>
