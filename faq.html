@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FAQ — SimplyAuth</title>
-  <meta name="description" content="Frequently asked questions about SimplyAuth: how voice phrase verification works, connections, distress alerts, check-ins, pricing, privacy, and more.">
+  <title>FAQ — SimplyAuth: Secure Messages</title>
+  <meta name="description" content="Frequently asked questions about SimplyAuth: encrypted, vanishing messages for sensitive info (Verified Sessions), identity verification, safety check-ins, pricing, and privacy.">
   <link rel="canonical" href="https://simplyauth.app/faq.html">
   <meta name="theme-color" content="#2563EB">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="SimplyAuth FAQ — Everything you need to know">
-  <meta property="og:description" content="Answers to common questions about SimplyAuth's voice verification, safety features, pricing, and privacy.">
+  <meta property="og:title" content="SimplyAuth FAQ — Encrypted, vanishing messages">
+  <meta property="og:description" content="Answers to common questions about SimplyAuth's Verified Sessions (end-to-end encrypted messaging), identity verification, safety features, pricing, and privacy.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://simplyauth.app/faq.html">
   <meta property="og:site_name" content="SimplyAuth">
@@ -21,8 +21,8 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="SimplyAuth FAQ — Everything you need to know">
-  <meta name="twitter:description" content="Answers to common questions about SimplyAuth's voice verification, safety features, pricing, and privacy.">
+  <meta name="twitter:title" content="SimplyAuth FAQ — Encrypted, vanishing messages">
+  <meta name="twitter:description" content="Answers to common questions about SimplyAuth's Verified Sessions (end-to-end encrypted messaging), identity verification, safety features, pricing, and privacy.">
   <meta name="twitter:image" content="https://simplyauth.app/logo.png">
 
   <!-- Favicon & Icons -->
@@ -47,58 +47,74 @@
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "What problem does SimplyAuth solve?",
+        "name": "What is SimplyAuth?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Phone scams and impersonation are on the rise. Criminals use AI-generated voices, spoofed caller IDs, and social engineering to pretend to be someone you know. SimplyAuth lets you instantly verify that the person on the other end of a call is who they claim to be, using a time-limited phrase that only appears in your app and theirs."
+          "text": "SimplyAuth is a secure messaging app for sharing sensitive information. Its headline feature is Verified Sessions: short, end-to-end encrypted chat rooms for sending things like passwords, account numbers, SSNs, card numbers, and wire details — info you'd never want sitting in a regular texting app. Messages are encrypted on your device, our servers store ciphertext only, and everything auto-wipes on both phones when the session ends."
         }
       },
       {
         "@type": "Question",
-        "name": "How does SimplyAuth verify someone?",
+        "name": "What are Verified Sessions?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "When you start a verification, both you and your connection see the same short phrase — two words and two numbers. Your connection reads it back to you out loud. If it matches what you see, it's really them. The phrase is generated on our servers and never travels over your call."
+          "text": "Verified Sessions are short, end-to-end encrypted, one-to-one chat rooms for sharing sensitive information with a trusted connection. They're capped at 20 minutes and 30 messages, and everything wipes automatically on both phones when the room closes. Our servers only ever hold encrypted data — we can't read your messages."
         }
       },
       {
         "@type": "Question",
-        "name": "Why does the phrase change every 60 seconds?",
+        "name": "Are my messages really private?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "The rotating phrase makes it impossible for a scammer to reuse a phrase overheard from a previous call. A new phrase every 60 seconds means the window for any replay attack is tiny."
+          "text": "Message content is end-to-end encrypted and our servers are blind to it — we store ciphertext only and cannot read what you send. To be candid: we do retain connection metadata (who paired with whom, and when sessions happened) because the app needs it to work. So the contents are private; the fact that a session occurred between two accounts is not secret to us."
         }
       },
       {
         "@type": "Question",
-        "name": "Can caller ID be faked?",
+        "name": "What happens if someone screenshots a session?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes — caller ID spoofing is common and easy to do. That's exactly why SimplyAuth exists. Never rely on a name or number alone. Always complete the phrase verification before sharing sensitive information."
+          "text": "On Android the app uses OS-level screenshot blocking. On iOS, screenshots are detected and both people are notified immediately. No protection covers every device, so the notification is the backstop — if a screenshot happens, you'll know."
         }
       },
       {
         "@type": "Question",
-        "name": "Is SimplyAuth free?",
+        "name": "How does identity verification work?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. The Free plan includes identity verification, safety check-ins, distress alerts, and biometric app lock with 1 admin connection. The Personal plan ($0.99/month or $7.99/year) adds Verified Sessions (end-to-end encrypted messaging rooms) and up to 10 admin connections."
+          "text": "Before you share anything, you can confirm who you're talking to. On a call, both people open SimplyAuth and see the same short phrase. Your connection reads it back out loud — if it matches, it's really them. The phrase rotates every 60 seconds, so it can't be reused from an overheard call. It's the trust layer that proves identity before you open a session or share sensitive info."
         }
       },
       {
         "@type": "Question",
-        "name": "What is the panic word?",
+        "name": "How much does SimplyAuth cost?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "The panic word is a secret word you choose that's stored only on your device and never sent to our servers. If you're ever coerced during a verification, entering your panic word silently sends a distress alert to all your trusted connections without the attacker knowing."
+          "text": "SimplyAuth is one subscription: $0.99/month or $7.99/year, with a 30-day free trial. There is no free tier. If your subscription lapses, your account is locked but your data is preserved — nothing is deleted, and you regain access the moment you resubscribe. Safety features (scheduled check-ins and silent duress alerts) are free for everyone and are never paywalled."
         }
       },
       {
         "@type": "Question",
-        "name": "What data does SimplyAuth collect?",
+        "name": "Are the safety features free?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Only what's needed to make the app work: your name, email, profile photo (from Google or Apple sign-in), device tokens for push notifications, and connection/verification records. Verification phrases auto-delete within 24 hours. We never collect your panic word, phone number, location, or contacts."
+          "text": "Yes. Scheduled check-ins and the silent duress/SOS alert are free for everyone and are never put behind the paywall, including if your subscription lapses. We don't gate safety features."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need to give a phone number?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. A phone number is optional and is not required to use Verified Sessions or any core feature. You can use the whole app without one."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is there a plan for businesses?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Verified Business is coming soon and is currently a waitlist. It's gated on SOC 2 and HIPAA readiness work that's in progress. If you'd like internal, verified secure messaging for a team, email support@simplyauth.app to join the waitlist."
         }
       },
       {
@@ -106,7 +122,7 @@
         "name": "Is SimplyAuth a replacement for 911?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "No. SimplyAuth is not an emergency service. The distress alert feature is designed to notify your trusted contacts on a best-effort basis. Notification delivery depends on third-party services and is not guaranteed. In any emergency, always call 911 (or your local emergency number) first."
+          "text": "No. SimplyAuth is not an emergency service. The duress and check-in alerts are designed to notify your trusted contacts on a best-effort basis. Notification delivery depends on third-party services and is not guaranteed. In any emergency, always call 911 (or your local emergency number) first."
         }
       }
     ]
@@ -252,14 +268,13 @@
         <details class="faq-item">
           <summary>What's the difference between an Admin and a Receiver?</summary>
           <div class="faq-answer">
-            <p>The Admin is the person who creates and shares the invite link. The Receiver is the person who accepts it. Admins manage the connection (they can cancel or block it). Free accounts can have 1 active Admin connection; Personal accounts get up to 10.</p>
+            <p>The Admin is the person who creates and shares the invite link. The Receiver is the person who accepts it. Admins manage the connection (they can cancel or block it). Both sides can verify each other and open Verified Sessions once connected.</p>
           </div>
         </details>
         <details class="faq-item">
           <summary>How many connections can I have?</summary>
           <div class="faq-answer">
-            <p><strong>Free plan:</strong> 1 Admin connection (connections you invite), unlimited Receiver connections (connections where someone invited you).</p>
-            <p><strong>Personal plan:</strong> up to 10 Admin connections. Pending invites count toward your limit until accepted or cancelled.</p>
+            <p>You can build out your trusted circle with multiple connections — invite the people you regularly need to verify or share sensitive info with. Pending invites count toward your active connections until they're accepted or cancelled.</p>
           </div>
         </details>
         <details class="faq-item">
@@ -271,13 +286,13 @@
         <details class="faq-item">
           <summary>Do pending invites expire?</summary>
           <div class="faq-answer">
-            <p>Yes — pending invites automatically expire after 7 days if not accepted. When an invite expires, the connection slot is freed up so you can invite someone else. You can also cancel a pending invite at any time to free the slot immediately.</p>
+            <p>Yes — pending invites automatically expire after 7 days if not accepted. When an invite expires, it's cleared from your pending list. You can also cancel a pending invite at any time to remove it immediately.</p>
           </div>
         </details>
         <details class="faq-item">
           <summary>Can I remove a connection?</summary>
           <div class="faq-answer">
-            <p>Yes. Tap on any connection and choose Block or Cancel. Blocking prevents that person from reconnecting with you in the future. Cancelling a pending invite frees up your Admin connection slot immediately.</p>
+            <p>Yes. Tap on any connection and choose Block or Cancel. Blocking prevents that person from reconnecting with you in the future. Cancelling a pending invite removes it immediately.</p>
           </div>
         </details>
       </div>
@@ -290,13 +305,14 @@
         <details class="faq-item">
           <summary>What are Verified Sessions?</summary>
           <div class="faq-answer">
-            <p>Verified Sessions are short, end-to-end encrypted chat rooms you can open with a trusted connection. They're designed for sharing sensitive information — passwords, account numbers, SSNs, credit card details — that you'd never want to send over a normal messaging app. When the session ends, everything wipes automatically on both phones.</p>
+            <p>Verified Sessions are short, end-to-end encrypted, one-to-one chat rooms you can open with a trusted connection. They're designed for sharing sensitive information — passwords, account numbers, SSNs, card numbers, wire details — that you'd never want to send over a normal messaging app. Sessions are 1:1 only (no groups), capped at 20 minutes and 30 messages, and everything wipes automatically on both phones when the room closes.</p>
           </div>
         </details>
         <details class="faq-item">
           <summary>Are my messages encrypted?</summary>
           <div class="faq-answer">
-            <p>Yes. Sessions use end-to-end encryption — your messages are encrypted on your device before they're sent, and only decrypted on the recipient's device. SimplyAuth's servers relay the encrypted data but cannot read its contents.</p>
+            <p>Yes. Sessions use end-to-end encryption — your messages are encrypted on your device before they're sent, and only decrypted on the recipient's device. SimplyAuth's servers store ciphertext only (we're server-blind) and cannot read the contents of your messages.</p>
+            <p>To be candid: while message <em>content</em> is private to us, we do retain connection metadata — who paired with whom, and when sessions happened — because the app needs it to work.</p>
           </div>
         </details>
         <details class="faq-item">
@@ -314,13 +330,13 @@
         <details class="faq-item">
           <summary>What happens if someone screenshots the session?</summary>
           <div class="faq-answer">
-            <p>Both parties are notified immediately when a screenshot is taken. On Android, the app also uses OS-level screenshot blocking. These protections can't stop every device (some Android manufacturers bypass the block), which is why the screenshot notification always fires — you'll know if it happened.</p>
+            <p>On Android, the app uses OS-level screenshot blocking. On iOS, screenshots are detected and both people are notified the moment one is taken. No protection covers every device, so the notification is the backstop — if a screenshot happens, you'll know.</p>
           </div>
         </details>
         <details class="faq-item">
-          <summary>Are Verified Sessions available on the Free plan?</summary>
+          <summary>Do I need a phone number to use Sessions?</summary>
           <div class="faq-answer">
-            <p>Verified Sessions require the Personal plan ($0.99/month or $7.99/year). All new accounts get a 30-day Pro trial with Sessions included — no credit card required. After the trial, Sessions are available to subscribers.</p>
+            <p>No. A phone number is optional and isn't required for Verified Sessions or any other feature. Sessions run between connected accounts — you can use everything without giving a number.</p>
           </div>
         </details>
       </div>
@@ -428,37 +444,38 @@
       <h2>Plans &amp; Billing</h2>
       <div class="faq-list">
         <details class="faq-item">
-          <summary>What plans does SimplyAuth offer?</summary>
+          <summary>How much does SimplyAuth cost?</summary>
           <div class="faq-answer">
-            <p>SimplyAuth has three plans:</p>
+            <p>SimplyAuth is one subscription — there's no free tier and no separate "Pro" upgrade. You pick a billing cycle:</p>
             <ul>
-              <li><strong>Free</strong> — always free, 1 admin connection, unlimited receiver connections.</li>
-              <li><strong>Personal ($0.99/month or $7.99/year)</strong> — Verified Sessions (end-to-end encrypted messaging), up to 10 admin connections, and a 30-day free trial for all new accounts.</li>
-              <li><strong>Business</strong> — custom plans for small teams who want to pilot SimplyAuth for internal identity verification. We set pricing and connection limits directly with you — contact us to get started.</li>
+              <li><strong>$0.99/month</strong>, or</li>
+              <li><strong>$7.99/year</strong> (works out cheaper than monthly).</li>
             </ul>
+            <p>Every new account starts with a <strong>30-day free trial</strong> — no charge until the trial ends. Your subscription covers Verified Sessions and identity verification.</p>
+            <p>Safety features — scheduled check-ins and silent duress alerts — are <strong>free for everyone</strong> and are never paywalled.</p>
           </div>
         </details>
         <details class="faq-item">
-          <summary>How do I upgrade from Free to Personal?</summary>
+          <summary>Is there a free version?</summary>
           <div class="faq-answer">
-            <p>Tap "Manage Subscription" on your Profile screen (or go to Profile → Subscription). Choose Monthly or Annual and tap Subscribe Now. The purchase is handled securely through the App Store or Google Play.</p>
+            <p>There's no permanent free tier, but every account gets a 30-day free trial to try the full app before paying anything. The safety features (check-ins and duress alerts) are always free for everyone, trial or not.</p>
           </div>
         </details>
         <details class="faq-item">
-          <summary>How do I set up SimplyAuth for my team?</summary>
+          <summary>How do I subscribe?</summary>
           <div class="faq-answer">
-            <p>We're currently running pilots with small teams who want to use SimplyAuth for internal identity verification. Business plans are set up directly with us — they're not available as an in-app purchase.</p>
-            <p>From the app, tap "Manage Subscription" on your Profile screen and scroll to the Business section, then tap Contact Sales. Or email us at <a href="mailto:support@simplyauth.app?subject=Team%20pilot%20inquiry">support@simplyauth.app</a> with your team size and what you'd like to use SimplyAuth for.</p>
+            <p>Tap "Manage Subscription" on your Profile screen (or go to Profile → Subscription). Choose Monthly or Annual and confirm. The purchase is handled securely through the App Store or Google Play.</p>
           </div>
         </details>
         <details class="faq-item">
-          <summary>What happens to my subscription if I cancel Personal?</summary>
+          <summary>What happens if my subscription lapses?</summary>
           <div class="faq-answer">
-            <p>Your Personal access continues until the end of your current billing period. After that, your account automatically reverts to the Free plan — you keep 1 admin connection and unlimited receiver connections. No data is deleted.</p>
+            <p>Your account is <strong>locked</strong> until you resubscribe — but your data is <strong>preserved</strong>. Nothing is deleted: your connections and settings stay intact, and you get full access back the moment you resubscribe. (Your account doesn't drop to a free plan, because there isn't one.)</p>
+            <p>Even while locked, the safety features stay available — check-ins and duress alerts are never paywalled.</p>
           </div>
         </details>
         <details class="faq-item">
-          <summary>How do I cancel my Personal subscription?</summary>
+          <summary>How do I cancel my subscription?</summary>
           <div class="faq-answer">
             <p>Subscriptions are managed by the App Store or Google Play, not SimplyAuth directly.</p>
             <ul>
@@ -466,6 +483,13 @@
               <li><strong>Android:</strong> Google Play → Profile icon → Payments &amp; subscriptions → Subscriptions → SimplyAuth</li>
             </ul>
             <p>Note: deleting the app does not cancel your subscription.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Is there a plan for businesses or teams?</summary>
+          <div class="faq-answer">
+            <p>Verified Business is coming soon and is currently a <strong>waitlist</strong>. It's gated on SOC 2 and HIPAA readiness work we have in progress, so we're not selling it yet.</p>
+            <p>If you'd like verified, encrypted messaging for a team, email <a href="mailto:support@simplyauth.app?subject=Verified%20Business%20waitlist">support@simplyauth.app</a> to join the waitlist and tell us what you'd use it for.</p>
           </div>
         </details>
       </div>
@@ -478,7 +502,7 @@
         <details class="faq-item">
           <summary>What data do you collect?</summary>
           <div class="faq-answer">
-            <p>Only what's needed to make the app work: your name, email, profile photo (from Google or Apple sign-in), device tokens for push notifications, and connection and verification records. Verification phrases auto-delete within 24 hours. We never collect your panic word, phone number, location, or contacts. See our <a href="/privacy.html">Privacy Policy</a> for full details.</p>
+            <p>Only what's needed to make the app work: your name, email, profile photo (from Google or Apple sign-in), device tokens for push notifications, connection records, and session/verification metadata. Verified Session message content is end-to-end encrypted — we store ciphertext only and can't read it. We never collect your panic word, location, or contacts, and a phone number is optional (we only store one if you choose to add it). See our <a href="/privacy.html">Privacy Policy</a> for full details.</p>
           </div>
         </details>
         <details class="faq-item">
@@ -513,27 +537,27 @@
       <h2>Phone Number</h2>
       <div class="faq-list">
         <details class="faq-item">
-          <summary>Why should I add my phone number?</summary>
+          <summary>Do I need a phone number to use SimplyAuth?</summary>
           <div class="faq-answer">
-            <p>Adding your number unlocks two features: (1) your connections can call you directly from the app, and (2) SimplyAuth can identify their incoming calls on your device so you know it's a trusted contact before you pick up.</p>
+            <p>No. A phone number is completely optional — it's not required to verify someone, open a Verified Session, set up check-ins, or use any other feature. You can run the whole app without ever adding one.</p>
           </div>
         </details>
         <details class="faq-item">
           <summary>Is my phone number shared with other users?</summary>
           <div class="faq-answer">
-            <p>Your phone number is only visible to your active connections — never to strangers or the public. It is stored securely and verified through Firebase before being saved.</p>
+            <p>If you choose to add one, your phone number is only ever visible to your active connections — never to strangers or the public. It's stored securely and verified before being saved. And you can leave it off entirely.</p>
           </div>
         </details>
         <details class="faq-item">
-          <summary>How do I add or change my phone number?</summary>
+          <summary>How do I add or remove my phone number?</summary>
           <div class="faq-answer">
-            <p>Go to Profile → Phone Number. Enter your number, choose your country code, and tap Send Verification Code. Enter the 6-digit SMS code to confirm. You can update your number at any time by going through the same flow.</p>
+            <p>Go to Profile → Phone Number. To add one, enter your number, choose your country code, and confirm the 6-digit code we text you. You can change or remove it at any time from the same screen.</p>
           </div>
         </details>
         <details class="faq-item">
           <summary>Does SimplyAuth call me or send marketing SMS?</summary>
           <div class="faq-answer">
-            <p>No. The only SMS you'll ever receive from us is a one-time verification code when you add or update your phone number.</p>
+            <p>No. If you add a phone number, the only SMS you'll ever receive from us is a one-time verification code. We don't make calls and we never send marketing texts.</p>
           </div>
         </details>
       </div>
@@ -546,7 +570,7 @@
         <details class="faq-item">
           <summary>How does the referral program work?</summary>
           <div class="faq-answer">
-            <p>Share your referral code with your connections. When they sign up and create their first connection, you both earn 1 free month of Personal. Refer as many people as you like — your rewards cap at 6 months.</p>
+            <p>Share your referral code with your connections. When they sign up and create their first connection, you both earn 1 free month of SimplyAuth. Refer as many people as you like — your rewards cap at 6 months.</p>
           </div>
         </details>
         <details class="faq-item">
@@ -568,7 +592,7 @@
           </div>
         </details>
         <details class="faq-item">
-          <summary>What if I'm already on Personal?</summary>
+          <summary>What if I'm already subscribed?</summary>
           <div class="faq-answer">
             <p>Your subscription gets extended automatically by 1 month for each successful referral, up to 6 months. No extra steps needed.</p>
           </div>
@@ -663,6 +687,7 @@
     <div class="faq-support">
       <h3>Still have questions?</h3>
       <p>We're happy to help. Email us at <a href="mailto:support@simplyauth.app">support@simplyauth.app</a> and we'll typically respond within 1 business day.</p>
+      <p><small>Last updated: June 26, 2026</small></p>
     </div>
 
   </div>

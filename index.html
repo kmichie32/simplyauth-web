@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SimplyAuth – Verify Who You're Really Talking To</title>
-  <meta name="description" content="Verify who you're really talking to with time-limited phrases — then share sensitive info in an end-to-end encrypted Session that auto-wipes when the room closes.">
+  <title>SimplyAuth – Secure Messages for the Stuff You Can't Text</title>
+  <meta name="description" content="Send passwords, SSNs, and card numbers end-to-end encrypted to people you've verified — then they vanish. Verify who's really on the line, then share in a Session that auto-wipes when it closes.">
   <link rel="canonical" href="https://simplyauth.app/">
   <meta name="theme-color" content="#2563EB">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="SimplyAuth – Verify Who You're Really Talking To">
-  <meta property="og:description" content="Verify who's on the call, then share sensitive info in an encrypted Session that auto-wipes when you're done.">
+  <meta property="og:title" content="SimplyAuth – Secure Messages for the Stuff You Can't Text">
+  <meta property="og:description" content="Send passwords, SSNs, and card numbers end-to-end encrypted to people you've verified — then they vanish. Server-blind, no phone number required.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://simplyauth.app/">
   <meta property="og:site_name" content="SimplyAuth">
@@ -21,8 +21,8 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="SimplyAuth – Verify Who You're Really Talking To">
-  <meta name="twitter:description" content="Verify who's on the call, then share sensitive info in an encrypted Session that auto-wipes when you're done.">
+  <meta name="twitter:title" content="SimplyAuth – Secure Messages for the Stuff You Can't Text">
+  <meta name="twitter:description" content="Send passwords, SSNs, and card numbers end-to-end encrypted to people you've verified — then they vanish. Server-blind, no phone number required.">
   <meta name="twitter:image" content="https://simplyauth.app/logo.png">
   <meta name="twitter:image:alt" content="SimplyAuth logo">
 
@@ -48,7 +48,7 @@
     "name": "SimplyAuth",
     "operatingSystem": "iOS, Android",
     "applicationCategory": "UtilitiesApplication",
-    "description": "Verify your contacts' identity in seconds with time-limited voice phrases. Protect yourself from phone scams and impersonation.",
+    "description": "Send passwords, SSNs, and card numbers end-to-end encrypted to people you've verified — then they vanish. Verify who's really on the line, then share in a Session that auto-wipes when it closes.",
     "url": "https://simplyauth.app/",
     "image": "https://simplyauth.app/logo.png",
     "publisher": {
@@ -56,20 +56,12 @@
       "name": "SimplyAuth LLC",
       "url": "https://simplyauth.app/"
     },
-    "offers": [
-      {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD",
-        "description": "Free plan with 1 admin connection"
-      },
-      {
-        "@type": "Offer",
-        "price": "0.99",
-        "priceCurrency": "USD",
-        "description": "Personal plan with Verified Sessions and up to 10 admin connections ($0.99/month or $7.99/year; prices vary by region)"
-      }
-    ]
+    "offers": {
+      "@type": "Offer",
+      "price": "0.99",
+      "priceCurrency": "USD",
+      "description": "Full access to Verified Sessions and verified connections. $0.99/month or $7.99/year with a 30-day free trial; prices vary by region. Safety features are free for everyone."
+    }
   }
   </script>
 </head>
@@ -92,12 +84,12 @@
       <a href="/roadmap.html">Roadmap</a>
       <a href="#download" class="nav-cta">Download</a>
     </div>
-    <button class="nav-hamburger" aria-label="Menu" onclick="document.querySelector('.nav-mobile').classList.toggle('open')">
+    <button class="nav-hamburger" aria-label="Menu" aria-expanded="false" aria-controls="nav-mobile" onclick="var m=document.getElementById('nav-mobile');this.setAttribute('aria-expanded', m.classList.toggle('open'))">
       <span></span><span></span><span></span>
     </button>
   </div>
 </nav>
-<div class="nav-mobile">
+<div class="nav-mobile" id="nav-mobile">
   <a href="#features" onclick="this.parentElement.classList.remove('open')">Features</a>
   <a href="#how-it-works" onclick="this.parentElement.classList.remove('open')">How It Works</a>
   <a href="#pricing" onclick="this.parentElement.classList.remove('open')">Pricing</a>
@@ -114,8 +106,9 @@
     <div class="hero-content">
       <h1>Verified, <em>then</em> secure.</h1>
       <p class="hero-subtitle">
-        Prove who's really on the line with a 60-second phrase. Then share the password,
-        the SSN, or the wire detail in an encrypted room that wipes itself when you close it.
+        Share the password, the SSN, or the wire detail in an encrypted room that wipes
+        itself when you close it — with someone you've proven is really them, by a
+        60-second phrase, first.
       </p>
       <ul class="hero-chips" aria-label="What makes SimplyAuth different">
         <li>No phone number required</li>
@@ -123,12 +116,12 @@
         <li>End-to-end encrypted</li>
       </ul>
       <div class="hero-buttons">
-        <a href="#download" class="btn btn-primary btn-lg">Download Free</a>
+        <a href="#download" class="btn btn-primary btn-lg">Start Free Trial</a>
         <a href="#sessions" class="btn btn-outline btn-lg">See a Verified Session</a>
       </div>
     </div>
     <div class="hero-phone">
-      <div class="phone-frame">
+      <div class="phone-frame" aria-hidden="true">
         <div class="phone-notch"></div>
         <div class="phone-screen" id="mockup-hero-verify">
           <!-- Rendered by mockups.js -->
@@ -178,83 +171,6 @@
 </section>
 
 <!-- ================================================================
-     HOW IT WORKS
-     ================================================================ -->
-<section class="how-it-works" id="how-it-works">
-  <div class="container">
-    <div class="section-header reveal">
-      <h2>How It Works</h2>
-      <p>Three steps to verify anyone's identity</p>
-    </div>
-    <div class="steps">
-      <!-- Step 1 -->
-      <div class="step reveal">
-        <div class="step-text">
-          <span class="step-number">1</span>
-          <h3>Add a Connection</h3>
-          <p>Share an invite code or scan a QR code to link with someone you trust. It takes seconds.</p>
-        </div>
-        <div class="step-phone">
-          <div class="phone-frame phone-sm">
-            <div class="phone-notch"></div>
-            <div class="phone-screen" id="mockup-add-connection">
-              <!-- Rendered by mockups.js -->
-            </div>
-            <div class="phone-home-indicator"></div>
-          </div>
-        </div>
-      </div>
-      <!-- Step 2 -->
-      <div class="step step-reverse reveal">
-        <div class="step-text">
-          <span class="step-number">2</span>
-          <h3>In a moment that matters</h3>
-          <p>On a call, or before acting on a request — tap "Verify" on your connection's card. A unique, time-limited phrase appears on both phones simultaneously.</p>
-        </div>
-        <div class="step-phone">
-          <div class="phone-frame phone-sm">
-            <div class="phone-notch"></div>
-            <div class="phone-screen" id="mockup-home">
-              <!-- Rendered by mockups.js -->
-            </div>
-            <div class="phone-home-indicator"></div>
-          </div>
-        </div>
-      </div>
-      <!-- Step 3 -->
-      <div class="step reveal">
-        <div class="step-text">
-          <span class="step-number">3</span>
-          <h3>Read the phrase aloud</h3>
-          <p>If what they read matches your screen, it's really them. If not, hang up immediately.</p>
-        </div>
-        <div class="step-phone">
-          <div class="phone-frame phone-sm">
-            <div class="phone-notch"></div>
-            <div class="phone-screen" id="mockup-phrase">
-              <!-- Rendered by mockups.js -->
-            </div>
-            <div class="phone-home-indicator"></div>
-          </div>
-        </div>
-      </div>
-      <!-- Step 4 -->
-      <div class="step step-reverse step-final reveal">
-        <div class="step-text">
-          <span class="step-number">4</span>
-          <h3>Open a Session</h3>
-          <p>Verified? Now share the password, SSN, or document in an end-to-end encrypted room. It wipes itself in 20 minutes or 30 messages — whichever comes first.</p>
-        </div>
-        <div class="step-session-visual" aria-hidden="true">
-          <div class="session-banner">🔒 Verified Session · wipes in 19:58</div>
-          <div class="bubble bubble-session">Routing ••••••••  ·  Acct ••••••</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================================================================
      VERIFIED SESSIONS — FLAGSHIP
      ================================================================ -->
 <section class="sessions-flagship" id="sessions">
@@ -283,6 +199,83 @@
     <p class="spec-strip reveal">
       Per-session encryption keys generated on your device · Server stores ciphertext only · 20-minute cap · 30-message limit · Screenshot blocked on Android, detected on iOS · Auto-wipes on both phones when the session closes
     </p>
+  </div>
+</section>
+
+<!-- ================================================================
+     HOW IT WORKS
+     ================================================================ -->
+<section class="how-it-works" id="how-it-works">
+  <div class="container">
+    <div class="section-header reveal">
+      <h2>How It Works</h2>
+      <p>Four steps: verify who you're talking to, then share it securely</p>
+    </div>
+    <div class="steps">
+      <!-- Step 1 -->
+      <div class="step reveal">
+        <div class="step-text">
+          <span class="step-number">1</span>
+          <h3>Add a Connection</h3>
+          <p>Share an invite code or scan a QR code to link with someone you trust. It takes seconds.</p>
+        </div>
+        <div class="step-phone">
+          <div class="phone-frame phone-sm" aria-hidden="true">
+            <div class="phone-notch"></div>
+            <div class="phone-screen" id="mockup-add-connection">
+              <!-- Rendered by mockups.js -->
+            </div>
+            <div class="phone-home-indicator"></div>
+          </div>
+        </div>
+      </div>
+      <!-- Step 2 -->
+      <div class="step step-reverse reveal">
+        <div class="step-text">
+          <span class="step-number">2</span>
+          <h3>In a moment that matters</h3>
+          <p>On a call, or before acting on a request — tap "Verify" on your connection's card. A unique, time-limited phrase appears on both phones simultaneously.</p>
+        </div>
+        <div class="step-phone">
+          <div class="phone-frame phone-sm" aria-hidden="true">
+            <div class="phone-notch"></div>
+            <div class="phone-screen" id="mockup-home">
+              <!-- Rendered by mockups.js -->
+            </div>
+            <div class="phone-home-indicator"></div>
+          </div>
+        </div>
+      </div>
+      <!-- Step 3 -->
+      <div class="step reveal">
+        <div class="step-text">
+          <span class="step-number">3</span>
+          <h3>Read the phrase aloud</h3>
+          <p>If what they read matches your screen, it's really them. If not, hang up immediately.</p>
+        </div>
+        <div class="step-phone">
+          <div class="phone-frame phone-sm" aria-hidden="true">
+            <div class="phone-notch"></div>
+            <div class="phone-screen" id="mockup-phrase">
+              <!-- Rendered by mockups.js -->
+            </div>
+            <div class="phone-home-indicator"></div>
+          </div>
+        </div>
+      </div>
+      <!-- Step 4 -->
+      <div class="step step-reverse step-final reveal">
+        <div class="step-text">
+          <span class="step-number">4</span>
+          <h3>Open a Session</h3>
+          <p>Verified? Now share the password, SSN, or document in an end-to-end encrypted room. It wipes itself in 20 minutes or 30 messages — whichever comes first.</p>
+        </div>
+        <div class="step-session-visual" aria-hidden="true">
+          <div class="session-banner">🔒 Verified Session · wipes in 19:58</div>
+          <div class="bubble bubble-session">Routing ••••••••  ·  Acct ••••••</div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -346,87 +339,6 @@
 </section>
 
 <!-- ================================================================
-     DEMO VIDEO
-     ================================================================ -->
-<section class="demo-video" id="demo-video">
-  <div class="container">
-    <div class="section-header reveal">
-      <h2>See it in action</h2>
-      <p>Watch how SimplyAuth verifies a trusted connection in seconds — from adding a contact to confirming who's really on the other end of the line.</p>
-    </div>
-    <div class="video-wrapper reveal">
-      <video
-        controls
-        preload="metadata"
-        poster="demo-poster.jpg"
-        playsinline
-        aria-label="SimplyAuth product demo"
-      >
-        <source src="demo.mp4" type="video/mp4">
-        Your browser does not support the video tag. <a href="demo.mp4">Download the demo video</a>.
-      </video>
-    </div>
-    <p class="video-description">
-      SimplyAuth shows a matching rotating phrase on both phones during a call. If the phrase the caller reads aloud matches what's on your screen, it's really them. Ten seconds of friction for complete certainty — and peace of mind when it matters most.
-    </p>
-    <p class="video-credit">
-      Music: <a href="https://uppbeat.io/t/iros-young/a-perfect-day" target="_blank" rel="noopener">"A Perfect Day" by Iros Young</a> via Uppbeat · License M6MOKCXD6EPTK3XA
-    </p>
-  </div>
-</section>
-
-<!-- ================================================================
-     PRICING
-     ================================================================ -->
-<section class="pricing" id="pricing">
-  <div class="container">
-    <div class="section-header reveal">
-      <h2>Simple Pricing</h2>
-      <p>Start free. Upgrade when you need more connections.</p>
-    </div>
-    <div class="pricing-cards reveal">
-      <div class="pricing-card">
-        <h3>Free</h3>
-        <p class="price">$0</p>
-        <ul>
-          <li>Send 1 invite, accept unlimited</li>
-          <li>Unlimited verifications</li>
-          <li>Scheduled check-ins</li>
-          <li>Distress alerts</li>
-        </ul>
-        <a href="#download" class="btn btn-outline">Get Started</a>
-      </div>
-      <div class="pricing-card pricing-card-featured">
-        <div class="pricing-badge">Most Popular</div>
-        <h3>Personal</h3>
-        <p class="price">$0.99<span>/mo</span></p>
-        <p style="font-size:0.85rem;color:#64748b;margin:-0.5rem 0 1rem;">or $7.99/year &nbsp;·&nbsp; save 33%</p>
-        <ul>
-          <li>Verified Sessions (end-to-end encrypted)</li>
-          <li>Send up to 10 invites, accept unlimited</li>
-          <li>Everything in Free</li>
-          <li>Refer friends for free months</li>
-        </ul>
-        <a href="#download" class="btn btn-primary">Start Free Trial</a>
-        <p class="pricing-promo">Use code <strong>EARLYBIRD</strong> for a free trial — first 200 users only!</p>
-      </div>
-      <div class="pricing-card pricing-card-soon">
-        <div class="pricing-badge pricing-badge-soon">Coming soon</div>
-        <h3>Verified Business</h3>
-        <p class="price price-soon">Let's talk</p>
-        <ul>
-          <li>A verified business identity for your team</li>
-          <li>Staff share one trusted, verified profile</li>
-          <li>Branded session links for client onboarding</li>
-          <li>Gated on SOC&nbsp;2 / HIPAA readiness</li>
-        </ul>
-        <a href="mailto:support@simplyauth.app?subject=Verified%20Business%20waitlist" class="btn btn-outline">Join the waitlist</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================================================================
      TRUST STRIP
      ================================================================ -->
 <section class="trust-strip" id="trust">
@@ -450,18 +362,59 @@
 </section>
 
 <!-- ================================================================
+     PRICING
+     ================================================================ -->
+<section class="pricing" id="pricing">
+  <div class="container">
+    <div class="section-header reveal">
+      <h2>Simple Pricing</h2>
+      <p>One plan. Everything included. Start with a 30-day free trial.</p>
+    </div>
+    <div class="pricing-cards reveal">
+      <div class="pricing-card pricing-card-featured">
+        <div class="pricing-badge">30-day free trial</div>
+        <h3>SimplyAuth</h3>
+        <p class="price">$0.99<span>/mo</span></p>
+        <p style="font-size:0.85rem;color:#64748b;margin:-0.5rem 0 1rem;">or $7.99/year &nbsp;·&nbsp; save 33%</p>
+        <ul>
+          <li>Verified Sessions (end-to-end encrypted)</li>
+          <li>Verified connections &amp; caller verification</li>
+          <li>Auto-wiping rooms — no history, no backup</li>
+          <li>Refer friends for free months</li>
+        </ul>
+        <a href="#download" class="btn btn-primary">Start Free Trial</a>
+        <p class="pricing-promo">Use code <strong>EARLYBIRD</strong> for an extended free trial — first 200 users only!</p>
+      </div>
+      <div class="pricing-card pricing-card-soon">
+        <div class="pricing-badge pricing-badge-soon">Coming soon</div>
+        <h3>Verified Business</h3>
+        <p class="price price-soon">Let's talk</p>
+        <ul>
+          <li>A verified business identity for your team</li>
+          <li>Staff share one trusted, verified profile</li>
+          <li>Branded session links for client onboarding</li>
+          <li>Gated on SOC&nbsp;2 / HIPAA readiness</li>
+        </ul>
+        <a href="mailto:support@simplyauth.app?subject=Verified%20Business%20waitlist" class="btn btn-outline">Join the waitlist</a>
+      </div>
+    </div>
+    <p class="pricing-safety-note reveal">Safety features — scheduled check-ins and silent distress alerts — are free for everyone. They're never behind a paywall.</p>
+  </div>
+</section>
+
+<!-- ================================================================
      DOWNLOAD CTA
      ================================================================ -->
 <section class="download-cta" id="download">
   <div class="container">
     <h2>Get SimplyAuth</h2>
-    <p>Available on iOS and Android. Free to download.</p>
+    <p>Available on iOS and Android. Start with a 30-day free trial.</p>
     <div class="store-buttons">
-      <a class="store-badge" href="https://apps.apple.com/us/app/simplyauth/6761439612" target="_blank" rel="noopener" aria-label="Download on the App Store">
-        <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store">
+      <a class="store-badge" href="https://apps.apple.com/us/app/simplyauth/id6761439612" target="_blank" rel="noopener" aria-label="Download on the App Store">
+        <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" width="160" height="54">
       </a>
       <a class="store-badge" href="https://play.google.com/store/apps/details?id=app.simplyauth" target="_blank" rel="noopener" aria-label="Get it on Google Play">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play" width="180" height="54">
       </a>
     </div>
     <p class="coming-soon">Now available on iOS and Android</p>

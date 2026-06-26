@@ -6,6 +6,11 @@
 (function () {
   'use strict';
 
+  // Respect the user's reduced-motion preference: render static frames and
+  // skip every looping timer/animation when set.
+  const REDUCE_MOTION = window.matchMedia
+    && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   // ── Mock Data ────────────────────────────────────────────────
   const WORDS = ['ocean','timber','falcon','marble','silver','garden','crystal','summit','ember','velvet',
                  'breeze','canyon','dusk','echo','frost','harbor','iron','jasper','lotus','meadow'];
@@ -87,6 +92,8 @@
 
     render();
 
+    if (REDUCE_MOTION) return null;
+
     const timer = setInterval(() => {
       seconds--;
       if (seconds < 0) {
@@ -134,7 +141,7 @@
         </div>
         <div class="home-profile-badge">
           <div class="mock-avatar" style="background:#DBEAFE;color:#1E40AF;width:28px;height:28px;font-size:10px;border-radius:14px">KM</div>
-          <div class="home-plan-badge">&#10022; Personal</div>
+          <div class="home-plan-badge">&#10022; Active</div>
         </div>
       </div>
       <div class="home-subtitle">Who would you like to verify today?</div>
@@ -149,11 +156,11 @@
       <div class="home-section-header">
         <div style="display:flex;align-items:baseline;gap:4px">
           <h3 class="home-conn-title">Your Connections</h3>
-          <span class="home-conn-count">(1/10)</span>
+          <span class="home-conn-count">(2)</span>
         </div>
         <a href="javascript:void(0)" class="home-add-link">+ Add</a>
       </div>
-      <div class="home-conn-hint">Only connections you invite count toward your limit</div>
+      <div class="home-conn-hint">Verified connections you can open a Session with</div>
       <div class="home-connections">${conns}</div>
     `;
   }
@@ -199,6 +206,8 @@
     }
 
     render();
+
+    if (REDUCE_MOTION) return;
 
     setInterval(() => {
       totalSec--;
@@ -282,10 +291,198 @@
     });
   }
 
+  // ── Verified Session Room Screen ─────────────────────────────
+  // Faithful mock of the in-app active Session room + the signature
+  // "wipe" sequence (room ghost-fades, messages disperse upward as
+  // particles, "Session ended / Nothing was kept." settles in). Loops.
+  // Palette mirrors src/constants/colors.ts roomColors.
+  function buildSessionRoomScreen(containerId) {
+    const el = document.getElementById(containerId);
+    if (!el) return;
+
+    el.style.background = '#07090E';
+
+    el.innerHTML = `
+      <div class="vsx-statusbar">
+        <span>9:41</span>
+        <span class="vsx-lock">&#x1F512;</span>
+      </div>
+      <div class="vsx-room">
+        <div class="vsx-header">
+          <div class="vsx-who">
+            <div class="vsx-avatar">SM</div>
+            <span class="vsx-name">Sarah Mitchell</span>
+          </div>
+          <div class="vsx-controls">
+            <span class="vsx-timer">19:58</span>
+            <span class="vsx-end">&#x2715;</span>
+          </div>
+        </div>
+        <div class="vsx-trust">&#x1F6E1; Verified &middot; end-to-end encrypted</div>
+        <div class="vsx-thread"></div>
+        <div class="vsx-ledger"></div>
+        <div class="vsx-composer">
+          <div class="vsx-input">Message</div>
+          <div class="vsx-send">&#x2191;</div>
+        </div>
+      </div>
+      <div class="vsx-wipe">
+        <div class="vsx-particles"></div>
+        <div class="vsx-wipe-text">
+          <div class="vsx-wipe-title">Session ended</div>
+          <div class="vsx-wipe-sub">Nothing was kept.</div>
+        </div>
+      </div>
+    `;
+
+    const room = el.querySelector('.vsx-room');
+    const thread = el.querySelector('.vsx-thread');
+    const ledger = el.querySelector('.vsx-ledger');
+    const wipe = el.querySelector('.vsx-wipe');
+    const wipeText = el.querySelector('.vsx-wipe-text');
+    const pLayer = el.querySelector('.vsx-particles');
+    const timerEl = el.querySelector('.vsx-timer');
+
+    const CAP = 30;
+    let sent = 0, secs = 0, tickId = null, timeouts = [];
+
+    function buildLedger() {
+      let dots = '';
+      for (let i = 0; i < CAP; i++) {
+        dots += `<span class="vsx-dot${i < sent ? ' vsx-dot-on' : ''}"></span>`;
+      }
+      ledger.innerHTML = dots;
+    }
+    function fmt(s) { const m = Math.floor(s / 60), x = s % 60; return `${m}:${x < 10 ? '0' : ''}${x}`; }
+    function startTimer() {
+      secs = 19 * 60 + 58; timerEl.textContent = fmt(secs);
+      tickId = setInterval(() => { secs = Math.max(0, secs - 1); timerEl.textContent = fmt(secs); }, 1000);
+    }
+    function at(ms, fn) { timeouts.push(setTimeout(fn, ms)); }
+    function mono(s) { return `<span class="vsx-mono">${s}</span>`; }
+
+    function bubble(side, html) {
+      const wrap = document.createElement('div');
+      wrap.className = `vsx-row vsx-row-${side}`;
+      wrap.innerHTML = `<div class="vsx-bubble vsx-bubble-${side}">${html}</div>`;
+      thread.appendChild(wrap);
+      requestAnimationFrame(() => wrap.classList.add('vsx-row-in'));
+      return wrap;
+    }
+    function typing(side) {
+      const wrap = document.createElement('div');
+      wrap.className = `vsx-row vsx-row-${side} vsx-row-in`;
+      wrap.innerHTML = `<div class="vsx-bubble vsx-bubble-them vsx-typing"><span></span><span></span><span></span></div>`;
+      thread.appendChild(wrap);
+      return wrap;
+    }
+    function send(side, html) { sent++; buildLedger(); return bubble(side, html); }
+
+    function disperse() {
+      pLayer.innerHTML = '';
+      const W = el.clientWidth || 240, H = el.clientHeight || 520, N = 52;
+      for (let i = 0; i < N; i++) {
+        const sx = Math.random() * W,
+              sy = H * 0.45 + Math.random() * H * 0.45,
+              ty = -(50 + Math.random() * 110),
+              tx = (Math.random() - 0.5) * 56,
+              sz = 3 + Math.random() * 4,
+              self = Math.random() < 0.5,
+              delay = Math.random() * 200;
+        const p = document.createElement('div');
+        p.className = 'vsx-particle';
+        p.style.cssText = `left:${sx}px;top:${sy}px;width:${sz}px;height:${sz}px;`
+          + `background:${self ? '#3B82F6' : '#E5E9F0'};`
+          + `transition:transform 1s cubic-bezier(.22,.61,.36,1) ${delay}ms,opacity 1s cubic-bezier(.22,.61,.36,1) ${delay}ms;`;
+        pLayer.appendChild(p);
+        (function (node, dx, dy) {
+          requestAnimationFrame(() => requestAnimationFrame(() => {
+            node.style.transform = `translate(${dx}px,${dy}px)`;
+            node.style.opacity = '0';
+          }));
+        })(p, tx, ty);
+      }
+    }
+
+    function run() {
+      timeouts.forEach(clearTimeout); timeouts = [];
+      if (tickId) clearInterval(tickId);
+      thread.innerHTML = ''; pLayer.innerHTML = ''; sent = 0; buildLedger();
+      room.style.opacity = '1';
+      wipe.style.background = 'rgba(7,9,14,0)';
+      wipe.style.opacity = '1';
+      wipeText.style.opacity = '0';
+      startTimer();
+
+      at(700, () => { const t = typing('them'); at(1100, () => { t.remove(); send('them', 'Sending the new wire details &mdash; want the right account?'); }); });
+      at(3000, () => { const t = typing('me'); at(900, () => { t.remove(); send('me', 'Routing &nbsp;' + mono('021 000 021')); }); });
+      at(4700, () => send('me', 'Account &nbsp;' + mono('5847 2290 1183')));
+      at(6400, () => { const t = typing('them'); at(1000, () => { t.remove(); send('them', 'Got it. Wiring now &mdash; thank you.'); }); });
+
+      at(9000, () => { room.style.opacity = '.07'; wipe.style.background = 'rgba(7,9,14,.6)'; disperse(); });
+      at(9300, () => { wipeText.style.opacity = '1'; });
+      at(11200, () => { wipe.style.opacity = '0'; });
+      at(12200, run);
+    }
+
+    // Static, fully-populated frame — used for reduced-motion (no loop, no
+    // timers, no particle wipe).
+    function renderStatic() {
+      if (tickId) clearInterval(tickId);
+      timeouts.forEach(clearTimeout); timeouts = [];
+      thread.innerHTML = ''; pLayer.innerHTML = ''; sent = 0;
+      room.style.opacity = '1';
+      wipe.style.opacity = '0'; wipe.style.background = 'rgba(7,9,14,0)'; wipeText.style.opacity = '0';
+      timerEl.textContent = '19:58';
+      send('them', 'Sending the new wire details — want the right account?');
+      send('me', 'Routing &nbsp;' + mono('021 000 021'));
+      send('me', 'Account &nbsp;' + mono('5847 2290 1183'));
+      send('them', 'Got it. Wiring now — thank you.');
+    }
+
+    buildLedger();
+
+    if (REDUCE_MOTION) {
+      renderStatic();
+      return;
+    }
+
+    // Only animate while the hero is on-screen and the tab is visible —
+    // otherwise the forever-loop and its 1Hz timer burn CPU/battery for nothing.
+    let running = false;
+    function startLoop() { if (running) return; running = true; run(); }
+    function stopLoop() {
+      running = false;
+      timeouts.forEach(clearTimeout); timeouts = [];
+      if (tickId) clearInterval(tickId);
+    }
+    function inView() {
+      const r = el.getBoundingClientRect();
+      return r.bottom > 0 && r.top < (window.innerHeight || document.documentElement.clientHeight);
+    }
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => { e.isIntersecting ? startLoop() : stopLoop(); });
+      }, { threshold: 0.2 });
+      io.observe(el);
+    } else {
+      startLoop();
+    }
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) stopLoop();
+      else if (inView()) startLoop();
+    });
+  }
+
   // ── Scroll Reveal ────────────────────────────────────────────
   function initScrollReveal() {
     const reveals = document.querySelectorAll('.reveal');
     if (!reveals.length) return;
+
+    if (REDUCE_MOTION) {
+      reveals.forEach(el => el.classList.add('visible'));
+      return;
+    }
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -302,7 +499,7 @@
   // ── Init ─────────────────────────────────────────────────────
   function init() {
     // Build all mockups
-    buildVerifyScreen('mockup-hero-verify', false);
+    buildSessionRoomScreen('mockup-hero-verify');
     buildVerifyScreen('mockup-phrase', true);
     buildHomeScreen('mockup-home');
     buildCheckinScreen('mockup-checkin');

@@ -78,7 +78,7 @@
   <div class="container">
     <header class="legal-header">
       <h1>Privacy Policy</h1>
-      <p class="legal-updated">Last updated: April 2026</p>
+      <p class="legal-updated">Last updated: June 2026</p>
     </header>
 
     <div class="legal-content">
@@ -92,21 +92,27 @@
       Email: <a href="mailto:support@simplyauth.app">support@simplyauth.app</a></p>
 
       <h2>What We Collect</h2>
-      <p>When you sign in with Google or Apple, we receive your <strong>name, email address, and profile photo URL</strong>. We also store a unique account identifier and <strong>device tokens</strong> used to deliver push notifications to your device.</p>
-      <p>When you connect with other users and perform verifications, we store <strong>connection records</strong> (who connected with whom) and <strong>verification records</strong> (who verified whom, when, and the outcome). Verification phrases are ephemeral — they expire after 60 seconds and are automatically deleted within 24 hours.</p>
+      <p>When you sign in with <strong>Google, Apple, or email</strong>, we receive your <strong>name and email address</strong> (and a profile photo URL if one is provided by Google or Apple). We also store a unique account identifier and <strong>device tokens</strong> used to deliver push notifications to your device.</p>
+      <p>You may <strong>optionally</strong> add a <strong>phone number</strong> to your profile so trusted contacts can recognize you. Providing a phone number is optional, and you can remove it at any time.</p>
+      <p>When you connect with other people and perform verifications, we store <strong>connection records</strong> (who is connected with whom) and <strong>verification records</strong> (who verified whom, when, and the outcome). Verification phrases are ephemeral — they expire after 60 seconds and are automatically deleted within 24 hours.</p>
+
+      <h2>Your Messages Are End-to-End Encrypted</h2>
+      <p>When you share something in a <strong>Session</strong> — our encrypted messaging feature — the contents are <strong>end-to-end encrypted on your device</strong> and can be decrypted only on your recipient's device. <strong>We never see the contents of your messages.</strong> Our servers only ever hold encrypted ciphertext, which we cannot read. When a Session ends, the messages are deleted. We do not retain, back up, read, or analyze the contents of your Sessions.</p>
 
       <h2>What We Never Collect</h2>
       <div class="legal-callout">
-        <p>Your <strong>panic / distress word</strong> is stored only on your device and is <strong>never transmitted</strong> to our servers or any third party. We do not collect your phone number, location, contacts, or payment card details.</p>
+        <p>Your <strong>panic / distress PIN</strong> is stored only on your device and is <strong>never transmitted</strong> to our servers or any third party. We do not collect your <strong>location</strong>, your device <strong>contacts</strong>, or your <strong>payment card details</strong>. And we never see the contents of your encrypted Sessions.</p>
       </div>
 
       <h2>How We Use Your Data</h2>
       <ul>
-        <li>To provide real-time identity verification between you and your trusted contacts</li>
-        <li>To send push notifications when a verification request is directed to you</li>
+        <li>To enable end-to-end encrypted Sessions (messaging) between you and your verified connections</li>
+        <li>To provide identity verification between you and your trusted contacts</li>
+        <li>To send push notifications when a verification request, message, or alert is directed to you</li>
         <li>To maintain your list of trusted connections</li>
         <li>To display your verification history</li>
-        <li>To manage your subscription (Personal plan)</li>
+        <li>To deliver safety features you set up, such as check-ins and distress alerts</li>
+        <li>To manage your subscription and free trial</li>
       </ul>
 
       <h2>Third-Party Services</h2>
@@ -115,10 +121,10 @@
       <p><strong>Apple Inc.</strong> / <strong>Google LLC</strong> — Sign-in and payment processing via their respective platforms.</p>
 
       <h2>Data Retention</h2>
-      <p>Verification records are automatically deleted within 24 hours. Your account, connection, and subscription data is retained while your account is active. You may request deletion of all your data at any time by contacting us — we will remove your account and all associated records within 30 days.</p>
+      <p>Session messages are ephemeral — they are stored only as encrypted ciphertext that we cannot read, and they are deleted when the Session ends. Verification records are automatically deleted within 24 hours. Your account, connection, and subscription data is retained while your account is active. You may request deletion of all your data at any time by contacting us — we will remove your account and all associated records within 30 days.</p>
 
       <h2>Security</h2>
-      <p>All data is protected by Firebase Security Rules, which ensure that only you and your verified connections can access shared data. Verification phrases are never transmitted over the phone — they exist only inside the app and expire automatically.</p>
+      <p>Messages shared in a Session are <strong>end-to-end encrypted</strong> — encrypted on your device and decrypted only on your recipient's device, so we cannot read them. All other data is protected by Firebase Security Rules, which ensure that only you and your verified connections can access shared data. Verification phrases are never transmitted over the phone — they exist only inside the app and expire automatically.</p>
 
       <h2>Children</h2>
       <p>SimplyAuth is not directed at children under 13. We do not knowingly collect data from children under 13. If you believe a child has provided us with personal information, please contact us and we will delete it promptly.</p>
