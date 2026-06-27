@@ -22,7 +22,7 @@
   --border-dark: #CBD5E1;
   --text-primary: #0F172A;
   --text-secondary: #475569;
-  --text-tertiary: #94A3B8;
+  --text-tertiary: #64748B;
   --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 14px;
@@ -475,62 +475,6 @@ a { color: inherit; text-decoration: none; }
   left: 0;
   color: var(--success);
   font-weight: 700;
-}
-
-/* ================================================================
-   DEMO VIDEO
-   ================================================================ */
-.demo-video {
-  padding: 80px 0;
-  background: #fff;
-  text-align: center;
-}
-.demo-video h2 {
-  font-size: 32px;
-  font-weight: 800;
-  color: var(--text-primary);
-  margin-bottom: 12px;
-}
-.demo-video .section-header p {
-  font-size: 17px;
-  color: var(--text-secondary);
-  max-width: 640px;
-  margin: 0 auto 40px;
-  line-height: 1.6;
-}
-.video-wrapper {
-  max-width: 960px;
-  margin: 0 auto 32px;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 20px 60px rgba(15, 23, 42, 0.18);
-  background: #000;
-}
-.video-wrapper video {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-.video-description {
-  font-size: 16px;
-  color: var(--text-secondary);
-  max-width: 720px;
-  margin: 0 auto 24px;
-  line-height: 1.7;
-}
-.video-credit {
-  font-size: 13px;
-  color: var(--text-tertiary);
-  max-width: 720px;
-  margin: 0 auto;
-  line-height: 1.5;
-}
-.video-credit a {
-  color: var(--text-tertiary);
-  text-decoration: underline;
-}
-.video-credit a:hover {
-  color: var(--text-secondary);
 }
 
 /* ================================================================
@@ -1749,4 +1693,303 @@ a { color: inherit; text-decoration: none; }
   .footer-inner { flex-direction: row; justify-content: space-between; align-items: flex-start; }
 
   .faq-header h1 { font-size: 48px; }
+}
+
+/* ================================================================
+   HOMEPAGE RELAUNCH — Verified Sessions repositioning (staged 2026-05-29)
+   ================================================================ */
+
+/* ── Hero chips ─────────────────────────────────────────────────── */
+.hero-chips {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 24px;
+}
+.hero-chips li {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--primary);
+  background: var(--primary-light);
+  padding: 6px 12px;
+  border-radius: 999px;
+}
+
+/* ── "You shouldn't be doing this" (iMessage vs Session) ────────── */
+.compare-imessage { padding: 64px 0; background: var(--surface); }
+.imessage-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  max-width: 880px;
+  margin: 0 auto;
+}
+.imessage-col {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 20px;
+  background: var(--bg);
+}
+.imessage-col-good { border-color: var(--primary); background: var(--surface); }
+.imessage-tag {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-tertiary);
+  margin-bottom: 12px;
+}
+.imessage-tag-good { color: var(--primary); }
+.chat-mock {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 14px;
+  background: var(--surface-secondary);
+  border-radius: var(--radius-md);
+  margin-bottom: 16px;
+  min-height: 92px;
+}
+.chat-mock-session { background: #0F172A; justify-content: center; }
+.bubble {
+  max-width: 85%;
+  padding: 8px 12px;
+  border-radius: 16px;
+  font-size: 14px;
+  line-height: 1.35;
+}
+.bubble-in { align-self: flex-start; background: #E2E8F0; color: var(--text-primary); border-bottom-left-radius: 4px; }
+.bubble-out { align-self: flex-end; background: var(--primary); color: #fff; border-bottom-right-radius: 4px; }
+.bubble-session {
+  align-self: flex-start;
+  background: rgba(37,99,235,0.20);
+  color: #DBEAFE;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  letter-spacing: 1px;
+}
+.session-banner {
+  align-self: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: #93C5FD;
+  background: rgba(255,255,255,0.06);
+  padding: 5px 12px;
+  border-radius: 999px;
+}
+.compare-cons, .compare-pros { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.compare-cons li, .compare-pros li {
+  font-size: 14px;
+  color: var(--text-secondary);
+  padding-left: 26px;
+  position: relative;
+  line-height: 1.4;
+}
+.compare-cons li::before { content: '\2715'; position: absolute; left: 0; color: var(--danger); font-weight: 700; }
+.compare-pros li::before { content: '\2713'; position: absolute; left: 0; color: var(--success); font-weight: 700; }
+
+/* ── Verified Sessions flagship ─────────────────────────────────── */
+.sessions-flagship { padding: 64px 0; }
+.scenario-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+.scenario-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 24px;
+}
+.scenario-emoji { font-size: 28px; margin-bottom: 12px; }
+.scenario-card h3 { font-size: 18px; font-weight: 700; color: var(--text-primary); margin-bottom: 8px; }
+.scenario-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.55; }
+.spec-strip {
+  max-width: 880px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.9;
+  background: var(--surface-secondary);
+  border-radius: var(--radius-lg);
+  padding: 16px 20px;
+}
+
+/* ── Step 4 session visual ──────────────────────────────────────── */
+.step-session-visual {
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+  background: #0F172A;
+  border-radius: var(--radius-xl);
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+/* ── Not another messenger (comparison table) ───────────────────── */
+.compare-messengers { padding: 64px 0; background: var(--surface); }
+.compare-table-wrap { max-width: 820px; margin: 0 auto; overflow-x: auto; }
+.compare-table { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 520px; }
+.compare-table th, .compare-table td { padding: 12px 14px; text-align: left; border-bottom: 1px solid var(--border); }
+.compare-table thead th { font-size: 13px; color: var(--text-tertiary); font-weight: 700; }
+.compare-table thead th:nth-child(2) { color: var(--primary); }
+.compare-table tbody th { font-weight: 600; color: var(--text-secondary); }
+.compare-table td.yes { font-weight: 700; color: var(--text-primary); }
+.compare-table tbody tr:last-child th, .compare-table tbody tr:last-child td { border-bottom: none; }
+.compare-honesty {
+  max-width: 680px;
+  margin: 24px auto 0;
+  text-align: center;
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-style: italic;
+}
+
+/* ── Trust strip ────────────────────────────────────────────────── */
+.trust-strip { padding: 64px 0; }
+.trust-cards { display: grid; grid-template-columns: 1fr; gap: 16px; max-width: 960px; margin: 0 auto; }
+.trust-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 24px; }
+.trust-card h3 { font-size: 17px; font-weight: 700; color: var(--text-primary); margin-bottom: 8px; }
+.trust-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.55; }
+.trust-honesty {
+  max-width: 700px;
+  margin: 24px auto 0;
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-tertiary);
+  line-height: 1.6;
+}
+.trust-honesty a { color: var(--primary); font-weight: 600; }
+.trust-honesty a:hover { text-decoration: underline; }
+
+/* ── Demoted check-in badge ─────────────────────────────────────── */
+.feature-badge-muted { background: var(--surface-secondary) !important; color: var(--text-tertiary) !important; }
+
+/* ── Pricing: all-paid plan + waitlist tier ─────────────────────── */
+.pricing-cards { max-width: 980px; }
+.pricing-card-soon { border-style: dashed; }
+.pricing-badge-soon { background: var(--text-tertiary); }
+.price-soon { font-size: 26px; color: var(--text-secondary); }
+.pricing-safety-note {
+  max-width: 700px;
+  margin: 28px auto 0;
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-tertiary);
+  line-height: 1.6;
+}
+
+/* ── Verified Session room mockup (hero phone) ──────────────────── */
+.vsx-statusbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 8px 20px 2px; font-size: 10px; font-weight: 600;
+  color: #F1F4F9; position: relative; z-index: 11;
+}
+.vsx-lock { font-size: 9px; opacity: 0.7; }
+.vsx-room {
+  display: flex; flex-direction: column; height: calc(100% - 22px);
+  transition: opacity 0.4s cubic-bezier(.22,.61,.36,1);
+}
+.vsx-header {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+  padding: 7px 10px; border-bottom: 0.5px solid rgba(255,255,255,0.08);
+}
+.vsx-who { display: flex; align-items: center; gap: 8px; min-width: 0; }
+.vsx-avatar {
+  width: 30px; height: 30px; border-radius: 50%; background: #16352c; color: #5DCAA5;
+  display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 600; flex-shrink: 0;
+}
+.vsx-name { font-size: 12.5px; font-weight: 600; color: #F1F4F9; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.hero-phone .phone-home-indicator { background: rgba(255,255,255,0.22); }
+.vsx-controls { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
+.vsx-timer {
+  font-size: 10.5px; font-weight: 600; color: #7AA2FF; background: rgba(255,255,255,0.07);
+  padding: 3px 6px; border-radius: 6px; font-variant-numeric: tabular-nums;
+}
+.vsx-end { font-size: 15px; color: rgba(241,244,249,0.4); line-height: 1; }
+.vsx-trust {
+  display: flex; align-items: center; justify-content: center; gap: 5px;
+  padding: 6px; color: rgba(241,244,249,0.55); font-size: 9.5px;
+}
+.vsx-thread { flex: 1; display: flex; flex-direction: column; gap: 6px; padding: 6px 10px; overflow: hidden; }
+.vsx-row { display: flex; opacity: 0; transform: translateY(7px); transition: opacity 0.35s, transform 0.35s; }
+.vsx-row-in { opacity: 1; transform: none; }
+.vsx-row-me { justify-content: flex-end; }
+.vsx-row-them { justify-content: flex-start; }
+.vsx-bubble { max-width: 80%; padding: 7px 10px; border-radius: 13px; font-size: 11px; line-height: 1.35; }
+.vsx-bubble-me { background: #3B82F6; color: #fff; border-bottom-right-radius: 4px; }
+.vsx-bubble-them { background: rgba(255,255,255,0.13); color: #F1F4F9; border-bottom-left-radius: 4px; }
+.vsx-mono { font-variant-numeric: tabular-nums; letter-spacing: 0.5px; }
+.vsx-typing { display: flex; gap: 3px; align-items: center; padding: 9px 11px; }
+.vsx-typing span { width: 4px; height: 4px; border-radius: 50%; background: rgba(241,244,249,0.6); display: inline-block; animation: vsxBlink 1.2s infinite; }
+.vsx-typing span:nth-child(2) { animation-delay: 0.2s; }
+.vsx-typing span:nth-child(3) { animation-delay: 0.4s; }
+@keyframes vsxBlink { 0%, 80%, 100% { opacity: 0.3; } 40% { opacity: 1; } }
+.vsx-ledger { display: flex; justify-content: center; align-items: center; gap: 2px; padding: 6px 10px; border-top: 0.5px solid rgba(255,255,255,0.08); }
+.vsx-dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(255,255,255,0.12); transition: background 0.3s; }
+.vsx-dot-on { background: #3B82F6; }
+.vsx-composer { display: flex; align-items: center; gap: 7px; padding: 8px 10px 12px; }
+.vsx-input {
+  flex: 1; height: 28px; border-radius: 999px; background: rgba(255,255,255,0.06);
+  display: flex; align-items: center; padding: 0 12px; color: rgba(241,244,249,0.32); font-size: 11px;
+}
+.vsx-send {
+  width: 28px; height: 28px; border-radius: 50%; background: #3B82F6; color: #fff;
+  display: flex; align-items: center; justify-content: center; font-size: 15px; flex-shrink: 0;
+}
+.vsx-wipe {
+  position: absolute; inset: 0; background: rgba(7,9,14,0); pointer-events: none;
+  transition: background 0.4s ease, opacity 0.3s ease; z-index: 12; overflow: hidden;
+}
+.vsx-particles { position: absolute; inset: 0; }
+.vsx-particle { position: absolute; border-radius: 50%; opacity: 1; transform: translate(0,0); }
+.vsx-wipe-text {
+  position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 6px; opacity: 0; transition: opacity 0.4s cubic-bezier(.22,.61,.36,1);
+}
+.vsx-wipe-title { color: #F1F4F9; font-size: 22px; font-weight: 700; letter-spacing: -0.4px; }
+.vsx-wipe-sub { color: rgba(241,244,249,0.62); font-size: 12px; font-weight: 500; }
+
+/* ── Screen-reader-only ─────────────────────────────────────────── */
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+
+/* ── Desktop multi-column for new sections ──────────────────────── */
+@media (min-width: 768px) {
+  .imessage-grid { grid-template-columns: 1fr 1fr; }
+  .scenario-grid { grid-template-columns: repeat(3, 1fr); }
+  .trust-cards { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ── Keyboard focus visibility (WCAG 2.4.7) ─────────────────────── */
+a:focus-visible,
+button:focus-visible,
+.btn:focus-visible,
+.store-badge:focus-visible,
+.nav-hamburger:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ── Reduced motion: stop all looping/decorative animation ──────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .hero-phone .phone-frame { animation: none !important; }
+  .reveal { opacity: 1 !important; transform: none !important; }
+  .vsx-particle { display: none !important; }
 }
