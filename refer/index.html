@@ -74,16 +74,22 @@
       }
 
       var deepLink = 'simplyauth://refer/' + code;
-      var referralUrl = 'https://simplyauth.app/refer/' + code;
 
       // Detect platform
       var ua = navigator.userAgent || '';
       var isIOS = /iPhone|iPad|iPod/i.test(ua);
       var isAndroid = /Android/i.test(ua);
 
+      // Android: attach the code as a Play Install Referrer so the app can
+      // recover it on a COLD install (link -> Play Store -> first open). The
+      // expo-install-referrer native module reads this `referrer` value and
+      // parses the `ref=CODE` shape. iOS has no equivalent (Apple provides no
+      // install-referrer API) -> the clipboard copy below feeds the in-app
+      // "Paste code" button instead.
       var storeUrl = isIOS
         ? 'https://apps.apple.com/us/app/simplyauth/id6761439612'
-        : 'https://play.google.com/store/apps/details?id=app.simplyauth';
+        : 'https://play.google.com/store/apps/details?id=app.simplyauth&referrer=' +
+          encodeURIComponent('ref=' + code);
 
       // Set up buttons
       var openBtn = document.getElementById('open-app');
@@ -92,17 +98,20 @@
       openBtn.href = deepLink;
       getBtn.href = storeUrl;
 
-      // Copy referral URL to clipboard for deferred deep linking
+      // Copy the bare CODE (not the URL) so the iOS onboarding "Paste code"
+      // button -- which parses a `ref=CODE` param or a bare 8-char code -- can
+      // recover it after a cold install. (Android uses the Play referrer above;
+      // the copy is a harmless backup there.)
       function copyToClipboard() {
         try {
           if (navigator.clipboard && navigator.clipboard.writeText) {
-            navigator.clipboard.writeText(referralUrl).then(function() {
+            navigator.clipboard.writeText(code).then(function() {
               showCopied();
             });
           } else {
             // Fallback for older browsers
             var ta = document.createElement('textarea');
-            ta.value = referralUrl;
+            ta.value = code;
             ta.style.position = 'fixed';
             ta.style.left = '-9999px';
             document.body.appendChild(ta);
@@ -115,7 +124,11 @@
       }
 
       function showCopied() {
-        document.getElementById('copied-msg').classList.add('show');
+        var msg = document.getElementById('copied-msg');
+        msg.textContent = isIOS
+          ? 'Code ' + code + ' copied — paste it when you open the app'
+          : 'Referral code ' + code + ' copied';
+        msg.classList.add('show');
       }
 
       // Copy on page load
