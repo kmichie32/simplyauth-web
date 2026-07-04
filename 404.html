@@ -10,6 +10,27 @@
   <link rel="apple-touch-icon" sizes="192x192" href="/favicon-192.png">
   <meta name="theme-color" content="#2563EB">
   <link rel="stylesheet" href="/style.css">
+
+  <!-- OG/Twitter tags for invite/referral link previews (iMessage, WhatsApp,
+       Slack, etc.). NOTE: GitHub Pages serves this file with an HTTP 404
+       status even for the invite/referral landing content — crawlers that
+       strictly gate on 2xx (notably Facebook's) may not render a rich
+       preview here regardless of these tags. Fixing that fully would need a
+       real edge function (e.g. Cloudflare Worker) in front of GitHub Pages,
+       out of scope for now. -->
+  <meta property="og:title" content="You're invited to SimplyAuth">
+  <meta property="og:description" content="Verify each other's identity and share sensitive info safely — encrypted messages that vanish.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="SimplyAuth">
+  <meta property="og:image" content="https://simplyauth.app/logo.png">
+  <meta property="og:image:width" content="1024">
+  <meta property="og:image:height" content="1024">
+  <meta property="og:image:alt" content="SimplyAuth logo">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="You're invited to SimplyAuth">
+  <meta name="twitter:description" content="Verify each other's identity and share sensitive info safely — encrypted messages that vanish.">
+  <meta name="twitter:image" content="https://simplyauth.app/logo.png">
+  <meta name="twitter:image:alt" content="SimplyAuth logo">
   <style>
     /* Self-contained styling for the invite/referral landing so it renders
        correctly regardless of the site theme. GitHub Pages serves this file
@@ -119,9 +140,18 @@
 
       var ua = navigator.userAgent || '';
       var isIOS = /iPhone|iPad|iPod/i.test(ua);
+
+      // Android: attach the code as a Play Install Referrer ONLY for /refer
+      // links — src/hooks/useDeferredReferral.ts recovers `ref=CODE` from this
+      // param on cold install and applies it as a REFERRAL reward code. /invite
+      // links are a different, ephemeral per-connection code (accepted via
+      // acceptConnectionInvite) with no cold-install recovery path today — do
+      // NOT attach it here, extractReferralCode() would misinterpret it as a
+      // referral code and silently do the wrong thing.
       var storeUrl = isIOS
         ? 'https://apps.apple.com/us/app/simplyauth/id6761439612'
-        : 'https://play.google.com/store/apps/details?id=app.simplyauth';
+        : 'https://play.google.com/store/apps/details?id=app.simplyauth' +
+          (kind === 'refer' ? '&referrer=' + encodeURIComponent('ref=' + code) : '');
       var deepLink = 'simplyauth://' + kind + '/' + code;
 
       if (kind === 'refer') {
@@ -135,13 +165,15 @@
       document.getElementById('sa-open').href = deepLink;
       landing.style.display = 'flex';
 
-      // Copy the code for manual entry after install.
+      // Copy the code for manual entry after install (Connections screen for
+      // invite codes, the onboarding "Paste code" button for referral codes on
+      // iOS, where there's no Install Referrer equivalent).
       var copiedMsg = document.getElementById('sa-copied');
       function showCopied() {
         copiedMsg.classList.add('show');
         setTimeout(function () { copiedMsg.classList.remove('show'); }, 2000);
       }
-      document.getElementById('sa-copy').addEventListener('click', function () {
+      function copyCode() {
         try {
           if (navigator.clipboard && navigator.clipboard.writeText) {
             navigator.clipboard.writeText(code).then(showCopied, function () {});
@@ -152,7 +184,12 @@
             document.body.removeChild(ta); showCopied();
           }
         } catch (e) { /* ignore */ }
-      });
+      }
+      document.getElementById('sa-copy').addEventListener('click', copyCode);
+      // Auto-copy on load too (best-effort, silent if it fails — most mobile
+      // browsers require a user gesture for clipboard writes, so the manual
+      // button above is the reliable fallback either way).
+      copyCode();
 
       // "Open SimplyAuth": try the app, fall back to the store if it doesn't take over.
       document.getElementById('sa-open').addEventListener('click', function (e) {
