@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FAQ — SimplyAuth: Secure Messages</title>
-  <meta name="description" content="Frequently asked questions about SimplyAuth: encrypted, vanishing messages for sensitive info (Verified Sessions), identity verification, safety check-ins, pricing, and privacy.">
+  <title>FAQ — SimplyAuth: Verified Sessions &amp; Quick Send</title>
+  <meta name="description" content="Frequently asked questions about SimplyAuth's two ways to share something sensitive: Verified Sessions (end-to-end encrypted chat with someone you've confirmed) and Quick Send (one-time encrypted links, no account needed) — plus identity verification, safety features, pricing, and privacy.">
   <link rel="canonical" href="https://simplyauth.app/faq.html">
   <meta name="theme-color" content="#2563EB">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="SimplyAuth FAQ — Encrypted, vanishing messages">
-  <meta property="og:description" content="Answers to common questions about SimplyAuth's Verified Sessions (end-to-end encrypted messaging), identity verification, safety features, pricing, and privacy.">
+  <meta property="og:title" content="SimplyAuth FAQ — Verified Sessions &amp; Quick Send">
+  <meta property="og:description" content="Answers to common questions about SimplyAuth's two ways to share something sensitive: Verified Sessions (end-to-end encrypted chat with a confirmed connection) and Quick Send (one-time encrypted links, no account needed) — plus identity verification, safety features, pricing, and privacy.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://simplyauth.app/faq.html">
   <meta property="og:site_name" content="SimplyAuth">
@@ -21,8 +21,8 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="SimplyAuth FAQ — Encrypted, vanishing messages">
-  <meta name="twitter:description" content="Answers to common questions about SimplyAuth's Verified Sessions (end-to-end encrypted messaging), identity verification, safety features, pricing, and privacy.">
+  <meta name="twitter:title" content="SimplyAuth FAQ — Verified Sessions &amp; Quick Send">
+  <meta name="twitter:description" content="Answers to common questions about SimplyAuth's two ways to share something sensitive: Verified Sessions (end-to-end encrypted chat with a confirmed connection) and Quick Send (one-time encrypted links, no account needed) — plus identity verification, safety features, pricing, and privacy.">
   <meta name="twitter:image" content="https://simplyauth.app/logo.png">
 
   <!-- Favicon & Icons -->
@@ -50,7 +50,7 @@
         "name": "What is SimplyAuth?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "SimplyAuth is a secure messaging app for sharing sensitive information. Its headline feature is Verified Sessions: short, end-to-end encrypted chat rooms for sending things like passwords, account numbers, SSNs, card numbers, and wire details — info you'd never want sitting in a regular texting app. Messages are encrypted on your device, our servers store ciphertext only, and everything auto-wipes on both phones when the session ends."
+          "text": "SimplyAuth is a secure messaging app for sharing sensitive information two ways: Verified Sessions, short end-to-end encrypted chat rooms with someone you've confirmed is really them, and Quick Send, one-time encrypted links anyone can open without an account. Everything is encrypted on your device and our servers store ciphertext only — Sessions auto-wipe on both phones when they close, and Quick Sends vanish after a single view."
         }
       },
       {
@@ -87,6 +87,46 @@
       },
       {
         "@type": "Question",
+        "name": "What is Quick Send?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Quick Send is a one-time, end-to-end encrypted link for sharing something sensitive with someone — even if they don't have SimplyAuth. You type the secret in the app, choose how long it stays visible after it's opened, and share the link over any app you already use. It opens once, on any device, then it's gone for good."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Quick Send encrypted?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The secret is encrypted on your device before it ever leaves your phone, and the decryption key lives only in the link itself, never on our servers. We store ciphertext only and can't read what you sent."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does the recipient need the app or an account to open a Quick Send?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. They open the link in any browser — no SimplyAuth install, no account, no email collected. The link itself is the only credential, so Quick Send can't verify who's on the other end; the channel you send it over is the identity check. For confirming identity first, use a Verified Session instead."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does a Quick Send link last?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You choose how long it stays visible after it's opened — 1, 5, or 15 minutes. If it's never opened, the link expires automatically after 24 hours. Either way, there's no second view — once it's gone, it's unrecoverable."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Quick Send free to use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Opening a Quick Send is always free for the recipient — no account or subscription required. Sending one requires Personal, the same plan that unlocks starting Verified Sessions and sending connection requests."
+        }
+      },
+      {
+        "@type": "Question",
         "name": "How does identity verification work?",
         "acceptedAnswer": {
           "@type": "Answer",
@@ -98,7 +138,7 @@
         "name": "How much does SimplyAuth cost?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "SimplyAuth has a free tier and one paid plan. Free ($0, no card) lets you receive a Verified Session and reply, accept a connection request, verify someone's identity, and use safety check-ins. Personal ($0.99/month or $7.99/year, with a 30-day trial) adds starting your own sessions and sending connection requests. If your Personal plan lapses you simply drop back to Free — nothing is locked or deleted. Verification and safety features (scheduled check-ins and silent duress alerts) are free for everyone and are never paywalled."
+          "text": "SimplyAuth has a free tier and one paid plan. Free ($0, no card) lets you receive a Verified Session and reply, open a Quick Send link, accept a connection request, verify someone's identity, and use safety check-ins. Personal ($0.99/month or $7.99/year, with a 30-day trial) adds starting your own sessions, sending Quick Sends, and sending connection requests. If your Personal plan lapses you simply drop back to Free — nothing is locked or deleted. Verification and safety features (scheduled check-ins and silent duress alerts) are free for everyone and are never paywalled."
         }
       },
       {
@@ -115,6 +155,14 @@
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Yes. Scheduled check-ins and the silent duress/SOS alert are free for everyone and are never put behind the paywall, including on the Free tier or if your Personal plan lapses. We don't gate safety features — or identity verification."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I send a distress signal without unlocking my phone?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. If you enter your panic PIN at the lock screen instead of your passcode, the app shows the normal \"wrong passcode\" shake — it never unlocks — while silently sending a distress alert to all your trusted connections. It's a separate 4-digit code from your unlock passcode, so entering it looks like nothing happened."
         }
       },
       {
@@ -195,9 +243,10 @@
   <div class="container">
     <div class="faq-chips">
       <a href="#getting-started">Getting Started</a>
+      <a href="#sessions">Verified Sessions</a>
+      <a href="#quicksend">Quick Send</a>
       <a href="#verification">How Verification Works</a>
       <a href="#connections">Connections</a>
-      <a href="#sessions">Verified Sessions</a>
       <a href="#distress">Distress Signal</a>
       <a href="#check-in">Scheduled Check-In</a>
       <a href="#plans">Plans &amp; Billing</a>
@@ -221,17 +270,6 @@
       <h2>Getting Started</h2>
       <div class="faq-list">
         <details class="faq-item">
-          <summary>I just downloaded SimplyAuth — what do I do first?</summary>
-          <div class="faq-answer">
-            <p>Three quick steps to get going:</p>
-            <ol>
-              <li><strong>Add a connection.</strong> Tap "+ Add" on the home screen and share your invite link with someone you trust — family, a close friend, a coworker.</li>
-              <li><strong>Set up a panic word.</strong> Go to Profile → Panic Word. This lets you send a silent distress alert during any verification if you're ever in danger.</li>
-              <li><strong>Enable notifications.</strong> SimplyAuth uses push notifications to alert you when a connection sends a verification request, a distress signal, or misses a check-in.</li>
-            </ol>
-          </div>
-        </details>
-        <details class="faq-item">
           <summary>What's the difference between a Verified Session and a Quick Send?</summary>
           <div class="faq-answer">
             <p>Use a Verified Session when you know who you're sending to and want to confirm it's really them first. Use Quick Send when the other person doesn't have the app, or you just need to get something to them once, right now.</p>
@@ -253,15 +291,114 @@
           </div>
         </details>
         <details class="faq-item">
-          <summary>Do both people need the app?</summary>
+          <summary>I just downloaded SimplyAuth — what do I do first?</summary>
           <div class="faq-answer">
-            <p>Yes. Both you and the person you're verifying need SimplyAuth installed and an active connection between you. When you share an invite link, they'll be guided to download the app if they don't have it yet.</p>
+            <p>Three quick steps to get going:</p>
+            <ol>
+              <li><strong>Add a connection.</strong> Tap "+ Add" on the home screen and share your invite link with someone you trust — family, a close friend, a coworker. (Skip this if you just want to try Quick Send — it works without any connections.)</li>
+              <li><strong>Set up a panic PIN.</strong> Go to Profile → Panic PIN. This lets you send a silent distress alert during any verification, or right from your lock screen, if you're ever in danger.</li>
+              <li><strong>Enable notifications.</strong> SimplyAuth uses push notifications to alert you when a connection sends a verification request, a distress signal, or misses a check-in.</li>
+            </ol>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- Verified Sessions -->
+    <section class="faq-section" id="sessions">
+      <h2>Verified Sessions</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>What are Verified Sessions?</summary>
+          <div class="faq-answer">
+            <p>Verified Sessions are short, end-to-end encrypted, one-to-one chat rooms you can open with a trusted connection. They're designed for sharing sensitive information — passwords, account numbers, SSNs, card numbers, wire details — that you'd never want to send over a normal messaging app. Sessions are 1:1 only (no groups), capped at 20 minutes and 30 messages, and everything wipes automatically on both phones when the room closes.</p>
           </div>
         </details>
         <details class="faq-item">
-          <summary>What does a typical verification look like?</summary>
+          <summary>Do both people need the app for a Verified Session?</summary>
           <div class="faq-answer">
-            <p>You're on a phone call and want to confirm the other person is really them. Open SimplyAuth, tap "Verify →" next to their name, and both of you see the same short phrase. Ask them to read it aloud — if it matches, it's really them. The whole process takes about 10 seconds.</p>
+            <p>Yes. Both you and the person you're verifying need SimplyAuth installed and an active connection between you. If they don't have the app yet, share an invite link and they'll be guided to download it. If you just need to get something to someone without the app, that's what Quick Send is for.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Are my messages encrypted?</summary>
+          <div class="faq-answer">
+            <p>Yes. Sessions use end-to-end encryption — your messages are encrypted on your device before they're sent, and only decrypted on the recipient's device. SimplyAuth's servers store ciphertext only (we're server-blind) and cannot read the contents of your messages.</p>
+            <p>To be candid: while message <em>content</em> is private to us, we do retain connection metadata — who paired with whom, and when sessions happened — because the app needs it to work.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>What happens to messages when the session ends?</summary>
+          <div class="faq-answer">
+            <p>Both phones wipe simultaneously. Messages exist only for the duration of the session — they're not written to permanent storage on our servers. When either person ends the session, everything clears on both devices at once.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Why is there a 20-minute time limit and 30-message cap?</summary>
+          <div class="faq-answer">
+            <p>Sessions are designed for a specific job: quickly sharing sensitive information with someone you've already verified. The limits reinforce that purpose — they keep sessions short and focused, and ensure the auto-wipe happens in a reasonable timeframe even if you forget to end it manually.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>What happens if someone screenshots the session?</summary>
+          <div class="faq-answer">
+            <p>On Android, the app uses OS-level screenshot blocking. On iOS, screenshots are detected and both people are notified the moment one is taken. No protection covers every device, so the notification is the backstop — if a screenshot happens, you'll know.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Do I need a phone number to use Sessions?</summary>
+          <div class="faq-answer">
+            <p>No. A phone number is optional and isn't required for Verified Sessions or any other feature. Sessions run between connected accounts — you can use everything without giving a number.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- Quick Send -->
+    <section class="faq-section" id="quicksend">
+      <h2>Quick Send</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>What is Quick Send?</summary>
+          <div class="faq-answer">
+            <p>Quick Send is a one-time, end-to-end encrypted link for sharing something sensitive with someone — even if they don't have SimplyAuth. Type the secret in the app, choose how long it stays visible after it's opened, and share the link over any app you already use — Messages, Mail, WhatsApp, whatever. It opens once, on any device, then it's gone for good.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Is Quick Send encrypted?</summary>
+          <div class="faq-answer">
+            <p>Yes. The secret is encrypted on your device before it ever leaves your phone, and the decryption key lives only in the link itself — it's never sent to our servers. We store ciphertext only and can't read what you sent.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Does the recipient need the app or an account?</summary>
+          <div class="faq-answer">
+            <p>No. They open the link in any browser — no SimplyAuth install, no account, no email collected. We never learn who the recipient is.</p>
+            <p>That also means Quick Send can't verify who's on the other end — the link itself is the only credential. The channel you send it over (a text you know came from you, a call you're already on) is the identity check. For confirming identity first, that's what Verified Sessions are for.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>How long does a Quick Send link last?</summary>
+          <div class="faq-answer">
+            <p>You choose how long it stays visible after it's opened — 1, 5, or 15 minutes. If no one opens it at all, the link expires automatically after 24 hours. Either way, once it's gone, it's unrecoverable — there's no second view, ever.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Can I revoke a Quick Send after I've sent it?</summary>
+          <div class="faq-answer">
+            <p>Yes, as long as it hasn't been opened yet. Your Sends list in the app lets you revoke any pending Quick Send to kill the link before anyone views it. Once it's been opened, it's already gone — there's nothing left to revoke.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Is Quick Send free to use?</summary>
+          <div class="faq-answer">
+            <p>Opening a Quick Send is always free for the recipient — no account or subscription required, ever. Sending one requires Personal, the same plan that unlocks starting your own Verified Sessions and sending connection requests. Every new account gets a 30-day trial to try it.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Can I save a secret to reuse later, like a Wi-Fi password?</summary>
+          <div class="faq-answer">
+            <p>Yes — Saved Quick Sends let you keep a private library of things you send often, like a Wi-Fi password or a gate code, right on your device. Tapping a saved item pre-fills the compose screen; sending it still creates a brand-new encrypted link every time. Saved items live only on your device — never uploaded, never backed up to the cloud.</p>
           </div>
         </details>
       </div>
@@ -335,50 +472,6 @@
       </div>
     </section>
 
-    <!-- Verified Sessions -->
-    <section class="faq-section" id="sessions">
-      <h2>Verified Sessions</h2>
-      <div class="faq-list">
-        <details class="faq-item">
-          <summary>What are Verified Sessions?</summary>
-          <div class="faq-answer">
-            <p>Verified Sessions are short, end-to-end encrypted, one-to-one chat rooms you can open with a trusted connection. They're designed for sharing sensitive information — passwords, account numbers, SSNs, card numbers, wire details — that you'd never want to send over a normal messaging app. Sessions are 1:1 only (no groups), capped at 20 minutes and 30 messages, and everything wipes automatically on both phones when the room closes.</p>
-          </div>
-        </details>
-        <details class="faq-item">
-          <summary>Are my messages encrypted?</summary>
-          <div class="faq-answer">
-            <p>Yes. Sessions use end-to-end encryption — your messages are encrypted on your device before they're sent, and only decrypted on the recipient's device. SimplyAuth's servers store ciphertext only (we're server-blind) and cannot read the contents of your messages.</p>
-            <p>To be candid: while message <em>content</em> is private to us, we do retain connection metadata — who paired with whom, and when sessions happened — because the app needs it to work.</p>
-          </div>
-        </details>
-        <details class="faq-item">
-          <summary>What happens to messages when the session ends?</summary>
-          <div class="faq-answer">
-            <p>Both phones wipe simultaneously. Messages exist only for the duration of the session — they're not written to permanent storage on our servers. When either person ends the session, everything clears on both devices at once.</p>
-          </div>
-        </details>
-        <details class="faq-item">
-          <summary>Why is there a 20-minute time limit and 30-message cap?</summary>
-          <div class="faq-answer">
-            <p>Sessions are designed for a specific job: quickly sharing sensitive information with someone you've already verified. The limits reinforce that purpose — they keep sessions short and focused, and ensure the auto-wipe happens in a reasonable timeframe even if you forget to end it manually.</p>
-          </div>
-        </details>
-        <details class="faq-item">
-          <summary>What happens if someone screenshots the session?</summary>
-          <div class="faq-answer">
-            <p>On Android, the app uses OS-level screenshot blocking. On iOS, screenshots are detected and both people are notified the moment one is taken. No protection covers every device, so the notification is the backstop — if a screenshot happens, you'll know.</p>
-          </div>
-        </details>
-        <details class="faq-item">
-          <summary>Do I need a phone number to use Sessions?</summary>
-          <div class="faq-answer">
-            <p>No. A phone number is optional and isn't required for Verified Sessions or any other feature. Sessions run between connected accounts — you can use everything without giving a number.</p>
-          </div>
-        </details>
-      </div>
-    </section>
-
     <!-- Distress Signal -->
     <section class="faq-section" id="distress">
       <h2>Distress Signal</h2>
@@ -390,26 +483,33 @@
           </div>
         </details>
         <details class="faq-item">
-          <summary>How do I set up a panic word?</summary>
+          <summary>How do I set up a panic PIN?</summary>
           <div class="faq-answer">
-            <p>Go to Profile → Panic Word and choose a word that's easy for you to remember but wouldn't come up in normal conversation. Keep it private — never share it with anyone, including your connections.</p>
+            <p>Go to Profile → Panic PIN and choose a 4-digit code — different from your unlock passcode. It's entered on the same numeric keypad, so pick something you can recall under pressure. It's stored only on your device and never sent to our servers.</p>
           </div>
         </details>
         <details class="faq-item">
           <summary>How do I send a distress signal?</summary>
           <div class="faq-answer">
-            <p>There are two ways to send a distress signal:</p>
+            <p>There are three ways to send a distress signal:</p>
             <ol>
-              <li><strong>During a verification</strong> — tap the Send Distress button on the verify screen.</li>
-              <li><strong>From the home screen</strong> — tap the Emergency Alert link at the bottom of the page.</li>
+              <li><strong>At your lock screen</strong> — enter your panic PIN instead of your passcode. The app shows the normal "wrong passcode" shake and never unlocks, while silently alerting your connections.</li>
+              <li><strong>During a verification</strong> — tap the Send Distress button on the verify screen and enter your panic PIN to confirm.</li>
+              <li><strong>From the home screen</strong> — tap the Emergency Alert link and enter your panic PIN to confirm.</li>
             </ol>
-            <p>Both require you to enter your panic word to confirm. Once entered, the signal is sent silently to all your active connections.</p>
+            <p>All three send the same silent alert to all your active connections.</p>
           </div>
         </details>
         <details class="faq-item">
-          <summary>Will the person on the call know I sent it?</summary>
+          <summary>Can I send a distress signal without unlocking my phone?</summary>
           <div class="faq-answer">
-            <p>No. The app gives no visible confirmation and makes no sound. The distress signal is completely silent on your end. Only your trusted connections receive the alert via push notification.</p>
+            <p>Yes. If you're forced to unlock your phone under duress, enter your panic PIN instead of your passcode. The app shows the normal "wrong passcode" shake and never actually unlocks — while silently sending a distress alert to all your trusted connections. Because it's a separate 4-digit code from your unlock passcode, entering it looks exactly like getting your passcode wrong.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Will anyone around me know I sent it?</summary>
+          <div class="faq-answer">
+            <p>No. The app gives no visible confirmation and makes no sound — even the lock-screen trigger just looks like a mistyped passcode. The distress signal is completely silent on your end. Only your trusted connections receive the alert, via push notification.</p>
           </div>
         </details>
         <details class="faq-item">
@@ -421,7 +521,7 @@
         <details class="faq-item">
           <summary>Can I send a distress signal without being on a verification call?</summary>
           <div class="faq-answer">
-            <p>Yes. On your home screen, tap the Emergency Alert link at the bottom of the page. You'll still need to enter your panic word to confirm. This sends the same distress alert to all your active connections — useful if you're in danger but not currently on a verification call.</p>
+            <p>Yes. On your home screen, tap the Emergency Alert link at the bottom of the page. You'll still need to enter your panic PIN to confirm. This sends the same distress alert to all your active connections — useful if you're in danger but not currently on a call.</p>
           </div>
         </details>
       </div>
@@ -485,8 +585,8 @@
           <div class="faq-answer">
             <p>There's a free tier and one paid plan:</p>
             <ul>
-              <li><strong>Free ($0, no card):</strong> receive a Verified Session and reply, accept a connection request, verify someone's identity, and use safety check-ins.</li>
-              <li><strong>Personal ($0.99/month or $7.99/year):</strong> everything in Free, plus <strong>starting</strong> your own sessions and <strong>sending</strong> connection requests.</li>
+              <li><strong>Free ($0, no card):</strong> receive a Verified Session and reply, open a Quick Send link, accept a connection request, verify someone's identity, and use safety check-ins.</li>
+              <li><strong>Personal ($0.99/month or $7.99/year):</strong> everything in Free, plus <strong>starting</strong> your own sessions, <strong>sending</strong> Quick Sends, and <strong>sending</strong> connection requests.</li>
             </ul>
             <p>Every new account starts with a <strong>30-day Personal trial</strong> — no card required. When it ends you drop to Free (nothing is locked or deleted).</p>
             <p>Identity verification and the safety features — scheduled check-ins and silent duress alerts — are <strong>free for everyone</strong> and are never paywalled.</p>
@@ -502,7 +602,7 @@
         <details class="faq-item">
           <summary>Is there a free version?</summary>
           <div class="faq-answer">
-            <p>Yes — Free is permanent. You can receive sessions and reply, accept connections, verify identity, and run safety check-ins forever at no cost. You only need Personal to <em>start</em> your own sessions or <em>send</em> connection requests. New accounts also get a 30-day Personal trial to try initiating.</p>
+            <p>Yes — Free is permanent. You can receive sessions and reply, open Quick Send links, accept connections, verify identity, and run safety check-ins forever at no cost. You only need Personal to <em>start</em> your own sessions, <em>send</em> Quick Sends, or <em>send</em> connection requests. New accounts also get a 30-day Personal trial to try initiating.</p>
           </div>
         </details>
         <details class="faq-item">
@@ -545,7 +645,7 @@
         <details class="faq-item">
           <summary>What data do you collect?</summary>
           <div class="faq-answer">
-            <p>Only what's needed to make the app work: your name, email, profile photo (from Google or Apple sign-in), device tokens for push notifications, connection records, and session/verification metadata. Verified Session message content is end-to-end encrypted — we store ciphertext only and can't read it. We never collect your panic word, location, or contacts, and a phone number is optional (we only store one if you choose to add it). See our <a href="/privacy.html">Privacy Policy</a> for full details.</p>
+            <p>Only what's needed to make the app work: your name, email, profile photo (from Google or Apple sign-in), device tokens for push notifications, connection records, and session/verification metadata. Verified Session message content is end-to-end encrypted — we store ciphertext only and can't read it. We never collect your panic PIN, location, or contacts, and a phone number is optional (we only store one if you choose to add it). See our <a href="/privacy.html">Privacy Policy</a> for full details.</p>
           </div>
         </details>
         <details class="faq-item">
@@ -730,7 +830,7 @@
     <div class="faq-support">
       <h3>Still have questions?</h3>
       <p>We're happy to help. Email us at <a href="mailto:support@simplyauth.app">support@simplyauth.app</a> and we'll typically respond within 1 business day.</p>
-      <p><small>Last updated: June 26, 2026</small></p>
+      <p><small>Last updated: July 7, 2026</small></p>
     </div>
 
   </div>
