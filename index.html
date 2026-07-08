@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SimplyAuth – Secure Messages for the Stuff You Can't Text</title>
-  <meta name="description" content="Send passwords, SSNs, and card numbers end-to-end encrypted to people you've verified — then they vanish. Verify who's really on the line, then share in a Session that auto-wipes when it closes.">
+  <title>SimplyAuth – Verify who. Encrypt what.</title>
+  <meta name="description" content="Prove it's really them and talk in a Verified Session — or send a one-time Quick Send link that needs no account and disappears after a single view. Either way, the server never sees what you sent.">
   <link rel="canonical" href="https://simplyauth.app/">
   <meta name="theme-color" content="#2563EB">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="SimplyAuth – Secure Messages for the Stuff You Can't Text">
-  <meta property="og:description" content="Send passwords, SSNs, and card numbers end-to-end encrypted to people you've verified — then they vanish. Server-blind, no phone number required.">
+  <meta property="og:title" content="SimplyAuth – Verify who. Encrypt what.">
+  <meta property="og:description" content="Prove it's really them and talk in a Verified Session, or send a one-time encrypted Quick Send link — no account needed, gone after one view. Server-blind, no phone number required.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://simplyauth.app/">
   <meta property="og:site_name" content="SimplyAuth">
@@ -21,8 +21,8 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="SimplyAuth – Secure Messages for the Stuff You Can't Text">
-  <meta name="twitter:description" content="Send passwords, SSNs, and card numbers end-to-end encrypted to people you've verified — then they vanish. Server-blind, no phone number required.">
+  <meta name="twitter:title" content="SimplyAuth – Verify who. Encrypt what.">
+  <meta name="twitter:description" content="Prove it's really them and talk in a Verified Session, or send a one-time encrypted Quick Send link — no account needed, gone after one view. Server-blind, no phone number required.">
   <meta name="twitter:image" content="https://simplyauth.app/logo.png">
   <meta name="twitter:image:alt" content="SimplyAuth logo">
 
@@ -48,7 +48,7 @@
     "name": "SimplyAuth",
     "operatingSystem": "iOS, Android",
     "applicationCategory": "UtilitiesApplication",
-    "description": "Send passwords, SSNs, and card numbers end-to-end encrypted to people you've verified — then they vanish. Verify who's really on the line, then share in a Session that auto-wipes when it closes.",
+    "description": "Prove it's really them and talk in a Verified Session — or send a one-time Quick Send link that needs no account and disappears after a single view. Either way, the server never sees what you sent.",
     "url": "https://simplyauth.app/",
     "image": "https://simplyauth.app/logo.png",
     "publisher": {
@@ -60,7 +60,7 @@
       "@type": "Offer",
       "price": "0",
       "priceCurrency": "USD",
-      "description": "Free to download and use: receive Verified Sessions and reply, accept connections, verify identity, and run safety check-ins at no cost. Personal ($0.99/month or $7.99/year, with a 30-day trial; prices vary by region) adds starting your own sessions and sending connection requests. Verification and safety features are free for everyone."
+      "description": "Free to download and use: receive Verified Sessions and reply, accept connections, verify identity, open a Quick Send link, and run safety check-ins at no cost. Personal ($0.99/month or $7.99/year, with a 30-day trial; prices vary by region) adds starting your own sessions and Quick Sends, plus sending connection requests. Verification and safety features are free for everyone."
     }
   }
   </script>
@@ -99,26 +99,37 @@
 </div>
 
 <!-- ================================================================
+     RECIPIENT LANDING STRIP  (for people who just opened a Quick Send)
+     ================================================================ -->
+<div class="recipient-strip">
+  <div class="container">
+    <p><strong>Just opened a secure message someone sent you?</strong> That was Quick Send — encrypted, viewable once, then gone. <a href="#quicksend">See how it works</a></p>
+  </div>
+</div>
+
+<!-- ================================================================
      HERO
      ================================================================ -->
 <section class="hero" id="hero">
   <div class="container">
     <div class="hero-content">
-      <h1>Verified, <em>then</em> secure.</h1>
+      <h1>Verify who. <span class="accent">Encrypt</span> what.</h1>
       <p class="hero-subtitle">
-        Share the password, the SSN, or the wire detail in an encrypted room that wipes
-        itself when you close it — with someone you've proven is really them, by a
-        60-second phrase, first.
+        Prove it's really them and talk in a Verified Session — or send a one-time link
+        that needs no account and disappears after a single view. Either way, the server
+        never sees what you sent.
       </p>
       <ul class="hero-chips" aria-label="What makes SimplyAuth different">
         <li>No phone number required</li>
-        <li>Verified pairing only</li>
         <li>End-to-end encrypted</li>
+        <li>Nothing lingers</li>
       </ul>
       <div class="hero-buttons">
         <a href="#download" class="btn btn-primary btn-lg">Get SimplyAuth — Free</a>
-        <a href="#sessions" class="btn btn-outline btn-lg">See a Verified Session</a>
+        <a href="#products" class="btn btn-outline btn-lg">See how it works</a>
       </div>
+      <p class="hero-cta-sub">No card required · 30-day full trial</p>
+      <p class="hero-solo-note">Useful from your first minute — Quick Send works even if no one you know has the app.</p>
     </div>
     <div class="hero-phone">
       <div class="phone-frame" aria-hidden="true">
@@ -127,6 +138,42 @@
           <!-- Rendered by mockups.js -->
         </div>
         <div class="phone-home-indicator"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     TWO PRODUCTS OVERVIEW  (Verified Sessions + Quick Send)
+     ================================================================ -->
+<section class="twin-products" id="products">
+  <div class="container">
+    <div class="section-header reveal">
+      <h2>Two ways to share what you'd never text.</h2>
+      <p>Pick the one that fits who's on the other end.</p>
+    </div>
+    <div class="twin-grid reveal">
+      <div class="twin-card twin-card-sessions">
+        <span class="twin-tag">Verified Sessions</span>
+        <h3>For people you know</h3>
+        <p>Prove it's really them with a 60-second phrase, then talk in a room that wipes itself on both phones when it closes.</p>
+        <ul class="twin-list">
+          <li>Identity verified before the room opens</li>
+          <li>Two-way conversation, both sides confirmed</li>
+          <li>Auto-wipes on both phones when it closes</li>
+        </ul>
+        <a href="#sessions" class="twin-card-link">See a Verified Session &rarr;</a>
+      </div>
+      <div class="twin-card twin-card-quicksend">
+        <span class="twin-tag">Quick Send</span>
+        <h3>For anyone, right now</h3>
+        <p>No account or app needed to receive. Encrypt a secret, get a link, send it your way — it opens once, then it's gone for good.</p>
+        <ul class="twin-list">
+          <li>End-to-end encrypted — we never see the secret</li>
+          <li>Opens once, on any device — no second view, ever</li>
+          <li>Recipient needs no account, no install</li>
+        </ul>
+        <a href="#quicksend" class="twin-card-link">See Quick Send &rarr;</a>
       </div>
     </div>
   </div>
@@ -203,12 +250,45 @@
 </section>
 
 <!-- ================================================================
+     QUICK SEND — SECOND FLAGSHIP
+     ================================================================ -->
+<section class="quicksend-flagship" id="quicksend">
+  <div class="container">
+    <div class="section-header reveal">
+      <h2>Quick Send: one link, one view, gone</h2>
+      <p>No connection required. Encrypt it, send the link over any app you already use, and it disappears after one open.</p>
+    </div>
+    <div class="scenario-grid reveal">
+      <div class="scenario-card">
+        <div class="scenario-emoji" aria-hidden="true">📶</div>
+        <h3>The Wi-Fi password</h3>
+        <p>A guest is at the door and doesn't have the app. Send the Wi-Fi password as a Quick Send link — they open it once, it's gone, and it was never sitting in a text thread.</p>
+      </div>
+      <div class="scenario-card">
+        <div class="scenario-emoji" aria-hidden="true">🚪</div>
+        <h3>The gate code</h3>
+        <p>Your dog walker needs the gate code for one visit. Send a link that opens once and expires — no standing access, no code left behind in old messages.</p>
+      </div>
+      <div class="scenario-card">
+        <div class="scenario-emoji" aria-hidden="true">🔗</div>
+        <h3>The one-time reference</h3>
+        <p>Someone outside SimplyAuth needs a confidential detail just once — a case number, a reference code. They don't need the app or an account to see it.</p>
+      </div>
+    </div>
+    <p class="spec-strip reveal">
+      End-to-end encrypted, server never sees the secret · Opens once, then it's unrecoverable · Recipient needs no account or install · You choose the reveal window: 1, 5, or 15 minutes · Unopened links expire in 24 hours
+    </p>
+    <p class="quicksend-honesty reveal">Quick Send trades verification for reach: the link is the key, and the channel you send it over is the identity check — same as handing someone a physical key. For proving it's really them first, that's what Verified Sessions are for.</p>
+  </div>
+</section>
+
+<!-- ================================================================
      HOW IT WORKS
      ================================================================ -->
 <section class="how-it-works" id="how-it-works">
   <div class="container">
     <div class="section-header reveal">
-      <h2>How It Works</h2>
+      <h2>How Verified Sessions work</h2>
       <p>Four steps: verify who you're talking to, then share it securely</p>
     </div>
     <div class="steps">
@@ -273,6 +353,100 @@
         <div class="step-session-visual" aria-hidden="true">
           <div class="session-banner">🔒 Verified Session · wipes in 19:58</div>
           <div class="bubble bubble-session">Routing ••••••••  ·  Acct ••••••</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     HOW QUICK SEND WORKS  (app compose + share -> real /s/ web page)
+     ================================================================ -->
+<section class="quicksend-works" id="quicksend-works">
+  <div class="container">
+    <div class="section-header reveal">
+      <h2>How Quick Send works</h2>
+      <p>Two steps in the app, then it opens anywhere — no install required.</p>
+    </div>
+    <div class="steps">
+      <!-- Step 1 -->
+      <div class="step reveal">
+        <div class="step-text">
+          <span class="step-number">1</span>
+          <h3>Write it in the app</h3>
+          <p>Type the secret, pick how long it stays visible after it's opened — 1, 5, or 15 minutes — and tap Encrypt &amp; get link. This is the real compose screen, not a mockup.</p>
+        </div>
+        <div class="step-phone">
+          <div class="phone-frame phone-sm" aria-hidden="true">
+            <div class="phone-notch"></div>
+            <div class="phone-screen">
+              <div class="qs-compose-mock">
+                <div class="qs-compose-header">&lsaquo; Back &nbsp;&nbsp; <strong>New Send</strong></div>
+                <div class="qs-compose-label">What do you want to send?</div>
+                <div class="qs-compose-textarea">A Wi-Fi password, a gate code, anything sensitive&hellip;</div>
+                <div class="qs-compose-row">
+                  <span class="qs-compose-save">&#128278; Save</span>
+                  <span class="qs-compose-count">0/4000</span>
+                </div>
+                <div class="qs-compose-label">Reveal window</div>
+                <div class="qs-compose-pills">
+                  <span class="qs-pill">1 min</span>
+                  <span class="qs-pill qs-pill-active">5 min</span>
+                  <span class="qs-pill">15 min</span>
+                </div>
+                <div class="qs-compose-btn">Encrypt &amp; get link</div>
+              </div>
+            </div>
+            <div class="phone-home-indicator"></div>
+          </div>
+        </div>
+      </div>
+      <!-- Step 2 -->
+      <div class="step step-reverse reveal">
+        <div class="step-text">
+          <span class="step-number">2</span>
+          <h3>Send it over any app</h3>
+          <p>SimplyAuth hands off to your phone's own share sheet — Messages, Mail, WhatsApp, whatever you'd already use. The link works once and expires in 24 hours; the channel you send it over is the identity check.</p>
+        </div>
+        <div class="step-phone">
+          <div class="phone-frame phone-sm" aria-hidden="true">
+            <div class="phone-notch"></div>
+            <div class="phone-screen">
+              <div class="qs-share-mock">
+                <div class="qs-share-sheet">
+                  <div class="qs-share-handle"></div>
+                  <div class="qs-share-preview">I sent you something securely with SimplyAuth. This link works <strong>ONCE</strong> and expires in 24 hours:<br>simplyauth.app/s/&hellip;</div>
+                  <div class="qs-share-targets">
+                    <div class="qs-share-target"><span class="qs-share-icon">&#128172;</span>Messages</div>
+                    <div class="qs-share-target"><span class="qs-share-icon">&#9993;&#65039;</span>Mail</div>
+                    <div class="qs-share-target"><span class="qs-share-icon">&#128279;</span>Copy</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="phone-home-indicator"></div>
+          </div>
+        </div>
+      </div>
+      <!-- Step 3 -->
+      <div class="step step-final reveal">
+        <div class="step-text">
+          <span class="step-number">3</span>
+          <h3>They open it in a browser — no app needed</h3>
+          <p>This is the real page at <code>simplyauth.app/s/</code>. Nothing happens until they tap Reveal — the decryption key lives only in the link itself and is never sent to our servers.</p>
+        </div>
+        <div class="browser-frame" aria-hidden="true">
+          <div class="browser-bar">
+            <span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span>
+            <span class="browser-url">simplyauth.app/s/</span>
+          </div>
+          <div class="browser-page">
+            <img class="ss-mock-logo" src="logo.png" alt="">
+            <h4>Someone sent you a secure message via SimplyAuth.</h4>
+            <p>It can be viewed <strong>once</strong>. After you open it, it disappears a few minutes later &mdash; or as soon as you close this page.</p>
+            <span class="ss-mock-btn">Reveal message</span>
+            <p class="ss-mock-hint">Anyone with this exact link can open it once. If that's not you, don't tap.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -369,6 +543,7 @@
     <div class="section-header reveal">
       <h2>Free to receive. Pay to initiate.</h2>
       <p>Being brought into a session and verifying identity are free, forever. Go Personal to start your own sessions and invite new connections.</p>
+      <p class="pricing-asymmetry"><strong>You pay to send. Everyone you send to uses it free, forever</strong> — recipients of Quick Sends don't even need the app.</p>
     </div>
     <div class="pricing-cards reveal">
       <div class="pricing-card">
@@ -420,7 +595,7 @@
 <section class="download-cta" id="download">
   <div class="container">
     <h2>Get SimplyAuth</h2>
-    <p>Available on iOS and Android. Start with a 30-day free trial.</p>
+    <p>Available on iOS and Android. Start with a 30-day free trial — no card required. Safety check-ins and duress alerts are free forever, never paywalled.</p>
     <div class="store-buttons">
       <a class="store-badge" href="https://apps.apple.com/us/app/simplyauth/id6761439612" target="_blank" rel="noopener" aria-label="Download on the App Store">
         <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" width="160" height="54">

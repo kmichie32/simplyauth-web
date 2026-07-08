@@ -55,6 +55,14 @@
       },
       {
         "@type": "Question",
+        "name": "What's the difference between a Verified Session and a Quick Send?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Verified Sessions require a verified pairing (a matched phrase) and are two-way, end-to-end encrypted chats between connections — the server stores ciphertext only, and everything wipes on both phones when the session closes. Quick Send skips verification: it's a one-way, end-to-end encrypted link anyone can open once, with no account or app needed to receive — the channel you send it over is the identity check, and it's unrecoverable after that single view or a 24-hour expiry. Plain texting (SMS/iMessage) has no identity check beyond caller ID or sender name, which can be spoofed, is often stored in plaintext or backups indefinitely, and leaves a permanent thread behind."
+        }
+      },
+      {
+        "@type": "Question",
         "name": "What are Verified Sessions?",
         "acceptedAnswer": {
           "@type": "Answer",
@@ -221,6 +229,27 @@
               <li><strong>Set up a panic word.</strong> Go to Profile → Panic Word. This lets you send a silent distress alert during any verification if you're ever in danger.</li>
               <li><strong>Enable notifications.</strong> SimplyAuth uses push notifications to alert you when a connection sends a verification request, a distress signal, or misses a check-in.</li>
             </ol>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>What's the difference between a Verified Session and a Quick Send?</summary>
+          <div class="faq-answer">
+            <p>Use a Verified Session when you know who you're sending to and want to confirm it's really them first. Use Quick Send when the other person doesn't have the app, or you just need to get something to them once, right now.</p>
+            <div class="compare-table-wrap">
+              <table class="compare-table">
+                <thead>
+                  <tr><th><span class="sr-only">Dimension</span></th><th>Verified Session</th><th>Quick Send</th><th>Plain texting</th></tr>
+                </thead>
+                <tbody>
+                  <tr><th>Identity model</th><td>Verified pairing required (phrase match)</td><td>None — the link is the credential</td><td>None — caller ID/sender name can be spoofed</td></tr>
+                  <tr><th>Encryption</th><td class="yes">End-to-end, always-on</td><td class="yes">End-to-end, key lives only in the link</td><td>Provider-dependent — SMS isn't encrypted</td></tr>
+                  <tr><th>Who can receive</th><td>Your verified connection only (needs the app)</td><td>Anyone with the exact link — no app or account needed</td><td>Anyone in the thread</td></tr>
+                  <tr><th>Server stores</th><td class="yes">Ciphertext only, wiped when the session closes</td><td class="yes">Ciphertext only, until opened once or 24h expiry</td><td>Often plaintext, retained indefinitely</td></tr>
+                  <tr><th>What's left afterward</th><td class="yes">Nothing — auto-wipes on both phones</td><td class="yes">Nothing — unrecoverable after the one view</td><td>A permanent thread, often backed up</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p>Quick Send doesn't verify who's on the other end — the link itself is the credential, the same as handing someone a physical key. For confirming identity first, that's what Verified Sessions are for.</p>
           </div>
         </details>
         <details class="faq-item">
