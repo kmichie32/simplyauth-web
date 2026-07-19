@@ -167,11 +167,15 @@ a { color: inherit; text-decoration: none; }
    RECIPIENT LANDING STRIP
    ================================================================ */
 .recipient-strip {
+  /* Hidden by default — the head script adds .qs-visitor on <html> for
+     visitors arriving from the /s/ viewer (or a ?from=qs link). */
+  display: none;
   margin-top: 64px; /* clears the fixed navbar's 64px height */
   background: var(--accent-light);
   padding: 11px 0;
   text-align: center;
 }
+html.qs-visitor .recipient-strip { display: block; }
 .recipient-strip p {
   font-size: 14px;
   color: var(--accent);
@@ -190,6 +194,10 @@ a { color: inherit; text-decoration: none; }
   padding: 48px 0 60px;
   text-align: center;
 }
+/* Homepage hero clears the fixed navbar itself unless the recipient strip
+   (which carries its own 64px clearance) is shown above it. */
+.hero-home { padding-top: 112px; }
+html.qs-visitor .hero-home { padding-top: 48px; }
 .hero-content { margin-bottom: 40px; }
 .hero h1 {
   font-size: 32px;
@@ -1824,9 +1832,6 @@ a { color: inherit; text-decoration: none; }
   .hero h1 { font-size: 48px; }
   .hero-subtitle { margin: 0 0 28px; }
   .hero-buttons { justify-content: flex-start; }
-  /* Higher specificity than the later base .hero-chips rule so the
-     two-column desktop layout left-aligns the chips. */
-  .hero .hero-chips { justify-content: flex-start; }
   .hero-phone { flex: 0 0 auto; }
 
   .step {
@@ -1859,21 +1864,11 @@ a { color: inherit; text-decoration: none; }
    ================================================================ */
 
 /* ── Hero chips ─────────────────────────────────────────────────── */
-.hero-chips {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 8px;
-  margin: 0 0 24px;
-}
-.hero-chips li {
-  font-size: 13px;
+.hero-facts {
+  font-size: 13.5px;
   font-weight: 600;
   color: var(--primary);
-  background: var(--primary-light);
-  padding: 6px 12px;
-  border-radius: 999px;
+  margin: 0 0 24px;
 }
 
 /* ── Two products overview (Verified Sessions + Quick Send) ──────── */

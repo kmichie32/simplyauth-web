@@ -3,14 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SimplyAuth – Verify who. Encrypt what.</title>
-  <meta name="description" content="Prove it's really them and talk in a Verified Session — or send a one-time Quick Send link that needs no account and disappears after a single view. Either way, the server never sees what you sent.">
+  <title>SimplyAuth – Stop texting passwords.</title>
+  <meta name="description" content="Passwords, card numbers, SSNs, Wi-Fi codes — send them end-to-end encrypted to someone you've verified, or as a one-time link that disappears after a single view. The server never sees what you sent.">
+  <script>
+    // Quick Send recipients (arriving from the /s/ viewer or a ?from=qs link)
+    // get the explainer strip; everyone else lands straight on the hero.
+    if (/[?&]from=qs(&|$)/.test(location.search) ||
+        document.referrer.indexOf(location.origin + '/s') === 0) {
+      document.documentElement.classList.add('qs-visitor');
+    }
+  </script>
   <link rel="canonical" href="https://simplyauth.app/">
   <meta name="theme-color" content="#2563EB">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="SimplyAuth – Verify who. Encrypt what.">
-  <meta property="og:description" content="Prove it's really them and talk in a Verified Session, or send a one-time encrypted Quick Send link — no account needed, gone after one view. Server-blind, no phone number required.">
+  <meta property="og:title" content="SimplyAuth – Stop texting passwords.">
+  <meta property="og:description" content="Passwords, card numbers, SSNs, Wi-Fi codes — send them end-to-end encrypted to someone you've verified, or as a one-time link that disappears after a single view. The server never sees what you sent.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://simplyauth.app/">
   <meta property="og:site_name" content="SimplyAuth">
@@ -21,8 +29,8 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="SimplyAuth – Verify who. Encrypt what.">
-  <meta name="twitter:description" content="Prove it's really them and talk in a Verified Session, or send a one-time encrypted Quick Send link — no account needed, gone after one view. Server-blind, no phone number required.">
+  <meta name="twitter:title" content="SimplyAuth – Stop texting passwords.">
+  <meta name="twitter:description" content="Passwords, card numbers, SSNs, Wi-Fi codes — send them end-to-end encrypted to someone you've verified, or as a one-time link that disappears after a single view. The server never sees what you sent.">
   <meta name="twitter:image" content="https://simplyauth.app/logo.png">
   <meta name="twitter:image:alt" content="SimplyAuth logo">
 
@@ -48,7 +56,7 @@
     "name": "SimplyAuth",
     "operatingSystem": "iOS, Android",
     "applicationCategory": "UtilitiesApplication",
-    "description": "Prove it's really them and talk in a Verified Session — or send a one-time Quick Send link that needs no account and disappears after a single view. Either way, the server never sees what you sent.",
+    "description": "Passwords, card numbers, SSNs, Wi-Fi codes — send them end-to-end encrypted to someone you've verified, or as a one-time link that disappears after a single view. The server never sees what you sent.",
     "url": "https://simplyauth.app/",
     "image": "https://simplyauth.app/logo.png",
     "publisher": {
@@ -110,25 +118,21 @@
 <!-- ================================================================
      HERO
      ================================================================ -->
-<section class="hero" id="hero">
+<section class="hero hero-home" id="hero">
   <div class="container">
     <div class="hero-content">
-      <h1>Verify who. <span class="accent">Encrypt</span> what.</h1>
+      <h1>Stop texting passwords.</h1>
       <p class="hero-subtitle">
-        Prove it's really them and talk in a Verified Session — or send a one-time link
-        that needs no account and disappears after a single view. Either way, the server
-        never sees what you sent.
+        Passwords, card numbers, SSNs, Wi-Fi codes — send them end-to-end encrypted
+        to someone you've verified, or as a one-time link that disappears after a
+        single view. The server never sees what you sent.
       </p>
-      <ul class="hero-chips" aria-label="What makes SimplyAuth different">
-        <li>No phone number required</li>
-        <li>End-to-end encrypted</li>
-        <li>Nothing lingers</li>
-      </ul>
+      <p class="hero-facts">End-to-end encrypted · No phone number required · Nothing lingers</p>
       <div class="hero-buttons">
-        <a href="#download" class="btn btn-primary btn-lg">Get SimplyAuth — Free</a>
+        <a href="#download" class="btn btn-primary btn-lg">Get SimplyAuth</a>
         <a href="#products" class="btn btn-outline btn-lg">See how it works</a>
       </div>
-      <p class="hero-cta-sub">No card required · 30-day full trial</p>
+      <p class="hero-cta-sub">Free to receive, forever · Personal $0.99/mo after a 30-day free trial</p>
       <p class="hero-solo-note">Useful from your first minute — Quick Send works even if no one you know has the app.</p>
     </div>
     <div class="hero-phone">
@@ -570,7 +574,6 @@
           <li>Refer friends for free months</li>
         </ul>
         <a href="#download" class="btn btn-primary">Start 30-day trial</a>
-        <p class="pricing-promo">Missed the first 100 Founders? Use code <strong>EARLYBIRD</strong> in the app for lifetime free access — no subscription, ever. Limited spots.</p>
       </div>
       <div class="pricing-card pricing-card-soon">
         <div class="pricing-badge pricing-badge-soon">Coming soon</div>
