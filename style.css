@@ -44,6 +44,8 @@ img { max-width: 100%; height: auto; display: block; }
 a { color: inherit; text-decoration: none; }
 
 /* ── Utility ───────────────────────────────────────────────────── */
+/* Anchor jumps clear the fixed 64px navbar (plus breathing room). */
+section[id], div[id] { scroll-margin-top: 84px; }
 .container {
   width: 100%;
   max-width: 1200px;
@@ -125,10 +127,14 @@ a { color: inherit; text-decoration: none; }
   display: flex;
   flex-direction: column;
   gap: 5px;
+  align-items: center;
+  justify-content: center;
   background: none;
   border: none;
   cursor: pointer;
   padding: 8px;
+  min-width: 44px;
+  min-height: 44px;
 }
 .nav-hamburger span {
   display: block;
@@ -897,7 +903,7 @@ html.qs-visitor .hero-home { padding-top: 48px; }
   display: block;
   font-size: 14px;
   color: var(--text-secondary);
-  padding: 4px 0;
+  padding: 10px 0;
   transition: color 0.2s;
 }
 .footer-col a:hover { color: var(--primary); }
@@ -1924,7 +1930,7 @@ html.qs-visitor .hero-home { padding-top: 48px; }
 }
 .twin-card-sessions .twin-list li::before { background: var(--primary); }
 .twin-card-quicksend .twin-list li::before { background: var(--accent); }
-.twin-card-link { font-size: 14px; font-weight: 700; margin-top: auto; padding-top: 4px; }
+.twin-card-link { font-size: 14px; font-weight: 700; margin-top: auto; padding: 12px 0 4px; }
 .twin-card-sessions .twin-card-link { color: var(--primary); }
 .twin-card-quicksend .twin-card-link { color: var(--accent); }
 

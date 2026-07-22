@@ -72,8 +72,11 @@
     }
   }
   </script>
-  <!-- Privacy-respecting analytics (no cookies, no PII). Replace SITECODE after creating a free account at https://www.goatcounter.com — deliberately NOT included on /s/ (the secret-reveal page). -->
+  <!-- GoatCounter analytics (cookieless, no PII; deliberately not loaded on /s/).
+       DISABLED until the account exists: create one free at goatcounter.com, then
+       replace SITECODE below and remove this comment wrapper on all 8 pages.
   <script data-goatcounter="https://SITECODE.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+  -->
 </head>
 <body>
 
@@ -87,7 +90,7 @@
       SimplyAuth
     </a>
     <div class="nav-links">
-      <a href="#features">Features</a>
+      <a href="#products">Features</a>
       <a href="#how-it-works">How It Works</a>
       <a href="#pricing">Pricing</a>
       <a href="/faq.html">FAQ</a>
@@ -100,7 +103,7 @@
   </div>
 </nav>
 <div class="nav-mobile" id="nav-mobile">
-  <a href="#features" onclick="this.parentElement.classList.remove('open')">Features</a>
+  <a href="#products" onclick="this.parentElement.classList.remove('open')">Features</a>
   <a href="#how-it-works" onclick="this.parentElement.classList.remove('open')">How It Works</a>
   <a href="#pricing" onclick="this.parentElement.classList.remove('open')">Pricing</a>
   <a href="/faq.html" onclick="this.parentElement.classList.remove('open')">FAQ</a>
@@ -188,7 +191,7 @@
 <!-- ================================================================
      YOU SHOULDN'T BE DOING THIS  (iMessage vs Verified Session)
      ================================================================ -->
-<section class="compare-imessage" id="features">
+<section class="compare-imessage" id="why">
   <div class="container">
     <div class="section-header reveal">
       <h2>You shouldn't be doing this.</h2>
@@ -380,7 +383,7 @@
         <div class="step-text">
           <span class="step-number">1</span>
           <h3>Write it in the app</h3>
-          <p>Type the secret, pick how long it stays visible after it's opened — 1, 5, or 15 minutes — and tap Encrypt &amp; get link. This is the real compose screen, not a mockup.</p>
+          <p>Type the secret, pick how long it stays visible after it's opened — 1, 5, or 15 minutes — and tap Encrypt &amp; get link.</p>
         </div>
         <div class="step-phone">
           <div class="phone-frame phone-sm" aria-hidden="true">
@@ -439,7 +442,7 @@
         <div class="step-text">
           <span class="step-number">3</span>
           <h3>They open it in a browser — no app needed</h3>
-          <p>This is the real page at <code>simplyauth.app/s/</code>. Nothing happens until they tap Reveal — the decryption key lives only in the link itself and is never sent to our servers.</p>
+          <p>This is what they'll see at <code>simplyauth.app/s/</code>. Nothing happens until they tap Reveal — the decryption key lives only in the link itself and is never sent to our servers.</p>
         </div>
         <div class="browser-frame" aria-hidden="true">
           <div class="browser-bar">
@@ -591,8 +594,10 @@
     <p>Available on iOS and Android. Start with a 30-day free trial — no card required. Safety check-ins and duress alerts are free forever, never paywalled.</p>
     <div class="store-buttons">
       <a class="store-badge" href="https://apps.apple.com/us/app/simplyauth/id6761439612" target="_blank" rel="noopener" aria-label="Download on the App Store">
-        <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" width="160" height="54">
+        <img src="badge-app-store.svg" alt="Download on the App Store" width="160" height="54">
       </a>
+      <!-- TODO(owner): replace the Wikimedia hotlink with the official badge from
+           https://play.google.com/intl/en_us/badges/ committed to this repo -->
       <a class="store-badge" href="https://play.google.com/store/apps/details?id=app.simplyauth" target="_blank" rel="noopener" aria-label="Get it on Google Play">
         <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play" width="180" height="54">
       </a>
@@ -652,7 +657,7 @@
       <div class="footer-links">
         <div class="footer-col">
           <h4>Product</h4>
-          <a href="#features">Features</a>
+          <a href="#products">Features</a>
           <a href="#how-it-works">How It Works</a>
           <a href="#pricing">Pricing</a>
           <a href="/faq.html">FAQ</a>
@@ -676,5 +681,21 @@
 <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
 <!-- Mockup Interactivity -->
 <script src="mockups.js"></script>
+<!-- On phones, the hero CTA goes straight to the right store instead of
+     smooth-scrolling the full page to the download section. Nav and pricing
+     links keep the #download anchor so the pricing context stays reachable. -->
+<script>
+(function () {
+  var ua = navigator.userAgent;
+  var store = /iPhone|iPad|iPod/.test(ua)
+    ? 'https://apps.apple.com/us/app/simplyauth/id6761439612'
+    : (/Android/.test(ua) ? 'https://play.google.com/store/apps/details?id=app.simplyauth' : null);
+  if (!store) return;
+  document.querySelectorAll('.hero-buttons a[href="#download"]').forEach(function (a) {
+    a.href = store;
+    a.rel = 'noopener';
+  });
+})();
+</script>
 </body>
 </html>
