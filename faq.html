@@ -50,7 +50,7 @@
         "name": "What is SimplyAuth?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "SimplyAuth is a secure messaging app for sharing sensitive information two ways: Verified Sessions, short end-to-end encrypted chat rooms with someone you've confirmed is really them, and Quick Send, one-time encrypted links anyone can open without an account. Everything is encrypted on your device and our servers store ciphertext only — Sessions auto-wipe on both phones when they close, and Quick Sends vanish after a single view."
+          "text": "SimplyAuth is an app for sharing sensitive information two ways: Verified Sessions, short end-to-end encrypted chat rooms with someone you've confirmed is really them, and Quick Send, one-time encrypted links anyone can open without an account. Everything is encrypted on your device before it leaves, so we can never read it — Sessions auto-wipe on both phones when they close, and Quick Sends vanish after a single view."
         }
       },
       {
@@ -58,7 +58,7 @@
         "name": "What's the difference between a Verified Session and a Quick Send?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Verified Sessions require a verified pairing (a matched phrase) and are two-way, end-to-end encrypted chats between connections — the server stores ciphertext only, and everything wipes on both phones when the session closes. Quick Send skips verification: it's a one-way, end-to-end encrypted link anyone can open once, with no account or app needed to receive — the channel you send it over is the identity check, and it's unrecoverable after that single view or a 24-hour expiry. Plain texting (SMS/iMessage) has no identity check beyond caller ID or sender name, which can be spoofed, is often stored in plaintext or backups indefinitely, and leaves a permanent thread behind."
+          "text": "Verified Sessions require a verified pairing (a matched phrase) and are two-way, end-to-end encrypted chats between connections — the server holds only encrypted data it cannot open, and everything wipes on both phones when the session closes. Quick Send skips verification: it's a one-way, end-to-end encrypted link anyone can open once, with no account or app needed to receive — the channel you send it over is the identity check, and it's unrecoverable after that single view or a 24-hour expiry. Plain texting (SMS/iMessage) has no identity check beyond caller ID or sender name, which can be spoofed, is often stored in plaintext or backups indefinitely, and leaves a permanent thread behind."
         }
       },
       {
@@ -74,7 +74,7 @@
         "name": "Are my messages really private?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Message content is end-to-end encrypted and our servers are blind to it — we store ciphertext only and cannot read what you send. To be candid: we do retain connection metadata (who paired with whom, and when sessions happened) because the app needs it to work. So the contents are private; the fact that a session occurred between two accounts is not secret to us."
+          "text": "Message content is end-to-end encrypted, so we cannot read what you send. We do keep connection records — who paired with whom, and when sessions happened — because the app needs them to work. The contents are private; the fact that a session occurred between two accounts is not secret to us."
         }
       },
       {
@@ -98,7 +98,7 @@
         "name": "Is Quick Send encrypted?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. The secret is encrypted on your device before it ever leaves your phone, and the decryption key lives only in the link itself, never on our servers. We store ciphertext only and can't read what you sent."
+          "text": "Yes. The secret is encrypted on your device before it ever leaves your phone, and the decryption key lives only in the link itself, never on our servers. We can't read what you sent."
         }
       },
       {
@@ -138,7 +138,7 @@
         "name": "How much does SimplyAuth cost?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "SimplyAuth has a free tier and one paid plan. Free ($0, no card) lets you receive a Verified Session and reply, open a Quick Send link, accept a connection request, verify someone's identity, and use safety check-ins. Personal ($0.99/month or $7.99/year, with a 30-day trial) adds starting your own sessions, sending Quick Sends, and sending connection requests. If your Personal plan lapses you simply drop back to Free — nothing is locked or deleted. Verification and safety features (scheduled check-ins and silent duress alerts) are free for everyone and are never paywalled."
+          "text": "SimplyAuth has a free tier and one paid plan. Free ($0, no card) lets you receive a Verified Session and reply, open a Quick Send link, accept a connection request, verify someone's identity, and use safety check-ins. Personal ($0.99/month or $7.99/year, with a 30-day trial) adds starting your own sessions, sending Quick Sends, and sending connection requests. If your Personal plan lapses you simply drop back to Free — nothing is locked or deleted. Verification and safety features (scheduled check-ins and silent distress alerts) are free for everyone, on every plan."
         }
       },
       {
@@ -154,7 +154,7 @@
         "name": "Are the safety features free?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. Scheduled check-ins and the silent duress/SOS alert are free for everyone and are never put behind the paywall, including on the Free tier or if your Personal plan lapses. We don't gate safety features — or identity verification."
+          "text": "Yes. Scheduled check-ins and the silent distress alert are free for everyone, on every plan, including if your Personal plan lapses. We don't gate safety features or identity verification."
         }
       },
       {
@@ -202,8 +202,8 @@
       SimplyAuth
     </a>
     <div class="nav-links">
-      <a href="/#features">Features</a>
-      <a href="/#how-it-works">How It Works</a>
+      <a href="/#products">Features</a>
+      <a href="/#sessions">How It Works</a>
       <a href="/#pricing">Pricing</a>
       <a href="/faq.html" class="nav-active">FAQ</a>
       <a href="/roadmap.html">Roadmap</a>
@@ -215,8 +215,8 @@
   </div>
 </nav>
 <div class="nav-mobile">
-  <a href="/#features" onclick="this.parentElement.classList.remove('open')">Features</a>
-  <a href="/#how-it-works" onclick="this.parentElement.classList.remove('open')">How It Works</a>
+  <a href="/#products" onclick="this.parentElement.classList.remove('open')">Features</a>
+  <a href="/#sessions" onclick="this.parentElement.classList.remove('open')">How It Works</a>
   <a href="/#pricing" onclick="this.parentElement.classList.remove('open')">Pricing</a>
   <a href="/faq.html" onclick="this.parentElement.classList.remove('open')">FAQ</a>
   <a href="/roadmap.html" onclick="this.parentElement.classList.remove('open')">Roadmap</a>
@@ -320,8 +320,8 @@
         <details class="faq-item">
           <summary>Are my messages encrypted?</summary>
           <div class="faq-answer">
-            <p>Yes. Sessions use end-to-end encryption — your messages are encrypted on your device before they're sent, and only decrypted on the recipient's device. SimplyAuth's servers store ciphertext only (we're server-blind) and cannot read the contents of your messages.</p>
-            <p>To be candid: while message <em>content</em> is private to us, we do retain connection metadata — who paired with whom, and when sessions happened — because the app needs it to work.</p>
+            <p>Yes. Sessions use end-to-end encryption. Your messages are encrypted on your device before they're sent, and only decrypted on the recipient's device. Our servers store only ciphertext — encrypted data we can't read.</p>
+            <p>We do keep connection records — who paired with whom, and when sessions happened — because the app needs them to work.</p>
           </div>
         </details>
         <details class="faq-item">
@@ -364,7 +364,7 @@
         <details class="faq-item">
           <summary>Is Quick Send encrypted?</summary>
           <div class="faq-answer">
-            <p>Yes. The secret is encrypted on your device before it ever leaves your phone, and the decryption key lives only in the link itself — it's never sent to our servers. We store ciphertext only and can't read what you sent.</p>
+            <p>Yes. The secret is encrypted on your device before it ever leaves your phone, and the decryption key lives only in the link itself. It is never sent to our servers, and we can't read what you sent.</p>
           </div>
         </details>
         <details class="faq-item">
@@ -586,7 +586,7 @@
               <li><strong>Personal ($0.99/month or $7.99/year):</strong> everything in Free, plus <strong>starting</strong> your own sessions, <strong>sending</strong> Quick Sends, and <strong>sending</strong> connection requests.</li>
             </ul>
             <p>Every new account starts with a <strong>30-day Personal trial</strong> — no card required. When it ends you drop to Free (nothing is locked or deleted).</p>
-            <p>Identity verification and the safety features — scheduled check-ins and silent duress alerts — are <strong>free for everyone</strong> and are never paywalled.</p>
+            <p>Identity verification and the safety features (scheduled check-ins and silent distress alerts) are <strong>free for everyone</strong>, on every plan.</p>
           </div>
         </details>
         <details class="faq-item">
@@ -633,9 +633,30 @@
       <h2>Security &amp; Privacy</h2>
       <div class="faq-list">
         <details class="faq-item">
+          <summary>How is SimplyAuth different from Signal or Telegram?</summary>
+          <div class="faq-answer">
+            <p>Signal is built for private conversations; SimplyAuth is built for one job: confirming who you're talking to before you hand over something sensitive. Use both. Here's the side-by-side:</p>
+            <div class="compare-table-wrap">
+              <table class="compare-table">
+                <thead>
+                  <tr><th><span class="sr-only">Dimension</span></th><th>SimplyAuth</th><th>Signal</th><th>Telegram</th></tr>
+                </thead>
+                <tbody>
+                  <tr><th>Identity model</th><td class="yes">Verified pairing required</td><td>Phone number</td><td>Phone number</td></tr>
+                  <tr><th>Default encryption</th><td class="yes">Always-on for Sessions</td><td>Always-on</td><td>Opt-in (Secret Chats)</td></tr>
+                  <tr><th>Groups</th><td class="yes">1:1 only</td><td>Yes</td><td>Yes (large)</td></tr>
+                  <tr><th>Built for</th><td class="yes">One sensitive exchange</td><td>Ongoing private chat</td><td>Messaging + channels</td></tr>
+                  <tr><th>Server stores</th><td class="yes">Encrypted data only</td><td>Encrypted data only</td><td>Plaintext (regular chats)</td></tr>
+                  <tr><th>Phone number</th><td class="yes">Not required</td><td>Required</td><td>Required</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </details>
+        <details class="faq-item">
           <summary>What data do you collect?</summary>
           <div class="faq-answer">
-            <p>Only what's needed to make the app work: your name, email, profile photo (from Google or Apple sign-in), device tokens for push notifications, connection records, and session/verification metadata. Verified Session message content is end-to-end encrypted — we store ciphertext only and can't read it. We never collect your panic PIN, location, or contacts, and a phone number is optional (we only store one if you choose to add it). See our <a href="/privacy.html">Privacy Policy</a> for full details.</p>
+            <p>Only what's needed to make the app work: your name, email, profile photo (from Google or Apple sign-in), device tokens for push notifications, connection records, and session/verification metadata. Verified Session message content is end-to-end encrypted, so we can't read it. We never collect your panic PIN, location, or contacts, and a phone number is optional (we only store one if you choose to add it). See our <a href="/privacy.html">Privacy Policy</a> for full details.</p>
           </div>
         </details>
         <details class="faq-item">
@@ -784,6 +805,7 @@
 
     <!-- Availability -->
     <section class="faq-section" id="availability">
+      <span id="countries"></span>
       <h2>Availability</h2>
       <div class="faq-list">
         <details class="faq-item">
@@ -839,8 +861,8 @@
       <div class="footer-links">
         <div class="footer-col">
           <h4>Product</h4>
-          <a href="/#features">Features</a>
-          <a href="/#how-it-works">How It Works</a>
+          <a href="/#products">Features</a>
+          <a href="/#sessions">How It Works</a>
           <a href="/#pricing">Pricing</a>
           <a href="/faq.html">FAQ</a>
           <a href="/roadmap.html">Roadmap</a>
