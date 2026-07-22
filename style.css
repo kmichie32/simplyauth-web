@@ -384,15 +384,27 @@ html.qs-visitor .hero-home { padding-top: 48px; }
   color: var(--text-primary);
 }
 
-.steps { display: flex; flex-direction: column; gap: 60px; }
+.steps { display: flex; flex-direction: column; gap: 56px; }
 .step {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 32px;
+  align-items: stretch;
+  text-align: left;
+  gap: 28px;
 }
-.step-text { max-width: 400px; }
+.step-text { max-width: 460px; }
+.step > .step-phone,
+.step > .step-session-visual,
+.step > .browser-frame { align-self: center; }
+/* Side-by-side from tablet up: text left, visual right, pair centered */
+@media (min-width: 768px) {
+  .step {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 56px;
+  }
+}
 .step-number {
   display: inline-flex;
   width: 40px;
@@ -1709,14 +1721,7 @@ html.qs-visitor .hero-home { padding-top: 48px; }
   .hero-buttons { justify-content: flex-start; }
   .hero-phone { flex: 0 0 auto; }
 
-  .step {
-    flex-direction: row;
-    text-align: left;
-    gap: 60px;
-  }
-  /* .step-reverse kept in HTML for backward compat but no longer flips layout —
-     all phones sit on the right for consistent alignment across all steps */
-  .step-text { flex: 1; }
+  .step { gap: 80px; }
 
   .checkin-inner {
     flex-direction: row;

@@ -91,7 +91,7 @@
     </a>
     <div class="nav-links">
       <a href="#products">Features</a>
-      <a href="#sessions">How It Works</a>
+      <a href="#quicksend">How It Works</a>
       <a href="#pricing">Pricing</a>
       <a href="/faq.html">FAQ</a>
       <a href="/roadmap.html">Roadmap</a>
@@ -161,17 +161,6 @@
       <p>Pick the one that fits who's on the other end.</p>
     </div>
     <div class="twin-grid">
-      <div class="twin-card twin-card-sessions">
-        <span class="twin-tag">Verified Sessions</span>
-        <h3>For people you know</h3>
-        <p>Prove it's really them with a 60-second phrase, then talk in a room that wipes itself on both phones when it closes.</p>
-        <ul class="twin-list">
-          <li>Identity verified before the room opens</li>
-          <li>Two-way conversation, both sides confirmed</li>
-          <li>Nothing left behind on either phone</li>
-        </ul>
-        <a href="#sessions" class="twin-card-link">See a Verified Session &rarr;</a>
-      </div>
       <div class="twin-card twin-card-quicksend">
         <span class="twin-tag">Quick Send</span>
         <h3>For anyone, right now</h3>
@@ -182,7 +171,18 @@
           <li>No app or account needed to receive</li>
         </ul>
         <a href="#quicksend" class="twin-card-link">See Quick Send &rarr;</a>
+        <div class="twin-card twin-card-sessions">
+        <span class="twin-tag">Verified Sessions</span>
+        <h3>For people you know</h3>
+        <p>Prove it's really them with a 60-second phrase, then talk in a room that wipes itself on both phones when it closes.</p>
+        <ul class="twin-list">
+          <li>Identity verified before the room opens</li>
+          <li>Two-way conversation, both sides confirmed</li>
+          <li>Nothing left behind on either phone</li>
+        </ul>
+        <a href="#sessions" class="twin-card-link">See a Verified Session &rarr;</a>
       </div>
+    </div>
     </div>
   </div>
 </section>
@@ -225,74 +225,7 @@
 </section>
 
 <!-- ================================================================
-     VERIFIED SESSIONS — FLAGSHIP
-     ================================================================ -->
-<section class="sessions-flagship" id="sessions">
-  <div class="container">
-    <div class="section-header">
-      <h2>Verified Sessions: built for one sensitive exchange</h2>
-      <p>Your dad needs the Netflix password again, or your accountant needs the new account number. Verify it's really them, then share it in a room that wipes itself.</p>
-    </div>
-    <div class="steps">
-      <!-- Step 1 -->
-      <div class="step">
-        <div class="step-text">
-          <span class="step-number">1</span>
-          <h3>Add a Connection</h3>
-          <p>Share an invite code or scan a QR code to link with someone you trust. It takes seconds.</p>
-        </div>
-        <div class="step-phone">
-          <div class="phone-frame phone-sm" aria-hidden="true">
-            <div class="phone-notch"></div>
-            <div class="phone-screen" id="mockup-add-connection">
-              <!-- Rendered by mockups.js -->
-            </div>
-            <div class="phone-home-indicator"></div>
-          </div>
-        </div>
-      </div>
-      <!-- Step 2 -->
-      <div class="step">
-        <div class="step-text">
-          <span class="step-number">2</span>
-          <h3>Tap Verify, read the phrase aloud</h3>
-          <p>A unique, time-limited phrase appears on both phones. If what they read matches your screen, it's really them. If not, hang up.</p>
-        </div>
-        <div class="step-phone">
-          <div class="phone-frame phone-sm" aria-hidden="true">
-            <div class="phone-notch"></div>
-            <div class="phone-screen" id="mockup-phrase">
-              <!-- Rendered by mockups.js -->
-            </div>
-            <div class="phone-home-indicator"></div>
-          </div>
-          <p class="phone-caption">Live demo. The phrase rotates every 60 seconds, same as in the app.</p>
-        </div>
-      </div>
-      <!-- Step 3 -->
-      <div class="step step-final">
-        <div class="step-text">
-          <span class="step-number">3</span>
-          <h3>Open a Session</h3>
-          <p>Verified? Share the password, account number, or document in an encrypted room, then walk away clean.</p>
-        </div>
-        <div class="step-session-visual" aria-hidden="true">
-          <div class="session-banner">Verified Session &middot; wipes in 19:58</div>
-          <div class="bubble bubble-session">Routing &bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;  &middot;  Acct &bull;&bull;&bull;&bull;&bull;&bull;</div>
-        </div>
-      </div>
-    </div>
-    <dl class="spec-grid">
-      <div><dt>Encryption</dt><dd>Keys are made on your device. Our servers hold only data we can't read.</dd></div>
-      <div><dt>Lifespan</dt><dd>20 minutes or 30 messages, whichever comes first</dd></div>
-      <div><dt>Screenshots</dt><dd>Blocked on Android, detected on iOS</dd></div>
-      <div><dt>After it closes</dt><dd>Wiped from both phones automatically</dd></div>
-    </dl>
-  </div>
-</section>
-
-<!-- ================================================================
-     QUICK SEND — SECOND FLAGSHIP
+     QUICK SEND — FLAGSHIP
      ================================================================ -->
 <section class="quicksend-flagship" id="quicksend">
   <div class="container">
@@ -389,6 +322,73 @@
       <div><dt>Expiry</dt><dd>Visible for 1, 5, or 15 minutes once opened; unopened links die in 24 hours</dd></div>
     </dl>
     <p class="quicksend-honesty">Quick Send doesn't check who opens the link — whoever has it, has it, like a physical key. If you need to know it's really them, use a Verified Session.</p>
+  </div>
+</section>
+
+<!-- ================================================================
+     VERIFIED SESSIONS — FLAGSHIP
+     ================================================================ -->
+<section class="sessions-flagship" id="sessions">
+  <div class="container">
+    <div class="section-header">
+      <h2>Verified Sessions: built for one sensitive exchange</h2>
+      <p>Your dad needs the Netflix password again, or your accountant needs the new account number. Verify it's really them, then share it in a room that wipes itself.</p>
+    </div>
+    <div class="steps">
+      <!-- Step 1 -->
+      <div class="step">
+        <div class="step-text">
+          <span class="step-number">1</span>
+          <h3>Add a Connection</h3>
+          <p>Share an invite code or scan a QR code to link with someone you trust. It takes seconds.</p>
+        </div>
+        <div class="step-phone">
+          <div class="phone-frame phone-sm" aria-hidden="true">
+            <div class="phone-notch"></div>
+            <div class="phone-screen" id="mockup-add-connection">
+              <!-- Rendered by mockups.js -->
+            </div>
+            <div class="phone-home-indicator"></div>
+          </div>
+        </div>
+      </div>
+      <!-- Step 2 -->
+      <div class="step">
+        <div class="step-text">
+          <span class="step-number">2</span>
+          <h3>Tap Verify, read the phrase aloud</h3>
+          <p>A unique, time-limited phrase appears on both phones. If what they read matches your screen, it's really them. If not, hang up.</p>
+        </div>
+        <div class="step-phone">
+          <div class="phone-frame phone-sm" aria-hidden="true">
+            <div class="phone-notch"></div>
+            <div class="phone-screen" id="mockup-phrase">
+              <!-- Rendered by mockups.js -->
+            </div>
+            <div class="phone-home-indicator"></div>
+          </div>
+          <p class="phone-caption">Live demo. The phrase rotates every 60 seconds, same as in the app.</p>
+        </div>
+      </div>
+      <!-- Step 3 -->
+      <div class="step step-final">
+        <div class="step-text">
+          <span class="step-number">3</span>
+          <h3>Open a Session</h3>
+          <p>Verified? Share the password, account number, or document in an encrypted room, then walk away clean.</p>
+        </div>
+        <div class="step-session-visual" aria-hidden="true">
+          <div class="session-banner">Verified Session &middot; wipes in 19:58</div>
+          <div class="bubble bubble-session">Routing &bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;  &middot;  Acct &bull;&bull;&bull;&bull;&bull;&bull;</div>
+        </div>
+      </div>
+    </div>
+    <dl class="spec-grid">
+      <div><dt>Encryption</dt><dd>Keys are made on your device. Our servers hold only data we can't read.</dd></div>
+      <div><dt>Lifespan</dt><dd>20 minutes or 30 messages, whichever comes first</dd></div>
+      <div><dt>Screenshots</dt><dd>Blocked on Android, detected on iOS</dd></div>
+      <div><dt>After it closes</dt><dd>Wiped from both phones automatically</dd></div>
+    </dl>
   </div>
 </section>
 
@@ -534,7 +534,7 @@
         <div class="footer-col">
           <h4>Product</h4>
           <a href="#products">Features</a>
-          <a href="#how-it-works">How It Works</a>
+          <a href="#quicksend">How It Works</a>
           <a href="#pricing">Pricing</a>
           <a href="/faq.html">FAQ</a>
           <a href="/faq.html#countries">Countries</a>
