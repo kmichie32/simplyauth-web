@@ -2096,10 +2096,9 @@ html.qs-visitor .hero-home { padding-top: 48px; }
 .feature-badge-muted { background: var(--surface-secondary) !important; color: var(--text-tertiary) !important; }
 
 /* ── Pricing: all-paid plan + waitlist tier ─────────────────────── */
-.pricing-cards { max-width: 980px; }
-.pricing-card-soon { border-style: dashed; }
-.pricing-badge-soon { background: var(--text-tertiary); }
-.price-soon { font-size: 26px; color: var(--text-secondary); }
+/* Two-card layout (Free + Personal): cap width and center so the pair
+   doesn't stretch edge-to-edge in the 1000px pricing container. */
+.pricing-cards { max-width: 780px; justify-content: center; }
 .pricing-safety-note {
   max-width: 700px;
   margin: 28px auto 0;
