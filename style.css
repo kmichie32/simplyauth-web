@@ -735,6 +735,9 @@ html.qs-visitor .hero-home { padding-top: 48px; }
 }
 .store-badge-disabled:hover { opacity: 0.5; }
 .store-badge img { height: 100%; width: auto; }
+/* Google's official badge ships with ~25% built-in clear space, so it needs a
+   taller box than the Apple badge for the artwork to read at the same size. */
+.store-badge-play { height: 72px; }
 .download-availability {
   margin-top: 20px;
   font-size: 14px;
