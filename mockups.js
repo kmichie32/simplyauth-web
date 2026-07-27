@@ -23,6 +23,21 @@
   const randomNum  = () => Math.floor(Math.random() * 90) + 10;
 
   // ── Status Bar HTML ──────────────────────────────────────────
+  // Run a per-second loop only while `el` is on-screen and the tab is visible —
+  // the same gating buildSessionRoomScreen already does. Prevents the verify and
+  // check-in timers from burning battery rebuilding DOM offscreen forever.
+  function gateLoop(el, start, stop) {
+    if (!('IntersectionObserver' in window)) { start(); return; }
+    new IntersectionObserver((entries) => {
+      entries.forEach((e) => { e.isIntersecting ? start() : stop(); });
+    }, { threshold: 0.2 }).observe(el);
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) { stop(); return; }
+      const r = el.getBoundingClientRect();
+      if (r.bottom > 0 && r.top < (window.innerHeight || document.documentElement.clientHeight)) start();
+    });
+  }
+
   function statusBar() {
     return `
       <div class="phone-statusbar">
@@ -94,7 +109,8 @@
 
     if (REDUCE_MOTION) return null;
 
-    const timer = setInterval(() => {
+    let timer = null;
+    const tick = () => {
       seconds--;
       if (seconds < 0) {
         // Reset with new phrase
@@ -110,9 +126,13 @@
           setTimeout(() => t.classList.remove('token-enter'), 50 + i * 60);
         });
       }
-    }, 1000);
-
-    return timer;
+    };
+    gateLoop(
+      el,
+      () => { if (!timer) timer = setInterval(tick, 1000); },
+      () => { clearInterval(timer); timer = null; }
+    );
+    return null;
   }
 
   // ── Home Dashboard Screen ────────────────────────────────────
@@ -209,11 +229,17 @@
 
     if (REDUCE_MOTION) return;
 
-    setInterval(() => {
+    let timer = null;
+    const tick = () => {
       totalSec--;
       if (totalSec < 0) totalSec = 6443; // loop
       render();
-    }, 1000);
+    };
+    gateLoop(
+      el,
+      () => { if (!timer) timer = setInterval(tick, 1000); },
+      () => { clearInterval(timer); timer = null; }
+    );
   }
 
   // ── Add Connection Screen ────────────────────────────────────
@@ -474,28 +500,6 @@
     });
   }
 
-  // ── Scroll Reveal ────────────────────────────────────────────
-  function initScrollReveal() {
-    const reveals = document.querySelectorAll('.reveal');
-    if (!reveals.length) return;
-
-    if (REDUCE_MOTION) {
-      reveals.forEach(el => el.classList.add('visible'));
-      return;
-    }
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
-
-    reveals.forEach(el => observer.observe(el));
-  }
-
   // ── Init ─────────────────────────────────────────────────────
   function init() {
     // Build all mockups
@@ -504,9 +508,6 @@
     buildHomeScreen('mockup-home');
     buildCheckinScreen('mockup-checkin');
     buildAddConnectionScreen('mockup-add-connection');
-
-    // Scroll animations
-    initScrollReveal();
   }
 
   // Run on DOM ready

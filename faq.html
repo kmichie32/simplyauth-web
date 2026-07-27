@@ -50,7 +50,7 @@
         "name": "What is SimplyAuth?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "SimplyAuth is a secure messaging app for sharing sensitive information two ways: Verified Sessions, short end-to-end encrypted chat rooms with someone you've confirmed is really them, and Quick Send, one-time encrypted links anyone can open without an account. Everything is encrypted on your device and our servers store ciphertext only — Sessions auto-wipe on both phones when they close, and Quick Sends vanish after a single view."
+          "text": "SimplyAuth is an app for sharing sensitive information two ways: Verified Sessions, short end-to-end encrypted chat rooms with someone you've confirmed is really them, and Quick Send, one-time encrypted links anyone can open without an account. Everything is encrypted on your device before it leaves, so we can never read it — Sessions auto-wipe on both phones when they close, and Quick Sends vanish after a single view."
         }
       },
       {
@@ -58,7 +58,7 @@
         "name": "What's the difference between a Verified Session and a Quick Send?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Verified Sessions require a verified pairing (a matched phrase) and are two-way, end-to-end encrypted chats between connections — the server stores ciphertext only, and everything wipes on both phones when the session closes. Quick Send skips verification: it's a one-way, end-to-end encrypted link anyone can open once, with no account or app needed to receive — the channel you send it over is the identity check, and it's unrecoverable after that single view or a 24-hour expiry. Plain texting (SMS/iMessage) has no identity check beyond caller ID or sender name, which can be spoofed, is often stored in plaintext or backups indefinitely, and leaves a permanent thread behind."
+          "text": "Verified Sessions require a verified pairing (a matched phrase) and are two-way, end-to-end encrypted chats between connections — the server holds only encrypted data it cannot open, and everything wipes on both phones when the session closes. Quick Send skips verification: it's a one-way, end-to-end encrypted link anyone can open once, with no account or app needed to receive — the channel you send it over is the identity check, and it's unrecoverable after that single view or a 24-hour expiry. Plain texting (SMS/iMessage) has no identity check beyond caller ID or sender name, which can be spoofed, is often stored in plaintext or backups indefinitely, and leaves a permanent thread behind."
         }
       },
       {
@@ -74,7 +74,7 @@
         "name": "Are my messages really private?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Message content is end-to-end encrypted and our servers are blind to it — we store ciphertext only and cannot read what you send. To be candid: we do retain connection metadata (who paired with whom, and when sessions happened) because the app needs it to work. So the contents are private; the fact that a session occurred between two accounts is not secret to us."
+          "text": "Message content is end-to-end encrypted, so we cannot read what you send. We do keep connection records — who paired with whom, and when sessions happened — because the app needs them to work. The contents are private; the fact that a session occurred between two accounts is not secret to us."
         }
       },
       {
@@ -98,7 +98,7 @@
         "name": "Is Quick Send encrypted?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. The secret is encrypted on your device before it ever leaves your phone, and the decryption key lives only in the link itself, never on our servers. We store ciphertext only and can't read what you sent."
+          "text": "Yes. The secret is encrypted on your device before it ever leaves your phone, and the decryption key lives only in the link itself, never on our servers. We can't read what you sent."
         }
       },
       {
@@ -138,7 +138,7 @@
         "name": "How much does SimplyAuth cost?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "SimplyAuth has a free tier and one paid plan. Free ($0, no card) lets you receive a Verified Session and reply, open a Quick Send link, accept a connection request, verify someone's identity, and use safety check-ins. Personal ($0.99/month or $7.99/year, with a 30-day trial) adds starting your own sessions, sending Quick Sends, and sending connection requests. If your Personal plan lapses you simply drop back to Free — nothing is locked or deleted. Verification and safety features (scheduled check-ins and silent duress alerts) are free for everyone and are never paywalled."
+          "text": "SimplyAuth has a free tier and one paid plan. Free ($0, no card) lets you receive a Verified Session and reply, open a Quick Send link, accept a connection request, verify someone's identity, and use safety check-ins. Personal ($0.99/month or $7.99/year, with a 30-day trial) adds starting your own sessions, sending Quick Sends, and sending connection requests. If your Personal plan lapses you simply drop back to Free — nothing is locked or deleted. Verification and safety features (scheduled check-ins and silent distress alerts) are free for everyone, on every plan."
         }
       },
       {
@@ -146,7 +146,7 @@
         "name": "What is Founder status, and how do I get it?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "The first 100 people to sign up for SimplyAuth became Founders automatically — lifetime free access, no subscription, ever. If you missed that, you can still become a Founder by entering the code EARLYBIRD in the app (Profile → Subscription → \"Have a code?\"), while spots last."
+          "text": "The first 100 people to sign up for SimplyAuth became Founders automatically — lifetime free access, no subscription, ever. Founder spots are no longer openly available, but we occasionally grant Founder status with a personal one-time code as a thank-you."
         }
       },
       {
@@ -154,7 +154,7 @@
         "name": "Are the safety features free?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. Scheduled check-ins and the silent duress/SOS alert are free for everyone and are never put behind the paywall, including on the Free tier or if your Personal plan lapses. We don't gate safety features — or identity verification."
+          "text": "Yes. Scheduled check-ins and the silent distress alert are free for everyone, on every plan, including if your Personal plan lapses. We don't gate safety features or identity verification."
         }
       },
       {
@@ -175,14 +175,6 @@
       },
       {
         "@type": "Question",
-        "name": "Is there a plan for businesses?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Verified Business is coming soon and is currently a waitlist. It's gated on SOC 2 and HIPAA readiness work that's in progress. If you'd like internal, verified secure messaging for a team, email support@simplyauth.app to join the waitlist."
-        }
-      },
-      {
-        "@type": "Question",
         "name": "Is SimplyAuth a replacement for 911?",
         "acceptedAnswer": {
           "@type": "Answer",
@@ -192,6 +184,11 @@
     ]
   }
   </script>
+  <!-- GoatCounter analytics (cookieless, no PII; deliberately not loaded on /s/).
+       DISABLED until the account exists: create one free at goatcounter.com, then
+       replace SITECODE below and remove this comment wrapper on all 8 pages.
+  <script data-goatcounter="https://SITECODE.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+  -->
 </head>
 <body>
 
@@ -205,8 +202,8 @@
       SimplyAuth
     </a>
     <div class="nav-links">
-      <a href="/#features">Features</a>
-      <a href="/#how-it-works">How It Works</a>
+      <a href="/#products">Features</a>
+      <a href="/#quicksend">How It Works</a>
       <a href="/#pricing">Pricing</a>
       <a href="/faq.html" class="nav-active">FAQ</a>
       <a href="/roadmap.html">Roadmap</a>
@@ -218,8 +215,8 @@
   </div>
 </nav>
 <div class="nav-mobile">
-  <a href="/#features" onclick="this.parentElement.classList.remove('open')">Features</a>
-  <a href="/#how-it-works" onclick="this.parentElement.classList.remove('open')">How It Works</a>
+  <a href="/#products" onclick="this.parentElement.classList.remove('open')">Features</a>
+  <a href="/#quicksend" onclick="this.parentElement.classList.remove('open')">How It Works</a>
   <a href="/#pricing" onclick="this.parentElement.classList.remove('open')">Pricing</a>
   <a href="/faq.html" onclick="this.parentElement.classList.remove('open')">FAQ</a>
   <a href="/roadmap.html" onclick="this.parentElement.classList.remove('open')">Roadmap</a>
@@ -323,8 +320,8 @@
         <details class="faq-item">
           <summary>Are my messages encrypted?</summary>
           <div class="faq-answer">
-            <p>Yes. Sessions use end-to-end encryption — your messages are encrypted on your device before they're sent, and only decrypted on the recipient's device. SimplyAuth's servers store ciphertext only (we're server-blind) and cannot read the contents of your messages.</p>
-            <p>To be candid: while message <em>content</em> is private to us, we do retain connection metadata — who paired with whom, and when sessions happened — because the app needs it to work.</p>
+            <p>Yes. Sessions use end-to-end encryption. Your messages are encrypted on your device before they're sent, and only decrypted on the recipient's device. Our servers store only ciphertext — encrypted data we can't read.</p>
+            <p>We do keep connection records — who paired with whom, and when sessions happened — because the app needs them to work.</p>
           </div>
         </details>
         <details class="faq-item">
@@ -367,7 +364,7 @@
         <details class="faq-item">
           <summary>Is Quick Send encrypted?</summary>
           <div class="faq-answer">
-            <p>Yes. The secret is encrypted on your device before it ever leaves your phone, and the decryption key lives only in the link itself — it's never sent to our servers. We store ciphertext only and can't read what you sent.</p>
+            <p>Yes. The secret is encrypted on your device before it ever leaves your phone, and the decryption key lives only in the link itself. It is never sent to our servers, and we can't read what you sent.</p>
           </div>
         </details>
         <details class="faq-item">
@@ -448,7 +445,7 @@
         <details class="faq-item">
           <summary>How many connections can I have?</summary>
           <div class="faq-answer">
-            <p>You can build out your trusted circle with multiple connections — invite the people you regularly need to verify or share sensitive info with. Pending invites count toward your active connections until they're accepted or cancelled.</p>
+            <p>There's no limit. Connect with as many people as you need — pending invites expire automatically if they're never accepted.</p>
           </div>
         </details>
         <details class="faq-item">
@@ -589,14 +586,14 @@
               <li><strong>Personal ($0.99/month or $7.99/year):</strong> everything in Free, plus <strong>starting</strong> your own sessions, <strong>sending</strong> Quick Sends, and <strong>sending</strong> connection requests.</li>
             </ul>
             <p>Every new account starts with a <strong>30-day Personal trial</strong> — no card required. When it ends you drop to Free (nothing is locked or deleted).</p>
-            <p>Identity verification and the safety features — scheduled check-ins and silent duress alerts — are <strong>free for everyone</strong> and are never paywalled.</p>
+            <p>Identity verification and the safety features (scheduled check-ins and silent distress alerts) are <strong>free for everyone</strong>, on every plan.</p>
           </div>
         </details>
         <details class="faq-item">
           <summary>What is Founder status, and how do I get it?</summary>
           <div class="faq-answer">
             <p>The first 100 people to sign up for SimplyAuth became Founders automatically — lifetime free access, no subscription, ever.</p>
-            <p>Missed it? You can still become a Founder by entering the code <strong>EARLYBIRD</strong> in the app (Profile → Subscription → "Have a code?"), while spots last.</p>
+            <p>Founder spots are no longer openly available, but we occasionally grant Founder status with a personal one-time code as a thank-you. If you have one, redeem it in the app under Profile &rarr; Subscription &rarr; "Have a code?".</p>
           </div>
         </details>
         <details class="faq-item">
@@ -628,13 +625,6 @@
             <p>Note: deleting the app does not cancel your subscription.</p>
           </div>
         </details>
-        <details class="faq-item">
-          <summary>Is there a plan for businesses or teams?</summary>
-          <div class="faq-answer">
-            <p>Verified Business is coming soon and is currently a <strong>waitlist</strong>. It's gated on SOC 2 and HIPAA readiness work we have in progress, so we're not selling it yet.</p>
-            <p>If you'd like verified, encrypted messaging for a team, email <a href="mailto:support@simplyauth.app?subject=Verified%20Business%20waitlist">support@simplyauth.app</a> to join the waitlist and tell us what you'd use it for.</p>
-          </div>
-        </details>
       </div>
     </section>
 
@@ -643,9 +633,30 @@
       <h2>Security &amp; Privacy</h2>
       <div class="faq-list">
         <details class="faq-item">
+          <summary>How is SimplyAuth different from Signal or Telegram?</summary>
+          <div class="faq-answer">
+            <p>Signal is built for private conversations; SimplyAuth is built for one job: confirming who you're talking to before you hand over something sensitive. Use both. Here's the side-by-side:</p>
+            <div class="compare-table-wrap">
+              <table class="compare-table">
+                <thead>
+                  <tr><th><span class="sr-only">Dimension</span></th><th>SimplyAuth</th><th>Signal</th><th>Telegram</th></tr>
+                </thead>
+                <tbody>
+                  <tr><th>Identity model</th><td class="yes">Verified pairing required</td><td>Phone number</td><td>Phone number</td></tr>
+                  <tr><th>Default encryption</th><td class="yes">Always-on for Sessions</td><td>Always-on</td><td>Opt-in (Secret Chats)</td></tr>
+                  <tr><th>Groups</th><td class="yes">1:1 only</td><td>Yes</td><td>Yes (large)</td></tr>
+                  <tr><th>Built for</th><td class="yes">One sensitive exchange</td><td>Ongoing private chat</td><td>Messaging + channels</td></tr>
+                  <tr><th>Server stores</th><td class="yes">Encrypted data only</td><td>Encrypted data only</td><td>Plaintext (regular chats)</td></tr>
+                  <tr><th>Phone number</th><td class="yes">Not required</td><td>Required</td><td>Required</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </details>
+        <details class="faq-item">
           <summary>What data do you collect?</summary>
           <div class="faq-answer">
-            <p>Only what's needed to make the app work: your name, email, profile photo (from Google or Apple sign-in), device tokens for push notifications, connection records, and session/verification metadata. Verified Session message content is end-to-end encrypted — we store ciphertext only and can't read it. We never collect your panic PIN, location, or contacts, and a phone number is optional (we only store one if you choose to add it). See our <a href="/privacy.html">Privacy Policy</a> for full details.</p>
+            <p>Only what's needed to make the app work: your name, email, profile photo (from Google or Apple sign-in), device tokens for push notifications, connection records, and session/verification metadata. Verified Session message content is end-to-end encrypted, so we can't read it. We never collect your panic PIN, location, or contacts, and a phone number is optional (we only store one if you choose to add it). See our <a href="/privacy.html">Privacy Policy</a> for full details.</p>
           </div>
         </details>
         <details class="faq-item">
@@ -657,7 +668,7 @@
         <details class="faq-item">
           <summary>Are my verification phrases stored anywhere?</summary>
           <div class="faq-answer">
-            <p>No. Phrases are generated in real time and are never logged or stored. Once a 60-second window passes, that phrase is gone forever.</p>
+            <p>Each phrase is generated fresh, works exactly once, and expires after 60 seconds — an expired phrase can never be used or verified again. We keep a record that a verification happened (who, when, and the outcome) so your history works; those records are deleted with your account.</p>
           </div>
         </details>
         <details class="faq-item">
@@ -794,13 +805,14 @@
 
     <!-- Availability -->
     <section class="faq-section" id="availability">
+      <span id="countries"></span>
       <h2>Availability</h2>
       <div class="faq-list">
         <details class="faq-item">
           <summary>Which countries is SimplyAuth available in?</summary>
           <div class="faq-answer">
-            <p>SimplyAuth is currently available in 24 countries where English is widely used:</p>
-            <p>Australia, Canada, Denmark, Germany, Ghana, Hong Kong, India, Ireland, Jamaica, Kenya, Malaysia, Netherlands, New Zealand, Nigeria, Norway, Philippines, Qatar, Singapore, South Africa, Sweden, Trinidad and Tobago, United Arab Emirates, United Kingdom, and United States.</p>
+            <p>SimplyAuth is currently available in 25 countries where English is widely used:</p>
+            <p>Australia, Canada, Denmark, Germany, Ghana, Hong Kong, India, Ireland, Jamaica, Kenya, Malaysia, Netherlands, New Zealand, Nigeria, Norway, Philippines, Qatar, Singapore, South Africa, Sweden, Switzerland, Trinidad and Tobago, United Arab Emirates, United Kingdom, and United States.</p>
             <p>We're working on translations to expand into more markets. If your country isn't on the list, email <a href="mailto:support@simplyauth.app?subject=Country%20request">support@simplyauth.app</a> — we prioritize expansion based on demand.</p>
           </div>
         </details>
@@ -814,7 +826,7 @@
           <summary>Can I use SimplyAuth while traveling abroad?</summary>
           <div class="faq-answer">
             <p>Yes. If you've already set up SimplyAuth in a supported country, the app works wherever you have internet access. You can verify contacts from anywhere in the world.</p>
-            <p>Note: downloading the app from the App Store or Google Play requires a store account registered in one of our 24 supported countries. If you're traveling and haven't installed it yet, you'll need to wait until you're back in a supported region to download it.</p>
+            <p>Note: downloading the app from the App Store or Google Play requires a store account registered in one of our 25 supported countries. If you're traveling and haven't installed it yet, you'll need to wait until you're back in a supported region to download it.</p>
           </div>
         </details>
         <details class="faq-item">
@@ -849,8 +861,8 @@
       <div class="footer-links">
         <div class="footer-col">
           <h4>Product</h4>
-          <a href="/#features">Features</a>
-          <a href="/#how-it-works">How It Works</a>
+          <a href="/#products">Features</a>
+          <a href="/#quicksend">How It Works</a>
           <a href="/#pricing">Pricing</a>
           <a href="/faq.html">FAQ</a>
           <a href="/roadmap.html">Roadmap</a>
