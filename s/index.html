@@ -4,6 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'unsafe-inline'; connect-src https://us-central1-verifyme-4d77d.cloudfunctions.net; img-src 'self'">
+  <!-- Reveal pages are one-time and per-recipient; there is nothing here worth
+       indexing. (The secret itself lives in the URL fragment, which is never
+       sent to a server or seen by a crawler — this is hygiene, not a leak fix.) -->
+  <meta name="robots" content="noindex, nofollow">
   <title>Someone sent you a secure message</title>
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
