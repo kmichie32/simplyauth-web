@@ -19,18 +19,18 @@
        real edge function (e.g. Cloudflare Worker) in front of GitHub Pages,
        out of scope for now. -->
   <meta property="og:title" content="You're invited to SimplyAuth">
-  <meta property="og:description" content="Verify each other's identity and share sensitive info safely — encrypted messages that vanish.">
+  <meta property="og:description" content="Verify it's really them, then send what you'd never text — passwords, card numbers, codes — end-to-end encrypted.">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="SimplyAuth">
-  <meta property="og:image" content="https://simplyauth.app/logo.png">
-  <meta property="og:image:width" content="1024">
-  <meta property="og:image:height" content="1024">
-  <meta property="og:image:alt" content="SimplyAuth logo">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:image" content="https://simplyauth.app/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="SimplyAuth — Stop texting passwords.">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="You're invited to SimplyAuth">
-  <meta name="twitter:description" content="Verify each other's identity and share sensitive info safely — encrypted messages that vanish.">
-  <meta name="twitter:image" content="https://simplyauth.app/logo.png">
-  <meta name="twitter:image:alt" content="SimplyAuth logo">
+  <meta name="twitter:description" content="Verify it's really them, then send what you'd never text — passwords, card numbers, codes — end-to-end encrypted.">
+  <meta name="twitter:image" content="https://simplyauth.app/og-image.png">
+  <meta name="twitter:image:alt" content="SimplyAuth — Stop texting passwords.">
   <style>
     /* Self-contained styling for the invite/referral landing so it renders
        correctly regardless of the site theme. GitHub Pages serves this file
@@ -50,7 +50,7 @@
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     }
     #sa-landing .box { max-width: 420px; width: 100%; }
-    .sa-logo { font-size: 52px; margin-bottom: 16px; }
+    .sa-logo { width: 64px; height: 64px; border-radius: 14px; margin-bottom: 16px; }
     #sa-landing h1 { font-size: 26px; font-weight: 800; margin-bottom: 10px; }
     .sa-sub { font-size: 16px; color: rgba(255,255,255,0.72); line-height: 1.5; margin-bottom: 28px; }
     .sa-code-label { font-size: 12px; text-transform: uppercase; letter-spacing: 1.5px; color: rgba(255,255,255,0.55); margin-bottom: 8px; }
@@ -64,13 +64,18 @@
     .sa-btn-secondary { background: rgba(255,255,255,0.1); color: #ffffff; }
     .sa-hint { font-size: 13px; color: rgba(255,255,255,0.55); margin-top: 22px; line-height: 1.6; }
   </style>
+  <!-- GoatCounter analytics (cookieless, no PII; deliberately not loaded on /s/).
+       DISABLED until the account exists: create one free at goatcounter.com, then
+       replace SITECODE below and remove this comment wrapper on all 8 pages.
+  <script data-goatcounter="https://SITECODE.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+  -->
 </head>
 <body>
 
   <!-- Invite / referral landing — shown by JS when the path is /invite/CODE or /refer/CODE -->
   <section id="sa-landing">
     <div class="box">
-      <div class="sa-logo">&#x1f6e1;&#xfe0f;</div>
+      <img class="sa-logo" src="/favicon-192.png" alt="SimplyAuth" width="64" height="64">
       <h1 id="sa-title">You've been invited to SimplyAuth</h1>
       <p id="sa-sub" class="sa-sub">A friend wants to connect with you on SimplyAuth so you can verify each other's identity.</p>
 
